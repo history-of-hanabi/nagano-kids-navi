@@ -165,4 +165,137 @@ function App() {
           <div style={{fontSize:10,fontWeight:900,color:'#F97316',letterSpacing:3,marginBottom:2}}>NAGANO CITY</div>
           <h1 style={{fontSize:'clamp(20px,5vw,32px)',fontWeight:900,color:'#1A1A2E',lineHeight:1.2,marginBottom:4}}>長野市 キッズナビ</h1>
           <p style={{fontSize:12,color:'#AAA',marginBottom:14}}>長野市内の学習塾・個別指導塾を比較・検索</p>
-          {csvError&&
+          {csvError&&<div style={{fontSize:11,color:'#92400E',background:'#FFF7ED',border:'1px solid #FDE68A',borderRadius:8,padding:'4px 12px',display:'inline-block',marginBottom:8}}>⚠️ サンプルデータを表示中</div>}
+          <div style={{display:'flex',justifyContent:'center',border:'1.5px solid #EDE9E0',borderRadius:12,maxWidth:280,margin:'0 auto',overflow:'hidden',background:'#FAFAF8'}}>
+            {[{num:items.length,label:'掲載塾'},{num:areas.length,label:'エリア'},{num:items.filter(d=>d.trial==='あり').length,label:'体験OK'}].map((s,i)=>(
+              <div key={i} style={{flex:1,padding:'8px 4px',textAlign:'center',borderRight:i<2?'1px solid #EDE9E0':'none'}}>
+                <div style={{fontSize:18,fontWeight:900,color:'#F97316',lineHeight:1}}>{s.num}</div>
+                <div style={{fontSize:10,color:'#AAA',marginTop:1}}>{s.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </header>
+
+      {/* 検索バー */}
+      <div style={{padding:'14px 14px 6px'}}>
+        <div style={{background:'#fff',borderRadius:99,boxShadow:'0 2px 10px rgba(0,0,0,0.07)',display:'flex',alignItems:'center',padding:'10px 16px',border:'1.5px solid #FDE68A',gap:8}}>
+          <span style={{fontSize:18,color:'#F97316'}}>🔍</span>
+          <input type="text" placeholder="エリア・塾名・キーワードで探す…"
+            style={{flex:1,border:'none',outline:'none',fontSize:14,background:'transparent',color:'#333',fontFamily:'inherit'}}
+            value={searchTerm} onChange={e=>setSearchTerm(e.target.value)}/>
+          {searchTerm&&<button onClick={()=>setSearchTerm('')} style={{background:'none',border:'none',cursor:'pointer',color:'#CCC',fontSize:18,lineHeight:1}}>×</button>}
+        </div>
+      </div>
+
+      {/* 件数・クリア */}
+      <div style={{padding:'4px 14px 8px',display:'flex',alignItems:'center',gap:8,flexWrap:'wrap'}}>
+        <span style={{fontSize:13,color:'#888'}}><span style={{fontSize:20,fontWeight:900,color:'#F97316'}}>{filtered.length}</span> 件</span>
+        {activeCount>0&&<button onClick={reset} style={{fontSize:11,color:'#F97316',background:'#FFF7ED',border:'1px solid #FDBA74',borderRadius:20,padding:'3px 10px',cursor:'pointer',fontWeight:700,fontFamily:'inherit'}}>条件クリア ×</button>}
+        {filterGrade&&<span style={{fontSize:11,padding:'2px 8px',borderRadius:99,fontWeight:700,background:GRADE_COLORS[filterGrade]?.bg||'#F5F5F5',color:GRADE_COLORS[filterGrade]?.text||'#555',border:`1px solid ${GRADE_COLORS[filterGrade]?.border||'#DDD'}`}}>{filterGrade}</span>}
+        {filterArea&&<span style={{fontSize:11,padding:'2px 8px',borderRadius:99,fontWeight:700,background:'#FFF7ED',color:'#F97316',border:'1px solid #FDBA74'}}>📍{filterArea.length>8?filterArea.slice(0,8)+'…':filterArea}</span>}
+      </div>
+
+      {/* カード一覧 */}
+      <main style={{padding:'0 12px',display:'flex',flexDirection:'column',gap:10}}>
+        {filtered.length===0?(
+          <div style={{textAlign:'center',padding:'56px 24px',color:'#CCC'}}>
+            <div style={{fontSize:44,marginBottom:10}}>🔎</div>
+            <div style={{fontSize:15,fontWeight:700,color:'#888',marginBottom:4}}>条件に合う塾が見つかりませんでした</div>
+            <div style={{fontSize:12}}>フィルターを変えてみてください</div>
+          </div>
+        ):filtered.map(juku=>(
+          <div key={juku.slug||juku.no} className={`card${juku.featured?' feat':''}`}>
+            {juku.featured&&<div style={{background:'linear-gradient(90deg,#FBBF24,#F59E0B)',color:'#78350F',fontSize:11,fontWeight:900,padding:'4px 14px'}}>★ おすすめ教室</div>}
+            <div style={{padding:'12px 14px'}}>
+              <h2 style={{fontSize:15,fontWeight:800,color:'#F97316',marginBottom:8,lineHeight:1.35}}>{juku.name}</h2>
+              <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'6px 8px',marginBottom:8}}>
+                {juku.area&&<div style={{display:'flex',alignItems:'center',gap:4,fontSize:12,color:'#666'}}>📍 {juku.area}</div>}
+                {juku.parking&&<div style={{display:'flex',alignItems:'center',gap:4,fontSize:12,color:'#666'}}>🚗 駐車場: {juku.parking}</div>}
+                {juku.type&&<div style={{display:'flex',alignItems:'center',gap:4,fontSize:12,color:'#666'}}>📖 {juku.type}</div>}
+                {juku.grade&&(
+                  <div style={{display:'flex',gap:4,flexWrap:'wrap'}}>
+                    {juku.grade.split(/[・,、]/).map(g=>g.trim()).filter(Boolean).map(g=>(
+                      <span key={g} style={{fontSize:11,fontWeight:700,padding:'2px 7px',borderRadius:5,background:GRADE_COLORS[g]?.bg||'#F5F5F5',color:GRADE_COLORS[g]?.text||'#555',border:`1px solid ${GRADE_COLORS[g]?.border||'#DDD'}`}}>{g}</span>
+                    ))}
+                  </div>
+                )}
+                {juku.price&&<div style={{fontSize:12,color:'#16A34A',fontWeight:700}}>💴 {juku.price}</div>}
+                {juku.trial==='あり'&&<div style={{fontSize:11,background:'#ECFDF5',color:'#065F46',border:'1px solid #6EE7B7',borderRadius:6,padding:'2px 8px',fontWeight:700,display:'inline-flex',alignItems:'center',gap:3}}>✓ 体験あり</div>}
+              </div>
+              {juku.memo&&<p style={{fontSize:12,color:'#888',borderLeft:'3px solid #FBBF24',paddingLeft:8,marginBottom:juku.access?8:10,lineHeight:1.5}}>{juku.memo}</p>}
+              {juku.access&&<p style={{fontSize:11,color:'#BBB',marginBottom:10}}>🚶 {juku.access}</p>}
+              {juku.url&&<a href={juku.url} target="_blank" rel="noopener noreferrer" className="site-btn">公式サイトを見る ↗</a>}
+            </div>
+          </div>
+        ))}
+      </main>
+
+      {/* FAB */}
+      <button className="fab" onClick={()=>setModalOpen(true)} aria-label="絞り込み">
+        <span style={{fontSize:24}}>⚙️</span>
+        {activeCount>0&&<div style={{position:'absolute',top:0,right:0,background:'#EF4444',color:'#fff',borderRadius:99,fontSize:10,fontWeight:900,minWidth:18,height:18,padding:'0 4px',display:'flex',alignItems:'center',justifyContent:'center',border:'2px solid #fff'}}>{activeCount}</div>}
+      </button>
+
+      {/* 掲載希望ボタン */}
+      <div style={{position:'fixed',bottom:24,left:20,zIndex:900}}>
+        <button style={{background:'#FFF7ED',color:'#F97316',border:'2px solid #FDBA74',borderRadius:99,padding:'10px 16px',fontSize:12,fontWeight:800,cursor:'pointer',boxShadow:'0 2px 12px rgba(249,115,22,0.2)',whiteSpace:'nowrap',fontFamily:'inherit'}}>📋 掲載のご案内</button>
+      </div>
+
+      {/* モーダル */}
+      {modalOpen&&(
+        <div onClick={()=>setModalOpen(false)} style={{position:'fixed',inset:0,zIndex:1000,background:'rgba(0,0,0,0.42)',backdropFilter:'blur(3px)',display:'flex',flexDirection:'column',justifyContent:'flex-end'}}>
+          <div onClick={e=>e.stopPropagation()} style={{background:'#fff',borderRadius:'22px 22px 0 0',maxHeight:'90vh',overflowY:'auto',boxShadow:'0 -8px 40px rgba(0,0,0,0.2)'}}>
+            <div style={{display:'flex',justifyContent:'center',paddingTop:12}}><div style={{width:44,height:4,borderRadius:99,background:'#DDD'}}/></div>
+            <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'10px 20px 12px',borderBottom:'1px solid #F0EDE6'}}>
+              <span style={{fontWeight:900,fontSize:17,color:'#222'}}>絞り込み</span>
+              <button onClick={()=>setModalOpen(false)} style={{background:'#F5F3EE',border:'none',borderRadius:'50%',width:34,height:34,fontSize:18,cursor:'pointer',display:'flex',alignItems:'center',justifyContent:'center',color:'#666'}}>×</button>
+            </div>
+            <div style={{padding:'18px 20px',display:'flex',flexDirection:'column',gap:20}}>
+              <div>
+                <div style={{fontSize:11,fontWeight:800,color:'#AAA',letterSpacing:1.5,marginBottom:8}}>📍 エリア</div>
+                <select value={filterArea} onChange={e=>setFilterArea(e.target.value)} style={{width:'100%',padding:'12px 14px',border:'1.5px solid #E8E4DC',borderRadius:12,fontSize:15,fontFamily:'inherit',background:'#FAFAF8',outline:'none',color:'#333'}}>
+                  <option value="">すべてのエリア</option>
+                  {areas.map(a=><option key={a} value={a}>{a}</option>)}
+                </select>
+              </div>
+              <div>
+                <div style={{fontSize:11,fontWeight:800,color:'#AAA',letterSpacing:1.5,marginBottom:8}}>📚 対象学年</div>
+                <div style={{display:'flex',gap:8,flexWrap:'wrap'}}>
+                  {['小','中','高','大'].map(g=>(
+                    <button key={g} className="chip" onClick={()=>setFilterGrade(filterGrade===g?'':g)}
+                      style={{border:`2px solid ${filterGrade===g?GRADE_COLORS[g].text:'#E8E4DC'}`,background:filterGrade===g?GRADE_COLORS[g].text:'#F7F5F1',color:filterGrade===g?'#fff':'#555'}}>
+                      {g}学生
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <div style={{fontSize:11,fontWeight:800,color:'#AAA',letterSpacing:1.5,marginBottom:8}}>⚙️ オプション</div>
+                <div style={{display:'flex',gap:8,flexWrap:'wrap'}}>
+                  {[{label:'✅ 体験授業あり',active:filterTrial,onClick:()=>setFilterTrial(v=>!v),color:'#16A34A'},{label:'🅿️ 駐車場あり',active:filterParking,onClick:()=>setFilterParking(v=>!v),color:'#2563EB'}].map(opt=>(
+                    <button key={opt.label} className="chip" onClick={opt.onClick}
+                      style={{border:`2px solid ${opt.active?opt.color:'#E8E4DC'}`,background:opt.active?opt.color:'#F7F5F1',color:opt.active?'#fff':'#555'}}>
+                      {opt.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div style={{padding:'12px 20px 28px',display:'flex',gap:10,borderTop:'1px solid #F0EDE6'}}>
+              <button onClick={reset} style={{flex:1,height:52,borderRadius:14,border:'2px solid #E8E4DC',background:'#fff',fontSize:14,fontWeight:700,color:'#999',cursor:'pointer',fontFamily:'inherit'}}>リセット</button>
+              <button onClick={()=>setModalOpen(false)} style={{flex:2,height:52,borderRadius:14,border:'none',background:'linear-gradient(135deg,#F97316,#FBBF24)',fontSize:15,fontWeight:900,color:'#fff',cursor:'pointer',fontFamily:'inherit',boxShadow:'0 4px 14px rgba(249,115,22,0.4)'}}>
+                {filtered.length}件を表示 ›
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+  </script>
+</body>
+</html>
