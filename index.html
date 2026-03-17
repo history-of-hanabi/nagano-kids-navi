@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>長野市キッズナビ｜長野市の学習塾・個別指導塾を検索・比較</title>
+  <meta name="description" content="長野市内の学習塾・個別指導塾54教室を一覧で比較。エリア・学年・料金・体験授業・駐車場で絞り込み検索できます。" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YST2S5X11W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YST2S5X11W');
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Noto Sans JP','Hiragino Sans',sans-serif;background:#FFF7ED;}
+    .card{background:#fff;border-radius:16px;border:1.5px solid #EDE9E0;overflow:hidden;transition:transform 0.18s,box-shadow 0.18s;}
+    .card.feat{border-color:#FBBF24;box-shadow:0 0 0 1.5px #FBBF24;}
+    .site-btn{display:flex;align-items:center;justify-content:center;gap:6px;background:linear-gradient(135deg,#F97316,#FBBF24);color:#fff;border-radius:12px;padding:11px;font-size:13px;font-weight:800;text-decoration:none;box-shadow:0 2px 8px rgba(249,115,22,0.3);}
+    .fab{position:fixed;bottom:24px;right:20px;z-index:900;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#F97316,#FBBF24);border:none;cursor:pointer;box-shadow:0 4px 20px rgba(249,115,22,0.5);display:flex;align-items:center;justify-content:center;transition:transform 0.15s;}
+    .fab:active{transform:scale(0.94);}
+    .chip{padding:9px 15px;min-height:44px;border-radius:99px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;transition:all 0.12s;display:inline-flex;align-items:center;}
+    .nav-link{color:#F97316;text-decoration:none;font-weight:700;font-size:13px;cursor:pointer;background:none;border:none;font-family:inherit;padding:0;}
+    .nav-link:hover{text-decoration:underline;}
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+const { useState, useEffect, useMemo } = React;
+
+const SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRpt_Jt4eGKpGuTevkguiaY-IGCXP52bFuhSwgRnYeF0IJkZRuZmHH3w4ZylDXA4obzuBUCIhFyXS1d/pub?output=csv";
+
+const FALLBACK = [
+  {no:"1",name:"個別教室のトライ 長野本校",slug:"try-nagano",area:"長野駅周辺",grade:"小・中・高",price:"要問い合わせ",parking:"近隣コインパーキング",type:"個別",url:"https://www.kobekyo.com/around/nagano/nagano/",memo:"完全マンツーマン／AI教材／全国チェーン",trial:"あり",access:"長野駅 徒歩2分",featured:true},
+  {no:"2",name:"個別教室のトライ 上松校",slug:"try-uematsu",area:"三輪交番周辺",grade:"小・中・高",price:"要問い合わせ",parking:"あり",type:"個別",url:"https://www.kobekyo.com/around/nagano/uematsu/",memo:"完全マンツーマン／AI教材／全国チェーン",trial:"あり",access:"本郷駅 徒歩15分",featured:false},
+  {no:"3",name:"個別教室のトライ 長野運動公園前校",slug:"try-undokouen",area:"長野運動公園周辺",grade:"小・中・高",price:"要問い合わせ",parking:"あり",type:"個別",url:"https://www.kobekyo.com/around/nagano/naganoundokouen/",memo:"完全マンツーマン／AI教材／全国チェーン",trial:"あり",access:"北長野駅 徒歩18分",featured:false},
+  {no:"4",name:"個別教室のトライ 青木島校",slug:"try-aokijima",area:"丹波島橋南交差点周辺",grade:"小・中・高",price:"要問い合わせ",parking:"あり",type:"個別",url:"https://www.kobekyo.com/around/nagano/aokijima/",memo:"完全マンツーマン／AI教材／全国チェーン",trial:"あり",access:"川中島駅 車10分",featured:false},
+  {no:"5",name:"個別教室のトライ 篠ノ井校",slug:"try-shinonoi",area:"八十二銀行篠ノ井支店周辺",grade:"小・中・高",price:"要問い合わせ",parking:"近隣コインパーキング",type:"個別",url:"https://www.kobekyo.com/around/nagano/shinonoi/",memo:"完全マンツーマン／AI教材／全国チェーン",trial:"あり",access:"篠ノ井駅 徒歩8分",featured:false},
+  {no:"6",name:"個別指導の明光義塾 浅川教室",slug:"meiko-asagawa",area:"桐原駅周辺",grade:"小・中・高",price:"12,100円〜",parking:"あり",type:"個別",url:"https://www.meikogijuku.jp/school/nagano/nagano-shi/S2591/",memo:"全国チェーン／定期テスト対策強化",trial:"あり",access:"桐原駅 自転車9分",featured:false},
+  {no:"7",name:"個別指導の明光義塾 安茂里駅前教室",slug:"meiko-amori",area:"安茂里駅周辺",grade:"小・中・高",price:"12,100円〜",parking:"あり",type:"個別",url:"https://www.meikogijuku.jp/school/nagano/nagano-shi/S2516/",memo:"定期テスト対策強化／個別専門",trial:"あり",access:"安茂里駅 徒歩5分",featured:false},
+  {no:"8",name:"個別指導の明光義塾 北長野駅前教室",slug:"meiko-kitanagano",area:"北長野駅周辺",grade:"小・中・高",price:"12,100円〜",parking:"あり",type:"個別",url:"https://www.meikogijuku.jp/school/nagano/nagano-shi/S3324/",memo:"全国チェーン／個別専門",trial:"あり",access:"北長野駅 徒歩3分",featured:false},
+  {no:"9",name:"個別指導の明光義塾 篠ノ井駅前教室",slug:"meiko-shinonoi",area:"篠ノ井駅周辺",grade:"小・中・高",price:"12,100円〜",parking:"あり",type:"個別",url:"https://www.meikogijuku.jp/school/nagano/nagano-shi/S2443/",memo:"全国チェーン／個別専門",trial:"あり",access:"篠ノ井駅 徒歩2分",featured:false},
+  {no:"10",name:"個別指導の明光義塾 長野青木島教室",slug:"meiko-aokijima",area:"セブンイレブン長野青木島店周辺",grade:"小・中・高",price:"12,100円〜",parking:"あり",type:"個別",url:"https://www.meikogijuku.jp/school/nagano/nagano-shi/S3716/",memo:"全国チェーン／個別専門",trial:"あり",access:"安茂里駅 自転車11分",featured:false},
+  {no:"11",name:"個別指導の明光義塾 長野稲葉教室",slug:"meiko-inaba",area:"レンゴー㈱長野工場周辺",grade:"小・中・高",price:"12,100円〜",parking:"あり",type:"個別",url:"https://www.meikogijuku.jp/school/nagano/nagano-shi/S3237/",memo:"全国チェーン／個別専門",trial:"あり",access:"市役所前駅 自転車17分",featured:false},
+  {no:"12",name:"個別指導の明光義塾 長野七瀬教室",slug:"meiko-nanase",area:"南部小学校北交差点周辺",grade:"小・中・高",price:"12,100円〜",parking:"あり",type:"個別",url:"https://www.meikogijuku.jp/school/nagano/nagano-shi/S3922/",memo:"全国チェーン／個別専門",trial:"あり",access:"市役所前駅 徒歩17分",featured:false},
+  {no:"13",name:"個別指導の明光義塾 長野三輪教室",slug:"meiko-miwa",area:"善光寺下駅周辺",grade:"小・中・高",price:"12,100円〜",parking:"あり",type:"個別",url:"https://www.meikogijuku.jp/school/nagano/nagano-shi/S3464/",memo:"全国チェーン／個別専門",trial:"あり",access:"善光寺下駅 徒歩3分",featured:false},
+  {no:"14",name:"個別指導の明光義塾 西尾張部教室",slug:"meiko-nishiowaribe",area:"八幡中央公園周辺",grade:"小・中・高",price:"12,100円〜",parking:"あり",type:"個別",url:"https://www.meikogijuku.jp/school/nagano/nagano-shi/S3238/",memo:"全国チェーン／個別専門",trial:"あり",access:"北長野駅 自転車9分",featured:false},
+  {no:"15",name:"個別指導の明光義塾 柳原教室",slug:"meiko-yanagihara",area:"柳原中央公園周辺",grade:"小・中・高",price:"12,100円〜",parking:"なし",type:"個別",url:"https://www.meikogijuku.jp/school/nagano/nagano-shi/S2527/",memo:"全国チェーン／個別専門",trial:"あり",access:"柳原駅 徒歩4分",featured:false},
+  {no:"16",name:"学習塾 Mi ga ku",slug:"migaku",area:"鍋屋田小学校周辺",grade:"小・中・高・大",price:"要問い合わせ",parking:"あり",type:"個別",url:"https://umenojunichi.com/",memo:"プロ講師指導／丁寧な個別対応",trial:"あり",access:"市役所前駅 徒歩4分",featured:true},
+  {no:"17",name:"長野ゼミナール 青木島教室",slug:"nagano-semi-aokijima",area:"更北中学校周辺",grade:"小・中・高",price:"11,440円〜",parking:"あり",type:"個別・集団",url:"https://naga-semi.com/school/aokijima/",memo:"地域密着型／明瞭な料金体系",trial:"あり",access:"更北中学校 徒歩4分",featured:false},
+  {no:"18",name:"学習塾 STUDIQ",slug:"studiq",area:"東部中学校周辺",grade:"小・中・高",price:"要問い合わせ",parking:"あり",type:"個別",url:"https://studiq.jp/about/",memo:"個別教材／個別カリキュラム",trial:"あり",access:"北長野駅 徒歩8分",featured:false},
+  {no:"19",name:"いしわた学習教室",slug:"ishiwata",area:"山田記念朝日病院周辺",grade:"小・中・高",price:"9,240円〜",parking:"あり",type:"個別",url:"https://ishigaku.jimdofree.com/",memo:"地域密着型／マンツーマン授業主体",trial:"あり",access:"朝陽駅 徒歩9分",featured:false},
+  {no:"20",name:"学習塾 横塾",slug:"yokojuku",area:"長野高専周辺",grade:"小・中",price:"6,000円〜",parking:"なし",type:"少人数・個別",url:"https://sites.google.com/view/yokojuku/",memo:"基礎重視（国語・算数）／地域密着",trial:"要問い合わせ",access:"三才駅 徒歩19分",featured:false},
+  {no:"21",name:"松陰塾 長野吉田校",slug:"shoin-yoshida",area:"長野運動公園総合体育館周辺",grade:"小・中・高",price:"要問い合わせ",parking:"あり",type:"個別",url:"https://showin-juku.jp/naganoyoshida/",memo:"完全個別指導／弱点克服",trial:"あり",access:"北長野駅 徒歩13分",featured:false},
+  {no:"22",name:"学習空間 稲里教室",slug:"gakushu-kukan-inasato",area:"ヤマダデンキ長野南店周辺",grade:"小・中・高",price:"10,400円〜",parking:"あり",type:"個別",url:"https://gakushu-kukan.com/nagano01/inasato/",memo:"成績UP保証制度／自立指導",trial:"あり",access:"川中島駅 徒歩33分",featured:false},
+  {no:"23",name:"学習塾 就英",slug:"shuei",area:"東京インテリア家具長野店周辺",grade:"小・中・高",price:"9,000円〜",parking:"あり",type:"個別",url:"https://admin010509.wixsite.com/syueigakuen",memo:"年3回講習会／完全個別指導",trial:"要問い合わせ",access:"川中島駅 徒歩30分",featured:false},
+  {no:"24",name:"伸習塾 長野裾花教室",slug:"shinshu-susohana",area:"裾花中学校周辺",grade:"小・中",price:"9,000円〜",parking:"要問い合わせ",type:"個別",url:"https://shinsyu-katekyo.com/shinshujuku/",memo:"完全個別指導／家庭教師クオリティ",trial:"あり",access:"安茂里駅 徒歩21分",featured:false},
+  {no:"25",name:"学研CAIスクール 長野中央教室",slug:"gakken-chuou",area:"稲田1・2丁目周辺",grade:"小・中",price:"要問い合わせ",parking:"あり",type:"個人別",url:"https://gakken-juku.com/sp/detail/100226/",memo:"IT授業／オーダーメイド",trial:"あり",access:"北長野駅 徒歩20分",featured:false},
+  {no:"26",name:"学習塾 モリスタ",slug:"morista",area:"三陽中学校周辺",grade:"小・中・高",price:"2,500円〜",parking:"あり",type:"個別",url:"https://www.mori-sta.com/",memo:"徹底個別指導／司法書士講師",trial:"要問い合わせ",access:"北長野駅 徒歩32分",featured:false},
+  {no:"27",name:"自立学習塾RED 長野長池教室",slug:"red-nagaike",area:"三陽中学校周辺",grade:"小・中・高",price:"4,450円〜",parking:"あり",type:"個別",url:"https://www.jiritsu-red.jp/school/naganonagaike/",memo:"最新AI／プロ講師／テスト対策",trial:"あり",access:"北長野駅 徒歩35分",featured:false},
+  {no:"28",name:"えんぶ塾 長野北教室",slug:"enbu-kita",area:"三陽中学校周辺",grade:"小・中",price:"11,550円〜",parking:"あり",type:"個別",url:"https://enbu.org/",memo:"中学受験、高校受験対策メイン",trial:"あり",access:"北長野駅 徒歩39分",featured:false},
+  {no:"29",name:"みんなの塾 中御所校",slug:"minna-nakagosho",area:"長野バスターミナル周辺",grade:"小・中・高",price:"7,040円〜",parking:"あり",type:"少人数・個別",url:"https://sogo-edu.co.jp/nakagosho/",memo:"個別カリキュラム／映像授業活用",trial:"要問い合わせ",access:"長野駅 徒歩10分",featured:false},
+  {no:"30",name:"セルモ 高田古牧教室",slug:"selmo-komaki",area:"古牧小学校周辺",grade:"小・中",price:"要問い合わせ",parking:"あり",type:"個別",url:"https://selmo.jp/sc/tkomaki/",memo:"マルチメディアスタディシステム",trial:"あり",access:"北長野駅 徒歩32分",featured:false},
+  {no:"31",name:"個別指導塾WAM 長野運動公園校",slug:"wam-undokouen",area:"長野運動公園総合運動場周辺",grade:"小・中・高",price:"6,200円〜",parking:"あり",type:"個別",url:"https://www.k-wam.jp/school/nagano/nagano-city/naganoundoukouen/",memo:"自習時間徹底サポート",trial:"あり",access:"朝陽駅 徒歩13分",featured:false},
+  {no:"32",name:"いずみ塾 北長野校",slug:"izumi-kitanagano",area:"長野吉田高校周辺",grade:"小・中・高",price:"要問い合わせ",parking:"あり",type:"少人数・個別",url:"https://izumijuku.co.jp/school/kitanagano",memo:"独自カリキュラム／模試豊富",trial:"あり",access:"信濃吉田駅 徒歩5分",featured:false},
+  {no:"33",name:"個別学習塾 オウル",slug:"owl",area:"中氷鉋交差点周辺",grade:"小・中・高",price:"15,400円〜",parking:"あり",type:"個別",url:"https://owlkobetsu.jp/",memo:"スケジュール柔軟対応",trial:"あり",access:"川中島駅 徒歩28分",featured:false},
+  {no:"34",name:"信学会 ゼミナール稲里校",slug:"shingakukai-inasato",area:"稲里西交差点周辺",grade:"小・中",price:"要問い合わせ",parking:"あり",type:"集団・個別",url:"https://learn.shingakukai.ac.jp/school/zemi-inasato/",memo:"受験対策／集団授業",trial:"要問い合わせ",access:"川中島駅 徒歩25分",featured:false},
+  {no:"35",name:"学び舎 かなえ",slug:"kanae",area:"川中島駅周辺",grade:"小・中・高",price:"5,500円〜",parking:"あり",type:"個別",url:"https://manabiya-kanae.jp/",memo:"完全個別／教育AI「すらら」",trial:"あり",access:"川中島駅 徒歩2分",featured:true},
+  {no:"36",name:"学習塾 寺子屋いっぽ",slug:"terakoya-ippo",area:"青木島小学校周辺",grade:"小・中",price:"7,100円〜",parking:"あり",type:"個別",url:"https://terakoya-ippo.crayonsite.com/",memo:"学力テスト実施／丁寧指導",trial:"あり",access:"川中島駅 徒歩53分",featured:false},
+  {no:"37",name:"ノア進学塾",slug:"noah",area:"本郷駅周辺",grade:"小・中・高",price:"9,900円〜",parking:"要問い合わせ",type:"個人・少人数",url:"https://www.noahlc.jp/study/",memo:"国語力の強化／マンツーマン",trial:"あり",access:"本郷駅 徒歩1分",featured:false},
+  {no:"38",name:"志学の杜",slug:"shigaku-nomori",area:"長野駅周辺",grade:"小・中・高",price:"5,500円〜",parking:"要問い合わせ",type:"個別・集合",url:"https://www.shigakunomori.net/",memo:"独自の長文解読法",trial:"要問い合わせ",access:"長野駅 徒歩2分",featured:false},
+  {no:"39",name:"想進塾",slug:"soshin",area:"善光寺下駅周辺",grade:"小・中",price:"4,500円〜",parking:"要問い合わせ",type:"少人数",url:"https://juku-soshin.com",memo:"全科目塾長指導／補習毎日可能",trial:"あり",access:"善光寺下駅 徒歩1分",featured:false},
+  {no:"40",name:"クレドアカデミー",slug:"credo",area:"長野吉田高校周辺",grade:"中・高",price:"3,520円〜",parking:"要問い合わせ",type:"個別",url:"https://cre-aca.com/",memo:"プロ講師／個別指導／対面指導",trial:"あり",access:"桐原駅 徒歩7分",featured:false},
+  {no:"41",name:"みんなの塾 ナーガ校",slug:"minna-naga",area:"セントラルスクゥエア周辺",grade:"小・中・高",price:"7,040円〜",parking:"あり",type:"少人数・個別",url:"https://sogo-edu.co.jp/oodoori/",memo:"映像授業活用／理社対策充実",trial:"要問い合わせ",access:"市役所前駅 徒歩7分",featured:false},
+  {no:"42",name:"超個別指導塾まつがく 長野駅東口校",slug:"matsugaku-higashiguchi",area:"長野駅周辺",grade:"小・中・高",price:"要問い合わせ",parking:"近隣コインパーキング",type:"個別",url:"https://www.matsugaku.co.jp/school/higashiguchi/",memo:"超個別コーチング／最新AI教材",trial:"あり",access:"長野駅 徒歩2分",featured:false},
+  {no:"43",name:"超個別指導塾まつがく 長野SBC通り校",slug:"matsugaku-sbc",area:"三輪交番周辺",grade:"小・中・高",price:"要問い合わせ",parking:"あり",type:"個別",url:"https://www.matsugaku.co.jp/school/sbc/",memo:"超個別指導／逆算型ロードマップ",trial:"あり",access:"本郷駅 徒歩15分",featured:false},
+  {no:"44",name:"超個別指導塾まつがく 長野柳町校",slug:"matsugaku-yanagimachi",area:"城東小学校周辺",grade:"小・中・高",price:"要問い合わせ",parking:"あり",type:"個別",url:"https://www.matsugaku.co.jp/school/yanagimachi/",memo:"超個別指導／逆算型ロードマップ",trial:"あり",access:"善光寺下駅 徒歩8分",featured:false},
+  {no:"45",name:"超個別指導塾まつがく 長野安茂里駅前校",slug:"matsugaku-amori",area:"安茂里駅周辺",grade:"小・中・高",price:"要問い合わせ",parking:"あり",type:"個別",url:"https://www.matsugaku.co.jp/school/amori/",memo:"超個別指導／逆算型ロードマップ",trial:"あり",access:"安茂里駅 徒歩4分",featured:false},
+  {no:"46",name:"超個別指導塾まつがく 長野広徳校",slug:"matsugaku-kohtoku",area:"広徳の湯周辺",grade:"小・中・高",price:"要問い合わせ",parking:"あり",type:"個別",url:"https://www.matsugaku.co.jp/school/kohtoku/",memo:"超個別指導／逆算型ロードマップ",trial:"あり",access:"今井駅 徒歩49分",featured:false},
+  {no:"47",name:"総合教育カルチャー",slug:"sogo-culture",area:"青木島交差点周辺",grade:"小・中・高",price:"10,000円〜",parking:"要問い合わせ",type:"個人・個別",url:"http://s-j-culture.com/",memo:"自習室開放／兄弟割引制度",trial:"あり",access:"川中島駅 徒歩41分",featured:false},
+  {no:"48",name:"いずみ塾 三本柳校",slug:"izumi-sanbonyanagi",area:"三本柳小学校周辺",grade:"小・中・高",price:"要問い合わせ",parking:"あり",type:"少人数・個別",url:"https://izumijuku.co.jp/school/sanbonyanagi",memo:"独自カリキュラム／地域密着",trial:"あり",access:"川中島駅 徒歩26分",featured:false},
+  {no:"49",name:"いずみ塾 西尾張部校",slug:"izumi-nishiowaribe",area:"三陽中学校周辺",grade:"小・中・高",price:"要問い合わせ",parking:"あり",type:"少人数・個別",url:"https://izumijuku.co.jp/school/nisiowaribe",memo:"模試ラインナップ豊富",trial:"あり",access:"北長野駅 徒歩31分",featured:false},
+  {no:"50",name:"いずみ塾 大豆島校",slug:"izumi-mamejima",area:"大豆島小学校周辺",grade:"小・中・高",price:"要問い合わせ",parking:"あり",type:"少人数・個別",url:"https://izumijuku.co.jp/school/mamejima",memo:"地域密着／チェーン塾",trial:"あり",access:"長野駅 徒歩56分",featured:false},
+  {no:"51",name:"いずみ塾 今井駅前校",slug:"izumi-imai",area:"今井駅周辺",grade:"小・中・高",price:"要問い合わせ",parking:"あり",type:"少人数・個別",url:"https://izumijuku.co.jp/school/imaiekimae",memo:"地域密着／模試豊富",trial:"あり",access:"今井駅 徒歩2分",featured:false},
+  {no:"52",name:"いずみ塾 篠ノ井駅前校",slug:"izumi-shinonoi",area:"篠ノ井駅周辺",grade:"小・中・高",price:"要問い合わせ",parking:"あり",type:"少人数・個別",url:"https://izumijuku.co.jp/school/shinonoiekimae",memo:"地域密着／チェーン塾",trial:"あり",access:"篠ノ井駅 徒歩7分",featured:false},
+  {no:"53",name:"いずみ塾 稲葉校",slug:"izumi-inaba",area:"ビッグハット周辺",grade:"小・中・高",price:"要問い合わせ",parking:"あり",type:"少人数・個別",url:"https://izumijuku.co.jp/school/inaba",memo:"地域密着／独自カリキュラム",trial:"あり",access:"長野駅 徒歩32分",featured:false},
+  {no:"54",name:"超個別指導塾まつがく 長野運動公園校",slug:"matsugaku-undokouen",area:"長野運動公園周辺",grade:"小・中・高",price:"要問い合わせ",parking:"あり",type:"個別",url:"https://www.matsugaku.co.jp/school/undokoen-2/",memo:"逆算型ロードマップ／最新AI",trial:"あり",access:"北長野駅 徒歩16分",featured:false},
+];
+
+const GRADE_COLORS = {
+  "小":{bg:"#FFF3E0",text:"#E65100",border:"#FFCC80"},
+  "中":{bg:"#E3F2FD",text:"#1565C0",border:"#90CAF9"},
+  "高":{bg:"#E8F5E9",text:"#2E7D32",border:"#A5D6A7"},
+  "大":{bg:"#F3E5F5",text:"#6A1B9A",border:"#CE93D8"},
+};
+
+function parseCSV(text){
+  const rows=[];let row=[],field='',inQuotes=false,i=0;
+  const str=text.charCodeAt(0)===0xFEFF?text.slice(1):text;
+  while(i<str.length){
+    const ch=str[i];
+    if(inQuotes){if(ch==='"'){if(str[i+1]==='"'){field+='"';i+=2;continue;}inQuotes=false;}else{field+=ch;}}
+    else{if(ch==='"'){inQuotes=true;}else if(ch===','){row.push(field.trim());field='';}
+    else if(ch==='\n'||ch==='\r'){row.push(field.trim());if(row.some(c=>c!==''))rows.push(row);row=[];field='';if(ch==='\r'&&str[i+1]==='\n')i++;}
+    else{field+=ch;}}i++;
+  }
+  row.push(field.trim());if(row.some(c=>c!==''))rows.push(row);return rows;
+}
+
+function csvToItems(rows){
+  if(rows.length<2)return[];
+  const headers=rows[0].map(h=>h.toLowerCase().trim());
+  return rows.slice(1).map(cols=>{
+    const obj={};headers.forEach((h,i)=>{obj[h]=cols[i]??'';});
+    return{no:obj['no']||'',name:obj['name']||'',slug:obj['slug']||obj['no']||'',area:obj['area']||'',grade:obj['grade']||'',price:obj['price']||'',parking:obj['parking']||'',type:obj['type']||'',url:obj['url']||'',memo:obj['memo']||'',trial:obj['trial']||'',access:obj['access']||'',featured:obj['featured']?.toLowerCase()==='true'};
+  }).filter(o=>o.name);
+}
+
+// ─── 共通ヘッダー ────────────────────────────
+function SiteHeader({onNav, showStats, items, areas}){
+  return(
+    <header style={{background:'#fff',borderBottom:'1px solid #EDE9E0',padding:'20px 16px 16px',textAlign:'center',position:'relative',overflow:'hidden'}}>
+      <div style={{position:'absolute',top:-28,right:-22,width:100,height:100,borderRadius:'50%',background:'linear-gradient(135deg,#FEF3C7,#FDE68A)',opacity:0.6}}/>
+      <div style={{position:'absolute',bottom:-18,left:-16,width:80,height:80,borderRadius:'50%',background:'linear-gradient(135deg,#FFEDD5,#FED7AA)',opacity:0.5}}/>
+      {/* 右上リンク */}
+      <button onClick={()=>onNav('about')} style={{position:'absolute',top:12,right:14,zIndex:1,background:'#FFF7ED',border:'1px solid #FDBA74',borderRadius:20,padding:'5px 11px',fontSize:11,fontWeight:700,color:'#F97316',cursor:'pointer',fontFamily:'inherit',whiteSpace:'nowrap'}}>
+        このサイトについて
+      </button>
+      <div style={{position:'relative'}}>
+        <button onClick={()=>onNav('home')} style={{background:'none',border:'none',cursor:'pointer',padding:0,fontFamily:'inherit'}}>
+          <div style={{display:'inline-flex',alignItems:'center',justifyContent:'center',width:48,height:48,borderRadius:13,background:'linear-gradient(135deg,#F97316,#FBBF24)',boxShadow:'0 4px 14px rgba(249,115,22,0.3)',marginBottom:8,fontSize:24}}>🎒</div>
+          <div style={{fontSize:10,fontWeight:900,color:'#F97316',letterSpacing:3,marginBottom:2}}>NAGANO CITY</div>
+          <div style={{fontSize:'clamp(18px,5vw,28px)',fontWeight:900,color:'#1A1A2E',lineHeight:1.2,marginBottom:3}}>長野市 キッズナビ</div>
+        </button>
+        <p style={{fontSize:12,color:'#AAA',marginBottom:showStats?12:0}}>長野市内の学習塾・個別指導塾を比較・検索</p>
+        {showStats&&items&&(
+          <div style={{display:'flex',justifyContent:'center',border:'1.5px solid #EDE9E0',borderRadius:12,maxWidth:280,margin:'0 auto',overflow:'hidden',background:'#FAFAF8'}}>
+            {[{num:items.length,label:'掲載塾'},{num:areas.length,label:'エリア'},{num:items.filter(d=>d.trial==='あり').length,label:'体験OK'}].map((s,i)=>(
+              <div key={i} style={{flex:1,padding:'8px 4px',textAlign:'center',borderRight:i<2?'1px solid #EDE9E0':'none'}}>
+                <div style={{fontSize:18,fontWeight:900,color:'#F97316',lineHeight:1}}>{s.num}</div>
+                <div style={{fontSize:10,color:'#AAA',marginTop:1}}>{s.label}</div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </header>
+  );
+}
+
+// ─── 共通フッター ────────────────────────────
+function SiteFooter({onNav}){
+  return(
+    <footer style={{background:'#fff',borderTop:'1px solid #EDE9E0',padding:'20px 16px 32px',textAlign:'center',marginTop:24}}>
+      <div style={{marginBottom:12,display:'flex',justifyContent:'center',gap:24,flexWrap:'wrap'}}>
+        <button onClick={()=>onNav('home')} className="nav-link">🏠 ホーム</button>
+        <button onClick={()=>onNav('about')} className="nav-link">📄 このサイトについて</button>
+      </div>
+      <p style={{fontSize:11,color:'#CCC'}}>© 2025 長野市キッズナビ</p>
+    </footer>
+  );
+}
+
+// ─── Aboutページ ─────────────────────────────
+function AboutPage({onNav}){
+  const features=['長野市の習い事情報を地域密着で掲載','スマートフォンでも探しやすい検索機能','対象学年、エリア、体験授業などで絞り込み可能'];
+  return(
+    <div style={{minHeight:'100vh',background:'#FFF7ED',paddingBottom:40}}>
+      <SiteHeader onNav={onNav} showStats={false}/>
+      <main style={{padding:'20px 16px',maxWidth:600,margin:'0 auto',display:'flex',flexDirection:'column',gap:16}}>
+        <div style={{textAlign:'center',padding:'8px 0 4px'}}>
+          <h1 style={{fontSize:20,fontWeight:900,color:'#1A1A2E',marginBottom:6}}>このサイトについて</h1>
+          <div style={{width:40,height:3,background:'linear-gradient(90deg,#F97316,#FBBF24)',borderRadius:99,margin:'0 auto'}}/>
+        </div>
+
+        {/* サイトについて */}
+        <div style={{background:'#fff',borderRadius:16,border:'1.5px solid #EDE9E0',padding:'18px 16px'}}>
+          <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:10}}>
+            <span style={{fontSize:20}}>🎒</span>
+            <h2 style={{fontSize:15,fontWeight:900,color:'#1A1A2E'}}>サイトについて</h2>
+          </div>
+          <p style={{fontSize:13,color:'#555',lineHeight:1.75,marginBottom:10}}>長野市キッズナビは、長野市周辺で子育てをしている保護者のために、地域の習い事情報をまとめたポータルサイトです。</p>
+          <p style={{fontSize:13,color:'#555',lineHeight:1.75}}>長野市には多くの学習塾や習い事がありますが、「地域の教室情報をまとめて比較できるサイトが少ない」という不便さを感じたことが、このサイトを作ったきっかけです。</p>
+        </div>
+
+        {/* 今後の予定 */}
+        <div style={{background:'#fff',borderRadius:16,border:'1.5px solid #EDE9E0',padding:'18px 16px'}}>
+          <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:10}}>
+            <span style={{fontSize:20}}>📅</span>
+            <h2 style={{fontSize:15,fontWeight:900,color:'#1A1A2E'}}>今後の予定</h2>
+          </div>
+          <p style={{fontSize:13,color:'#555',lineHeight:1.75,marginBottom:10}}>現在は長野市の学習塾情報を中心に掲載していますが、今後はピアノ教室・英会話・ダンス教室など、子ども向けの習い事情報も順次追加していく予定です。</p>
+          <p style={{fontSize:13,color:'#555',lineHeight:1.75}}>保護者の方が「自分の子どもに合う教室」を見つけやすくなることを目指しています。</p>
+        </div>
+
+        {/* サイトの特徴 */}
+        <div style={{background:'#fff',borderRadius:16,border:'1.5px solid #EDE9E0',padding:'18px 16px'}}>
+          <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:12}}>
+            <span style={{fontSize:20}}>✨</span>
+            <h2 style={{fontSize:15,fontWeight:900,color:'#1A1A2E'}}>サイトの特徴</h2>
+          </div>
+          <div style={{display:'flex',flexDirection:'column',gap:8}}>
+            {features.map((f,i)=>(
+              <div key={i} style={{display:'flex',alignItems:'flex-start',gap:10,padding:'10px 12px',background:'#FFF7ED',borderRadius:10,border:'1px solid #FDE68A'}}>
+                <span style={{color:'#F97316',fontWeight:900,flexShrink:0}}>✓</span>
+                <span style={{fontSize:13,color:'#555',lineHeight:1.5}}>{f}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 掲載について */}
+        <div style={{background:'linear-gradient(135deg,#FFF7ED,#FFFBF0)',borderRadius:16,border:'2px solid #FBBF24',padding:'18px 16px'}}>
+          <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:10}}>
+            <span style={{fontSize:20}}>📋</span>
+            <h2 style={{fontSize:15,fontWeight:900,color:'#1A1A2E'}}>掲載について</h2>
+          </div>
+          <p style={{fontSize:13,color:'#555',lineHeight:1.75,marginBottom:12}}>掲載は無料です。情報の修正や掲載希望がある教室の方は、掲載希望フォームよりご連絡ください。</p>
+          <button style={{width:'100%',padding:'13px',background:'linear-gradient(135deg,#F97316,#FBBF24)',color:'#fff',border:'none',borderRadius:12,fontSize:14,fontWeight:800,cursor:'pointer',fontFamily:'inherit',boxShadow:'0 2px 8px rgba(249,115,22,0.3)'}}>
+            📝 掲載希望フォームへ
+          </button>
+        </div>
+
+        {/* 戻るボタン */}
+        <button onClick={()=>onNav('home')} style={{display:'flex',alignItems:'center',justifyContent:'center',gap:6,padding:'13px',background:'#fff',border:'2px solid #FDBA74',borderRadius:12,fontSize:14,fontWeight:800,color:'#F97316',cursor:'pointer',fontFamily:'inherit',width:'100%'}}>
+          ← 塾一覧に戻る
+        </button>
+      </main>
+      <SiteFooter onNav={onNav}/>
+    </div>
+  );
+}
+
+// ─── トップページ ─────────────────────────────
+function HomePage({onNav}){
+  const [items,setItems]=useState(FALLBACK);
+  const [loading,setLoading]=useState(true);
+  const [csvError,setCsvError]=useState(false);
+  const [searchTerm,setSearchTerm]=useState('');
+  const [filterArea,setFilterArea]=useState('');
+  const [filterGrade,setFilterGrade]=useState('');
+  const [filterTrial,setFilterTrial]=useState(false);
+  const [filterParking,setFilterParking]=useState(false);
+  const [modalOpen,setModalOpen]=useState(false);
+
+  useEffect(()=>{
+    const ctrl=new AbortController();
+    fetch(SPREADSHEET_URL,{signal:ctrl.signal})
+      .then(r=>{if(!r.ok)throw new Error();return r.text();})
+      .then(text=>{const parsed=csvToItems(parseCSV(text));if(parsed.length>0)setItems(parsed);else setCsvError(true);setLoading(false);})
+      .catch(err=>{if(err.name==='AbortError')return;setCsvError(true);setLoading(false);});
+    return()=>ctrl.abort();
+  },[]);
+
+  const areas=[...new Set(items.map(d=>d.area).filter(Boolean))].sort();
+  const activeCount=[filterArea,filterGrade,filterTrial?'t':'',filterParking?'p':''].filter(Boolean).length;
+  const filtered=useMemo(()=>items.filter(d=>{
+    if(searchTerm&&!d.name.includes(searchTerm)&&!d.area.includes(searchTerm)&&!d.memo.includes(searchTerm))return false;
+    if(filterArea&&d.area!==filterArea)return false;
+    if(filterGrade&&!d.grade.includes(filterGrade))return false;
+    if(filterTrial&&d.trial!=='あり')return false;
+    if(filterParking&&d.parking!=='あり')return false;
+    return true;
+  }).sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)),[items,searchTerm,filterArea,filterGrade,filterTrial,filterParking]);
+  const reset=()=>{setFilterArea('');setFilterGrade('');setFilterTrial(false);setFilterParking(false);};
+
+  if(loading)return(
+    <div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',height:'100vh',background:'#FFF7ED',gap:16}}>
+      <div style={{width:52,height:52,borderRadius:14,background:'linear-gradient(135deg,#F97316,#FBBF24)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:26}}>🎒</div>
+      <div style={{color:'#F97316',fontWeight:700,fontSize:15}}>読み込み中…</div>
+    </div>
+  );
+
+  return(
+    <div style={{minHeight:'100vh',background:'#FFF7ED',paddingBottom:96}}>
+      <SiteHeader onNav={onNav} showStats={true} items={items} areas={areas}/>
+      {csvError&&<div style={{background:'#FFF7ED',borderBottom:'1px solid #FDBA74',padding:'7px 16px',fontSize:12,color:'#92400E',textAlign:'center'}}>⚠️ サンプルデータを表示中</div>}
+
+      <div style={{padding:'14px 14px 6px'}}>
+        <div style={{background:'#fff',borderRadius:99,boxShadow:'0 2px 10px rgba(0,0,0,0.07)',display:'flex',alignItems:'center',padding:'10px 16px',border:'1.5px solid #FDE68A',gap:8}}>
+          <span style={{fontSize:18,color:'#F97316'}}>🔍</span>
+          <input type="text" placeholder="エリア・塾名・キーワードで探す…"
+            style={{flex:1,border:'none',outline:'none',fontSize:14,background:'transparent',color:'#333',fontFamily:'inherit'}}
+            value={searchTerm} onChange={e=>setSearchTerm(e.target.value)}/>
+          {searchTerm&&<button onClick={()=>setSearchTerm('')} style={{background:'none',border:'none',cursor:'pointer',color:'#CCC',fontSize:18,lineHeight:1}}>×</button>}
+        </div>
+      </div>
+
+      <div style={{padding:'4px 14px 8px',display:'flex',alignItems:'center',gap:8,flexWrap:'wrap'}}>
+        <span style={{fontSize:13,color:'#888'}}><span style={{fontSize:20,fontWeight:900,color:'#F97316'}}>{filtered.length}</span> 件</span>
+        {activeCount>0&&<button onClick={reset} style={{fontSize:11,color:'#F97316',background:'#FFF7ED',border:'1px solid #FDBA74',borderRadius:20,padding:'3px 10px',cursor:'pointer',fontWeight:700,fontFamily:'inherit'}}>条件クリア ×</button>}
+        {filterGrade&&<span style={{fontSize:11,padding:'2px 8px',borderRadius:99,fontWeight:700,background:GRADE_COLORS[filterGrade]?.bg||'#F5F5F5',color:GRADE_COLORS[filterGrade]?.text||'#555',border:`1px solid ${GRADE_COLORS[filterGrade]?.border||'#DDD'}`}}>{filterGrade}</span>}
+        {filterArea&&<span style={{fontSize:11,padding:'2px 8px',borderRadius:99,fontWeight:700,background:'#FFF7ED',color:'#F97316',border:'1px solid #FDBA74'}}>📍{filterArea.length>8?filterArea.slice(0,8)+'…':filterArea}</span>}
+      </div>
+
+      <main style={{padding:'0 12px',display:'flex',flexDirection:'column',gap:10}}>
+        {filtered.length===0?(
+          <div style={{textAlign:'center',padding:'56px 24px',color:'#CCC'}}>
+            <div style={{fontSize:44,marginBottom:10}}>🔎</div>
+            <div style={{fontSize:15,fontWeight:700,color:'#888',marginBottom:4}}>条件に合う塾が見つかりませんでした</div>
+            <div style={{fontSize:12}}>フィルターを変えてみてください</div>
+          </div>
+        ):filtered.map(juku=>(
+          <div key={juku.slug||juku.no} className={`card${juku.featured?' feat':''}`}>
+            {juku.featured&&<div style={{background:'linear-gradient(90deg,#FBBF24,#F59E0B)',color:'#78350F',fontSize:11,fontWeight:900,padding:'4px 14px'}}>★ おすすめ教室</div>}
+            <div style={{padding:'12px 14px'}}>
+              <h2 style={{fontSize:15,fontWeight:800,color:'#F97316',marginBottom:8,lineHeight:1.35}}>{juku.name}</h2>
+              <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'6px 8px',marginBottom:8}}>
+                {juku.area&&<div style={{display:'flex',alignItems:'center',gap:4,fontSize:12,color:'#666'}}>📍 {juku.area}</div>}
+                {juku.parking&&<div style={{display:'flex',alignItems:'center',gap:4,fontSize:12,color:'#666'}}>🚗 駐車場: {juku.parking}</div>}
+                {juku.type&&<div style={{display:'flex',alignItems:'center',gap:4,fontSize:12,color:'#666'}}>📖 {juku.type}</div>}
+                {juku.grade&&(
+                  <div style={{display:'flex',gap:4,flexWrap:'wrap'}}>
+                    {juku.grade.split(/[・,、]/).map(g=>g.trim()).filter(Boolean).map(g=>(
+                      <span key={g} style={{fontSize:11,fontWeight:700,padding:'2px 7px',borderRadius:5,background:GRADE_COLORS[g]?.bg||'#F5F5F5',color:GRADE_COLORS[g]?.text||'#555',border:`1px solid ${GRADE_COLORS[g]?.border||'#DDD'}`}}>{g}</span>
+                    ))}
+                  </div>
+                )}
+                {juku.price&&<div style={{fontSize:12,color:'#16A34A',fontWeight:700}}>💴 {juku.price}</div>}
+                {juku.trial==='あり'&&<div style={{fontSize:11,background:'#ECFDF5',color:'#065F46',border:'1px solid #6EE7B7',borderRadius:6,padding:'2px 8px',fontWeight:700,display:'inline-flex',alignItems:'center',gap:3}}>✓ 体験あり</div>}
+              </div>
+              {juku.memo&&<p style={{fontSize:12,color:'#888',borderLeft:'3px solid #FBBF24',paddingLeft:8,marginBottom:juku.access?8:10,lineHeight:1.5}}>{juku.memo}</p>}
+              {juku.access&&<p style={{fontSize:11,color:'#BBB',marginBottom:10}}>🚶 {juku.access}</p>}
+              {juku.url&&<a href={juku.url} target="_blank" rel="noopener noreferrer" className="site-btn" onClick={()=>{ if(window.gtag) window.gtag('event','juku_click',{juku_name:juku.name,juku_slug:juku.slug,juku_area:juku.area}); }}>公式サイトを見る ↗</a>}
+            </div>
+          </div>
+        ))}
+      </main>
+
+      <div style={{padding:'24px 16px 100px',textAlign:'center'}}>
+        <button onClick={()=>onNav('about')} className="nav-link">📄 このサイトについて</button>
+      </div>
+
+      <button className="fab" onClick={()=>setModalOpen(true)} aria-label="絞り込み">
+        <span style={{fontSize:24}}>🔍</span>
+        {activeCount>0&&<div style={{position:'absolute',top:0,right:0,background:'#EF4444',color:'#fff',borderRadius:99,fontSize:10,fontWeight:900,minWidth:18,height:18,padding:'0 4px',display:'flex',alignItems:'center',justifyContent:'center',border:'2px solid #fff'}}>{activeCount}</div>}
+      </button>
+
+      <div style={{position:'fixed',bottom:24,left:20,zIndex:900}}>
+        <button style={{background:'#FFF7ED',color:'#F97316',border:'2px solid #FDBA74',borderRadius:99,padding:'10px 16px',fontSize:12,fontWeight:800,cursor:'pointer',boxShadow:'0 2px 12px rgba(249,115,22,0.2)',whiteSpace:'nowrap',fontFamily:'inherit'}}>📋 掲載のご案内</button>
+      </div>
+
+      {modalOpen&&(
+        <div onClick={()=>setModalOpen(false)} style={{position:'fixed',inset:0,zIndex:1000,background:'rgba(0,0,0,0.42)',backdropFilter:'blur(3px)',display:'flex',flexDirection:'column',justifyContent:'flex-end'}}>
+          <div onClick={e=>e.stopPropagation()} style={{background:'#fff',borderRadius:'22px 22px 0 0',maxHeight:'90vh',overflowY:'auto',boxShadow:'0 -8px 40px rgba(0,0,0,0.2)'}}>
+            <div style={{display:'flex',justifyContent:'center',paddingTop:12}}><div style={{width:44,height:4,borderRadius:99,background:'#DDD'}}/></div>
+            <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'10px 20px 12px',borderBottom:'1px solid #F0EDE6'}}>
+              <span style={{fontWeight:900,fontSize:17,color:'#222'}}>絞り込み</span>
+              <button onClick={()=>setModalOpen(false)} style={{background:'#F5F3EE',border:'none',borderRadius:'50%',width:34,height:34,fontSize:18,cursor:'pointer',display:'flex',alignItems:'center',justifyContent:'center',color:'#666'}}>×</button>
+            </div>
+            <div style={{padding:'18px 20px',display:'flex',flexDirection:'column',gap:20}}>
+              <div>
+                <div style={{fontSize:11,fontWeight:800,color:'#AAA',letterSpacing:1.5,marginBottom:8}}>📍 エリア</div>
+                <select value={filterArea} onChange={e=>setFilterArea(e.target.value)} style={{width:'100%',padding:'12px 14px',border:'1.5px solid #E8E4DC',borderRadius:12,fontSize:15,fontFamily:'inherit',background:'#FAFAF8',outline:'none',color:'#333'}}>
+                  <option value="">すべてのエリア</option>
+                  {areas.map(a=><option key={a} value={a}>{a}</option>)}
+                </select>
+              </div>
+              <div>
+                <div style={{fontSize:11,fontWeight:800,color:'#AAA',letterSpacing:1.5,marginBottom:8}}>📚 対象学年</div>
+                <div style={{display:'flex',gap:8,flexWrap:'wrap'}}>
+                  {['小','中','高','大'].map(g=>(
+                    <button key={g} className="chip" onClick={()=>setFilterGrade(filterGrade===g?'':g)}
+                      style={{border:`2px solid ${filterGrade===g?GRADE_COLORS[g].text:'#E8E4DC'}`,background:filterGrade===g?GRADE_COLORS[g].text:'#F7F5F1',color:filterGrade===g?'#fff':'#555'}}>
+                      {g}学生
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <div style={{fontSize:11,fontWeight:800,color:'#AAA',letterSpacing:1.5,marginBottom:8}}>⚙️ オプション</div>
+                <div style={{display:'flex',gap:8,flexWrap:'wrap'}}>
+                  {[{label:'✅ 体験授業あり',active:filterTrial,onClick:()=>setFilterTrial(v=>!v),color:'#16A34A'},{label:'🅿️ 駐車場あり',active:filterParking,onClick:()=>setFilterParking(v=>!v),color:'#2563EB'}].map(opt=>(
+                    <button key={opt.label} className="chip" onClick={opt.onClick}
+                      style={{border:`2px solid ${opt.active?opt.color:'#E8E4DC'}`,background:opt.active?opt.color:'#F7F5F1',color:opt.active?'#fff':'#555'}}>
+                      {opt.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div style={{padding:'12px 20px 28px',display:'flex',gap:10,borderTop:'1px solid #F0EDE6'}}>
+              <button onClick={reset} style={{flex:1,height:52,borderRadius:14,border:'2px solid #E8E4DC',background:'#fff',fontSize:14,fontWeight:700,color:'#999',cursor:'pointer',fontFamily:'inherit'}}>リセット</button>
+              <button onClick={()=>setModalOpen(false)} style={{flex:2,height:52,borderRadius:14,border:'none',background:'linear-gradient(135deg,#F97316,#FBBF24)',fontSize:15,fontWeight:900,color:'#fff',cursor:'pointer',fontFamily:'inherit',boxShadow:'0 4px 14px rgba(249,115,22,0.4)'}}>
+                {filtered.length}件を表示 ›
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── アプリ本体（ページ切り替えをstateで管理）────
+function App(){
+  const [page,setPage]=useState('home');
+  const onNav=(p)=>{
+    setPage(p);
+    window.scrollTo(0,0);
+    // GA4ページビュー計測
+    if(window.gtag){
+      const path = p==='about' ? '/about' : '/';
+      window.gtag('event','page_view',{page_path:path,page_title:document.title});
+    }
+  };
+  return page==='about'?<AboutPage onNav={onNav}/>:<HomePage onNav={onNav}/>;
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+  </script>
+</body>
+</html>
