@@ -18,8 +18,6 @@
     .blog-header h1 { color: #fff; font-size: 21px; font-weight: 900; line-height: 1.5; margin: 0 0 10px; position: relative; z-index: 1; }
     .blog-header-meta { color: rgba(255,255,255,0.8); font-size: 12px; }
     .blog-body { max-width: 680px; margin: 0 auto; padding: 28px 18px 60px; }
-
-    /* アコーディオンナビ */
     .blog-nav { background: #fff; border-radius: 12px; margin-bottom: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); overflow: hidden; }
     .blog-nav-toggle { width: 100%; background: none; border: none; padding: 16px 18px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; font-family: 'Noto Sans JP', sans-serif; font-weight: 700; color: #1a6b3c; font-size: 13px; -webkit-tap-highlight-color: transparent; }
     .blog-nav-toggle-icon { font-size: 12px; transition: transform 0.25s; color: #2d9e5f; }
@@ -29,7 +27,6 @@
     .blog-nav-list a { display: block; color: #2d9e5f; text-decoration: none; padding: 6px 0; border-bottom: 1px solid #f0faf4; font-size: 13px; }
     .blog-nav-list a:last-child { border-bottom: none; }
     .blog-nav-current { color: #1a1a1a !important; font-weight: 700; pointer-events: none; }
-
     .blog-lead { background: #fff; border-left: 4px solid #2d9e5f; border-radius: 0 10px 10px 0; padding: 18px; margin-bottom: 28px; font-size: 15px; line-height: 1.85; color: #333; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
     h2 { font-size: 19px; font-weight: 900; color: #1a6b3c; margin: 40px 0 16px; padding: 14px 16px; background: #f0faf4; border-radius: 10px; border-left: 5px solid #2d9e5f; line-height: 1.5; }
     .h3-icon { display: inline-block; background: #2d9e5f; color: #fff; font-size: 13px; font-weight: 900; padding: 2px 10px; border-radius: 20px; flex-shrink: 0; }
@@ -71,27 +68,6 @@
     <p class="blog-header-meta">長野市内54件以上の塾データに基づく客観ガイド</p>
   </header>
   <main class="blog-body">
-
-    <nav class="blog-nav">
-      <button class="blog-nav-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">
-        📚 塾選びガイド 記事一覧
-        <span class="blog-nav-toggle-icon">▼</span>
-      </button>
-      <div class="blog-nav-list">
-        <a href="./nagano-elementary-school-juku.html">小学生向け｜後悔しない3つのチェックポイント</a>
-        <a href="./nagano-junior-high-school-juku.html">中学生向け｜高校受験で後悔しない3つの重要ポイント</a>
-        <a href="./nagano-juku-osusume.html">長野市でおすすめの塾｜失敗しない選び方</a>
-        <a href="./nagano-juku-ryokin.html">長野市の塾の料金相場｜小学生・中学生別に解説</a>
-        <a href="./nagano-juku-hikaku.html">長野市 塾 比較｜タイプ別おすすめ選び方</a>
-        <a href="./nagano-juku-itsukara.html">長野市 塾 いつから？最適タイミングを解説</a>
-        <a href="./nagano-juku-yasui.html">長野市 塾 安いおすすめは？失敗しない選び方を解説</a>
-        <a href="./nagano-juku-kobetsu.html">長野市 塾 個別指導はどう選ぶ？失敗しないポイントを解説</a>
-        <a href="./nagano-juku-kobetsu-vs-shudan.html">長野市 塾 個別指導と集団塾どっちがいい？違いと選び方を解説</a>
-        <a href="./nagano-juku-kuchikomi.html">長野市 塾 口コミは信じていい？失敗しない見極め方を解説</a>
-        <a href="./nagano-juku-yametahouga-ii.html">長野市 塾 やめたほうがいい？失敗例と後悔しない選び方を解説</a>
-        <a href="./nagano-juku-chugakusei-osusume.html" class="blog-nav-current">▶ 長野市 塾 中学生おすすめ｜高校受験で失敗しない選び方を解説</a>
-      </div>
-    </nav>
 
     <div class="blog-lead">
       長野市で中学生のお子様の塾を探している保護者の方へ。<br><br>
@@ -186,6 +162,28 @@
       <p class="related-title">次に読むべき記事</p>
       <a href="./nagano-juku-hikaku.html">👉 塾の比較記事はこちら</a>
     </div>
+
+    <!-- ▼ここに移動：アコーディオンナビ -->
+    <nav class="blog-nav">
+      <button class="blog-nav-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">
+        📚 塾選びガイド 記事一覧
+        <span class="blog-nav-toggle-icon">▼</span>
+      </button>
+      <div class="blog-nav-list">
+        <a href="./nagano-elementary-school-juku.html">小学生向け｜後悔しない3つのチェックポイント</a>
+        <a href="./nagano-junior-high-school-juku.html">中学生向け｜高校受験で後悔しない3つの重要ポイント</a>
+        <a href="./nagano-juku-osusume.html">長野市でおすすめの塾｜失敗しない選び方</a>
+        <a href="./nagano-juku-ryokin.html">長野市の塾の料金相場｜小学生・中学生別に解説</a>
+        <a href="./nagano-juku-hikaku.html">長野市 塾 比較｜タイプ別おすすめ選び方</a>
+        <a href="./nagano-juku-itsukara.html">長野市 塾 いつから？最適タイミングを解説</a>
+        <a href="./nagano-juku-yasui.html">長野市 塾 安いおすすめは？失敗しない選び方を解説</a>
+        <a href="./nagano-juku-kobetsu.html">長野市 塾 個別指導はどう選ぶ？失敗しないポイントを解説</a>
+        <a href="./nagano-juku-kobetsu-vs-shudan.html">長野市 塾 個別指導と集団塾どっちがいい？違いと選び方を解説</a>
+        <a href="./nagano-juku-kuchikomi.html">長野市 塾 口コミは信じていい？失敗しない見極め方を解説</a>
+        <a href="./nagano-juku-yametahouga-ii.html">長野市 塾 やめたほうがいい？失敗例と後悔しない選び方を解説</a>
+        <a href="./nagano-juku-chugakusei-osusume.html" class="blog-nav-current">▶ 長野市 塾 中学生おすすめ｜高校受験で失敗しない選び方を解説</a>
+      </div>
+    </nav>
 
     <div class="pr-box">
       <p class="pr-title"><span>📈</span>教室運営者様へ</p>
