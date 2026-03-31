@@ -10,425 +10,71 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Noto Sans JP', sans-serif;
-      background: #fafaf8;
-      color: #1a1a1a;
-      min-height: 100vh;
-    }
-
-    .blog-header {
-      background: linear-gradient(135deg, #1a6b3c 0%, #2d9e5f 60%, #38c172 100%);
-      padding: 40px 20px 36px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .blog-header::before {
-      content: '';
-      position: absolute;
-      top: -40px; right: -40px;
-      width: 180px; height: 180px;
-      background: rgba(255,255,255,0.07);
-      border-radius: 50%;
-    }
-    .blog-header::after {
-      content: '';
-      position: absolute;
-      bottom: -60px; left: -30px;
-      width: 220px; height: 220px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 50%;
-    }
-    .blog-header-badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.2);
-      color: #fff;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      padding: 4px 12px;
-      border-radius: 20px;
-      margin-bottom: 14px;
-      border: 1px solid rgba(255,255,255,0.3);
-    }
-    .blog-header h1 {
-      color: #fff;
-      font-size: 21px;
-      font-weight: 900;
-      line-height: 1.5;
-      margin: 0 0 10px;
-      position: relative;
-      z-index: 1;
-    }
-    .blog-header-meta {
-      color: rgba(255,255,255,0.8);
-      font-size: 12px;
-    }
-
-    .blog-body {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 28px 18px 60px;
-    }
-
-    .blog-nav {
-      background: #fff;
-      border-radius: 12px;
-      padding: 16px 18px;
-      margin-bottom: 28px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    .blog-nav-title {
-      font-weight: 700;
-      color: #1a6b3c;
-      margin-bottom: 10px;
-      font-size: 13px;
-    }
-    .blog-nav a {
-      display: block;
-      color: #2d9e5f;
-      text-decoration: none;
-      padding: 6px 0;
-      border-bottom: 1px solid #f0faf4;
-      font-size: 13px;
-    }
-    .blog-nav a:last-child { border-bottom: none; }
-    .blog-nav-current {
-      color: #1a1a1a !important;
-      font-weight: 700;
-      pointer-events: none;
-    }
-
-    .blog-lead {
-      background: #fff;
-      border-left: 4px solid #2d9e5f;
-      border-radius: 0 10px 10px 0;
-      padding: 18px;
-      margin-bottom: 28px;
-      font-size: 15px;
-      line-height: 1.85;
-      color: #333;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-
-    h2 {
-      font-size: 19px;
-      font-weight: 900;
-      color: #1a6b3c;
-      margin: 40px 0 16px;
-      padding: 14px 16px;
-      background: #f0faf4;
-      border-radius: 10px;
-      border-left: 5px solid #2d9e5f;
-      line-height: 1.5;
-    }
-
-    h3 {
-      font-size: 16px;
-      font-weight: 700;
-      color: #1a1a1a;
-      margin: 24px 0 10px;
-      padding: 0 0 6px;
-      border-bottom: 2px solid #e0f5ea;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .h3-icon {
-      display: inline-block;
-      background: #2d9e5f;
-      color: #fff;
-      font-size: 13px;
-      font-weight: 900;
-      padding: 2px 10px;
-      border-radius: 20px;
-      flex-shrink: 0;
-    }
-
-    p {
-      font-size: 15px;
-      line-height: 1.9;
-      color: #333;
-      margin-bottom: 14px;
-    }
-
-    /* 比較カード（個別 vs 集団） */
-    .compare-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-    .compare-card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 16px 14px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-      font-size: 14px;
-      line-height: 1.8;
-      color: #333;
-    }
-    .compare-card-label {
-      font-weight: 900;
-      font-size: 15px;
-      margin-bottom: 8px;
-      display: block;
-    }
-    .compare-card.kobetsu {
-      border-top: 4px solid #2d9e5f;
-    }
+    body { font-family: 'Noto Sans JP', sans-serif; background: #fafaf8; color: #1a1a1a; min-height: 100vh; }
+    .blog-header { background: linear-gradient(135deg, #1a6b3c 0%, #2d9e5f 60%, #38c172 100%); padding: 40px 20px 36px; text-align: center; position: relative; overflow: hidden; }
+    .blog-header::before { content: ''; position: absolute; top: -40px; right: -40px; width: 180px; height: 180px; background: rgba(255,255,255,0.07); border-radius: 50%; }
+    .blog-header::after { content: ''; position: absolute; bottom: -60px; left: -30px; width: 220px; height: 220px; background: rgba(255,255,255,0.05); border-radius: 50%; }
+    .blog-header-badge { display: inline-block; background: rgba(255,255,255,0.2); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; padding: 4px 12px; border-radius: 20px; margin-bottom: 14px; border: 1px solid rgba(255,255,255,0.3); }
+    .blog-header h1 { color: #fff; font-size: 21px; font-weight: 900; line-height: 1.5; margin: 0 0 10px; position: relative; z-index: 1; }
+    .blog-header-meta { color: rgba(255,255,255,0.8); font-size: 12px; }
+    .blog-body { max-width: 680px; margin: 0 auto; padding: 28px 18px 60px; }
+    .blog-nav { background: #fff; border-radius: 12px; margin-bottom: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); overflow: hidden; }
+    .blog-nav-toggle { width: 100%; background: none; border: none; padding: 16px 18px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; font-family: 'Noto Sans JP', sans-serif; font-weight: 700; color: #1a6b3c; font-size: 13px; -webkit-tap-highlight-color: transparent; }
+    .blog-nav-toggle-icon { font-size: 12px; transition: transform 0.25s; color: #2d9e5f; }
+    .blog-nav-toggle.open .blog-nav-toggle-icon { transform: rotate(180deg); }
+    .blog-nav-list { display: none; padding: 0 18px 12px; }
+    .blog-nav-list.open { display: block; }
+    .blog-nav-list a { display: block; color: #2d9e5f; text-decoration: none; padding: 6px 0; border-bottom: 1px solid #f0faf4; font-size: 13px; }
+    .blog-nav-list a:last-child { border-bottom: none; }
+    .blog-nav-current { color: #1a1a1a !important; font-weight: 700; pointer-events: none; }
+    .blog-lead { background: #fff; border-left: 4px solid #2d9e5f; border-radius: 0 10px 10px 0; padding: 18px; margin-bottom: 28px; font-size: 15px; line-height: 1.85; color: #333; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    h2 { font-size: 19px; font-weight: 900; color: #1a6b3c; margin: 40px 0 16px; padding: 14px 16px; background: #f0faf4; border-radius: 10px; border-left: 5px solid #2d9e5f; line-height: 1.5; }
+    h3 { font-size: 16px; font-weight: 700; color: #1a1a1a; margin: 24px 0 10px; padding: 0 0 6px; border-bottom: 2px solid #e0f5ea; display: flex; align-items: center; gap: 8px; }
+    .h3-icon { display: inline-block; background: #2d9e5f; color: #fff; font-size: 13px; font-weight: 900; padding: 2px 10px; border-radius: 20px; flex-shrink: 0; }
+    p { font-size: 15px; line-height: 1.9; color: #333; margin-bottom: 14px; }
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+    .compare-card { background: #fff; border-radius: 12px; padding: 16px 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); font-size: 14px; line-height: 1.8; color: #333; }
+    .compare-card-label { font-weight: 900; font-size: 15px; margin-bottom: 8px; display: block; }
+    .compare-card.kobetsu { border-top: 4px solid #2d9e5f; }
     .compare-card.kobetsu .compare-card-label { color: #1a6b3c; }
-    .compare-card.shudan {
-      border-top: 4px solid #94a3b8;
-    }
+    .compare-card.shudan { border-top: 4px solid #94a3b8; }
     .compare-card.shudan .compare-card-label { color: #475569; }
-
-    /* チェックリスト */
-    .check-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 16px;
-    }
-    .check-list li {
-      background: #fff;
-      border-radius: 10px;
-      padding: 12px 16px 12px 44px;
-      margin-bottom: 10px;
-      font-size: 14px;
-      line-height: 1.8;
-      color: #333;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      border-left: 4px solid #38c172;
-      position: relative;
-    }
-    .check-list li::before {
-      content: '✅';
-      position: absolute;
-      left: 12px;
-      top: 12px;
-      font-size: 15px;
-    }
-
-    /* 失敗パターンリスト */
-    .failure-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 16px;
-    }
-    .failure-list li {
-      background: #fff;
-      border-radius: 10px;
-      padding: 14px 16px;
-      margin-bottom: 10px;
-      font-size: 14px;
-      line-height: 1.8;
-      color: #333;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      border-left: 4px solid #f87171;
-    }
-    .failure-list li strong {
-      display: block;
-      font-weight: 700;
-      color: #b91c1c;
-      margin-bottom: 2px;
-    }
-
-    /* 番号付きリスト */
-    .reason-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 16px;
-    }
-    .reason-list li {
-      background: #fff;
-      border-radius: 10px;
-      padding: 14px 16px;
-      margin-bottom: 10px;
-      font-size: 14px;
-      line-height: 1.8;
-      color: #333;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      border-left: 4px solid #38c172;
-      padding-left: 44px;
-      position: relative;
-    }
-    .reason-list li::before {
-      content: attr(data-num);
-      position: absolute;
-      left: 14px;
-      top: 14px;
-      background: #2d9e5f;
-      color: #fff;
-      font-size: 12px;
-      font-weight: 900;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      line-height: 20px;
-    }
-
-    .emphasis-box {
-      background: #f0faf4;
-      border: 2px solid #2d9e5f;
-      border-radius: 12px;
-      padding: 16px 18px;
-      margin: 16px 0;
-      font-size: 14px;
-      font-weight: 700;
-      color: #1a6b3c;
-      line-height: 1.7;
-    }
-
-    .warning-box {
-      background: #fff8f8;
-      border: 2px solid #f87171;
-      border-radius: 12px;
-      padding: 16px 18px;
-      margin: 16px 0;
-      font-size: 14px;
-      font-weight: 700;
-      color: #b91c1c;
-      line-height: 1.7;
-    }
-
-    .summary-box {
-      background: linear-gradient(135deg, #f0faf4, #e8f8ef);
-      border-radius: 14px;
-      padding: 22px 18px;
-      margin: 32px 0 0;
-      border: 1px solid #c3e8d0;
-    }
-    .summary-title {
-      font-size: 17px;
-      font-weight: 900;
-      color: #1a6b3c;
-      margin-bottom: 12px;
-      text-align: center;
-    }
-
-    .related-box {
-      background: #fff;
-      border-radius: 12px;
-      padding: 16px 18px;
-      margin: 32px 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    .related-title {
-      font-size: 14px;
-      font-weight: 700;
-      color: #1a6b3c;
-      margin-bottom: 10px;
-    }
-    .related-box a {
-      display: block;
-      color: #2d9e5f;
-      text-decoration: none;
-      padding: 6px 0;
-      border-bottom: 1px solid #f0faf4;
-      font-size: 14px;
-    }
+    .check-list { list-style: none; padding: 0; margin: 0 0 16px; }
+    .check-list li { background: #fff; border-radius: 10px; padding: 12px 16px 12px 44px; margin-bottom: 10px; font-size: 14px; line-height: 1.8; color: #333; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 4px solid #38c172; position: relative; }
+    .check-list li::before { content: '✅'; position: absolute; left: 12px; top: 12px; font-size: 15px; }
+    .failure-list { list-style: none; padding: 0; margin: 0 0 16px; }
+    .failure-list li { background: #fff; border-radius: 10px; padding: 14px 16px; margin-bottom: 10px; font-size: 14px; line-height: 1.8; color: #333; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 4px solid #f87171; }
+    .failure-list li strong { display: block; font-weight: 700; color: #b91c1c; margin-bottom: 2px; }
+    .reason-list { list-style: none; padding: 0; margin: 0 0 16px; }
+    .reason-list li { background: #fff; border-radius: 10px; padding: 14px 16px 14px 44px; margin-bottom: 10px; font-size: 14px; line-height: 1.8; color: #333; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 4px solid #38c172; position: relative; }
+    .reason-list li::before { content: attr(data-num); position: absolute; left: 14px; top: 14px; background: #2d9e5f; color: #fff; font-size: 12px; font-weight: 900; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-align: center; line-height: 20px; }
+    .emphasis-box { background: #f0faf4; border: 2px solid #2d9e5f; border-radius: 12px; padding: 16px 18px; margin: 16px 0; font-size: 14px; font-weight: 700; color: #1a6b3c; line-height: 1.7; }
+    .warning-box { background: #fff8f8; border: 2px solid #f87171; border-radius: 12px; padding: 16px 18px; margin: 16px 0; font-size: 14px; font-weight: 700; color: #b91c1c; line-height: 1.7; }
+    .summary-box { background: linear-gradient(135deg, #f0faf4, #e8f8ef); border-radius: 14px; padding: 22px 18px; margin: 32px 0 0; border: 1px solid #c3e8d0; }
+    .summary-title { font-size: 17px; font-weight: 900; color: #1a6b3c; margin-bottom: 12px; text-align: center; }
+    .related-box { background: #fff; border-radius: 12px; padding: 16px 18px; margin: 32px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .related-title { font-size: 14px; font-weight: 700; color: #1a6b3c; margin-bottom: 10px; }
+    .related-box a { display: block; color: #2d9e5f; text-decoration: none; padding: 6px 0; border-bottom: 1px solid #f0faf4; font-size: 14px; }
     .related-box a:last-child { border-bottom: none; }
-
-    .pr-box {
-      background: #fff8f0;
-      border: 2px solid #f59e0b;
-      border-radius: 14px;
-      padding: 22px 18px;
-      margin-top: 36px;
-    }
-    .pr-title {
-      font-size: 16px;
-      font-weight: 900;
-      color: #92400e;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .pr-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 16px;
-    }
-    .pr-list li {
-      font-size: 14px;
-      line-height: 1.8;
-      color: #444;
-      padding: 6px 0 6px 22px;
-      position: relative;
-    }
-    .pr-list li::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      color: #f59e0b;
-      font-weight: 900;
-    }
-
-    .cta-btn {
-      display: block;
-      width: 100%;
-      padding: 18px 16px;
-      border-radius: 50px;
-      font-size: 15px;
-      font-weight: 900;
-      text-align: center;
-      text-decoration: none;
-      margin: 24px 0;
-      letter-spacing: 0.03em;
-      line-height: 1.4;
-      -webkit-tap-highlight-color: transparent;
-      transition: opacity 0.15s, transform 0.15s;
-    }
-    .cta-btn:active {
-      opacity: 0.85;
-      transform: scale(0.97);
-    }
-    .cta-green {
-      background: linear-gradient(135deg, #2d9e5f, #38c172);
-      color: #fff;
-      box-shadow: 0 4px 16px rgba(45,158,95,0.35);
-    }
-    .cta-orange {
-      background: linear-gradient(135deg, #f59e0b, #f97316);
-      color: #fff;
-      box-shadow: 0 4px 16px rgba(249,115,22,0.35);
-    }
-
-    .divider {
-      border: none;
-      border-top: 2px dashed #d1fae5;
-      margin: 36px 0;
-    }
+    .pr-box { background: #fff8f0; border: 2px solid #f59e0b; border-radius: 14px; padding: 22px 18px; margin-top: 36px; }
+    .pr-title { font-size: 16px; font-weight: 900; color: #92400e; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .pr-list { list-style: none; padding: 0; margin: 0 0 16px; }
+    .pr-list li { font-size: 14px; line-height: 1.8; color: #444; padding: 6px 0 6px 22px; position: relative; }
+    .pr-list li::before { content: '✓'; position: absolute; left: 0; color: #f59e0b; font-weight: 900; }
+    .cta-btn { display: block; width: 100%; padding: 18px 16px; border-radius: 50px; font-size: 15px; font-weight: 900; text-align: center; text-decoration: none; margin: 24px 0; letter-spacing: 0.03em; line-height: 1.4; -webkit-tap-highlight-color: transparent; transition: opacity 0.15s, transform 0.15s; }
+    .cta-btn:active { opacity: 0.85; transform: scale(0.97); }
+    .cta-green { background: linear-gradient(135deg, #2d9e5f, #38c172); color: #fff; box-shadow: 0 4px 16px rgba(45,158,95,0.35); }
+    .cta-orange { background: linear-gradient(135deg, #f59e0b, #f97316); color: #fff; box-shadow: 0 4px 16px rgba(249,115,22,0.35); }
+    .divider { border: none; border-top: 2px dashed #d1fae5; margin: 36px 0; }
   </style>
 </head>
 <body>
-
   <header class="blog-header">
     <div class="blog-header-badge">長野市キッズナビ｜塾選びガイド</div>
     <h1>長野市 塾 個別指導はどう選ぶ？<br>失敗しないポイントとおすすめの考え方</h1>
     <p class="blog-header-meta">長野市内54件以上の塾データに基づく客観ガイド</p>
   </header>
-
   <main class="blog-body">
-
-    <nav class="blog-nav">
-      <p class="blog-nav-title">📚 塾選びガイド 記事一覧</p>
-      <a href="./nagano-elementary-school-juku.html">小学生向け｜後悔しない3つのチェックポイント</a>
-      <a href="./nagano-junior-high-school-juku.html">中学生向け｜高校受験で後悔しない3つの重要ポイント</a>
-      <a href="./nagano-juku-osusume.html">長野市でおすすめの塾｜失敗しない選び方</a>
-      <a href="./nagano-juku-ryokin.html">長野市の塾の料金相場｜小学生・中学生別に解説</a>
-      <a href="./nagano-juku-hikaku.html">長野市 塾 比較｜タイプ別おすすめ選び方</a>
-      <a href="./nagano-juku-itsukara.html">長野市 塾 いつから？最適タイミングを解説</a>
-      <a href="./nagano-juku-yasui.html">長野市 塾 安いおすすめは？失敗しない選び方を解説</a>
-      <a href="./nagano-juku-kobetsu.html" class="blog-nav-current">▶ 長野市 塾 個別指導はどう選ぶ？失敗しないポイントを解説</a>
-    </nav>
 
     <div class="blog-lead">
       長野市で個別指導塾を探している保護者の方へ。<br><br>
@@ -437,14 +83,10 @@
       この記事では、長野市の塾情報を網羅する「長野市キッズナビ」が、個別指導塾の正しい選び方と失敗しないためのポイントを解説します。
     </div>
 
-    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/" class="cta-btn cta-green">
-      【無料】長野市の個別指導塾を今すぐ比較する→
-    </a>
+    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/" class="cta-btn cta-green">【無料】長野市の個別指導塾を今すぐ比較する→</a>
 
     <h2>1. 個別指導塾とは？集団塾との決定的な違い</h2>
-
     <p>まずは基本を押さえておきましょう。個別と集団、それぞれの特徴を比べると違いは明確です。</p>
-
     <div class="compare-grid">
       <div class="compare-card kobetsu">
         <span class="compare-card-label">個別指導塾</span>
@@ -455,89 +97,54 @@
         カリキュラム固定。ペースは塾側に依存。切磋琢磨できる反面、ついていけないと置いてかれやすい。
       </div>
     </div>
-
-    <div class="emphasis-box">
-      👉 「自分のペースで理解したい子」に個別は圧倒的に向いています。
-    </div>
+    <div class="emphasis-box">👉 「自分のペースで理解したい子」に個別は圧倒的に向いています。</div>
 
     <hr class="divider">
 
     <h2>2. 個別指導が向いている子の特徴</h2>
-
     <p>以下に当てはまる場合は、個別指導が有力な選択肢です。1つでも当てはまるなら、個別との相性はかなり良いです。</p>
-
     <ul class="check-list">
       <li>勉強に苦手意識がある</li>
       <li>集団だと質問できない・緊張してしまう</li>
       <li>授業スピードについていけない</li>
       <li>部活や習い事で時間が不規則</li>
     </ul>
-
-    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/" class="cta-btn cta-green">
-      お子様に合う長野市の塾を条件から検索する→
-    </a>
+    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/" class="cta-btn cta-green">お子様に合う長野市の塾を条件から検索する→</a>
 
     <hr class="divider">
 
     <h2>3. 個別指導で失敗する「3つの典型パターン」</h2>
-
     <p>個別指導は集団塾よりも費用が高い分、ミスマッチの損失も大きくなります。以下のパターンは要注意です。</p>
-
     <ul class="failure-list">
-      <li>
-        <strong>① 先生の質にバラつきがある</strong>
-        アルバイト講師中心の塾では、担当講師によって当たり外れが大きくなります。講師の選定基準や研修制度を必ず確認しましょう。
-      </li>
-      <li>
-        <strong>② 実質「放置型」になっている</strong>
-        個別なのに解説が少なく、ほぼ自習状態になっているケースがあります。授業中の講師の関与度を体験授業で確かめることが重要です。
-      </li>
-      <li>
-        <strong>③ 料金だけ高くて成果が出ない</strong>
-        個別は高単価なので、ミスマッチだと損失が大きくなります。月謝だけでなく、講習費や教材費を含む年間総額で比較しましょう。
-      </li>
+      <li><strong>① 先生の質にバラつきがある</strong>アルバイト講師中心の塾では、担当講師によって当たり外れが大きくなります。講師の選定基準や研修制度を必ず確認しましょう。</li>
+      <li><strong>② 実質「放置型」になっている</strong>個別なのに解説が少なく、ほぼ自習状態になっているケースがあります。授業中の講師の関与度を体験授業で確かめることが重要です。</li>
+      <li><strong>③ 料金だけ高くて成果が出ない</strong>個別は高単価なので、ミスマッチだと損失が大きくなります。月謝だけでなく、講習費や教材費を含む年間総額で比較しましょう。</li>
     </ul>
-
-    <div class="warning-box">
-      ⚠️ 個別指導は、集団よりも"ハズレリスクが高い"のが現実です。だからこそ比較と体験が不可欠です。
-    </div>
-
-    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/" class="cta-btn cta-green">
-      失敗を防ぐために長野市の塾を比較する→
-    </a>
+    <div class="warning-box">⚠️ 個別指導は、集団よりも"ハズレリスクが高い"のが現実です。だからこそ比較と体験が不可欠です。</div>
+    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/" class="cta-btn cta-green">失敗を防ぐために長野市の塾を比較する→</a>
 
     <hr class="divider">
 
     <h2>4. 良い個別指導塾の見極めチェックリスト</h2>
-
     <p>体験前・入塾前に、以下のポイントを必ず確認してください。すべて揃っている塾は信頼度が高いです。</p>
-
     <ul class="check-list">
       <li><strong>講師が固定（担任制）になっている</strong><br>毎回同じ先生が担当するかどうかは、信頼関係の構築に直結します。</li>
       <li><strong>個別の学習計画を作ってくれる</strong><br>お子様の現状に合わせたカリキュラムを用意してくれる塾は伸びます。</li>
       <li><strong>定期テスト・内申点対策がある</strong><br>長野市の公立高校受験では内申点が重要。学校のテスト対策を重視しているかを確認しましょう。</li>
       <li><strong>自習室＋質問しやすい環境がある</strong><br>授業以外の時間も活用できる環境があるかどうかが、成績の伸びを左右します。</li>
     </ul>
-
-    <div class="emphasis-box">
-      👉 「管理してくれる塾」は伸びます。ここが本質です。
-    </div>
+    <div class="emphasis-box">👉 「管理してくれる塾」は伸びます。ここが本質です。</div>
 
     <hr class="divider">
 
     <h2>5. 結論：一番おすすめの選び方</h2>
-
     <p>個別指導塾選びの正解はシンプルです。</p>
-
     <ul class="reason-list">
       <li data-num="1"><strong>2〜3校を比較する</strong><br>1校だけ見て決めると比較軸がなく、良し悪しの判断ができません。</li>
       <li data-num="2"><strong>必ず体験授業を受ける</strong><br>「なんとなく良さそう」で決めると後悔します。お子様自身が「ここなら頑張れる」と感じるかが最重要です。</li>
       <li data-num="3"><strong>講師・管理体制・年間費用の3点を確認する</strong><br>この3つを押さえれば、ほぼ失敗しません。</li>
     </ul>
-
-    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/" class="cta-btn cta-green">
-      【無料体験OK】長野市の個別指導塾を今すぐ探す→
-    </a>
+    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/" class="cta-btn cta-green">【無料体験OK】長野市の個別指導塾を今すぐ探す→</a>
 
     <hr class="divider">
 
@@ -550,35 +157,40 @@
       </p>
     </div>
 
-    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/" class="cta-btn cta-green">
-      長野市の個別指導塾を今すぐ条件から検索する→
-    </a>
+    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/" class="cta-btn cta-green">長野市の個別指導塾を今すぐ条件から検索する→</a>
 
     <div class="related-box">
-      <p class="related-title">📚 関連記事</p>
-      <a href="./nagano-juku-ryokin.html">👉 長野市の塾の料金相場を徹底解説</a>
-      <a href="./nagano-juku-hikaku.html">👉 失敗しない！長野市の塾を比較するコツ</a>
-      <a href="./nagano-juku-osusume.html">👉 長野市のおすすめ塾まとめ</a>
-      <a href="./nagano-juku-yasui.html">👉 長野市で料金を抑えて塾を選ぶ方法</a>
-      <a href="./nagano-junior-high-school-juku.html">👉 中学生の塾選び（高校受験対策）はこちら</a>
+      <p class="related-title">塾選びで失敗したくない方はこちら</p>
+      <a href="./nagano-juku-hikaku.html">👉 塾の比較記事</a>
     </div>
+
+    <nav class="blog-nav">
+      <button class="blog-nav-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">
+        📚 塾選びガイド 記事一覧
+        <span class="blog-nav-toggle-icon">▼</span>
+      </button>
+      <div class="blog-nav-list">
+        <a href="./nagano-elementary-school-juku.html">小学生向け｜後悔しない3つのチェックポイント</a>
+        <a href="./nagano-junior-high-school-juku.html">中学生向け｜高校受験で後悔しない3つの重要ポイント</a>
+        <a href="./nagano-juku-osusume.html">長野市でおすすめの塾｜失敗しない選び方</a>
+        <a href="./nagano-juku-ryokin.html">長野市の塾の料金相場｜小学生・中学生別に解説</a>
+        <a href="./nagano-juku-hikaku.html">長野市 塾 比較｜タイプ別おすすめ選び方</a>
+        <a href="./nagano-juku-itsukara.html">長野市 塾 いつから？最適タイミングを解説</a>
+        <a href="./nagano-juku-yasui.html">長野市 塾 安いおすすめは？失敗しない選び方を解説</a>
+        <a href="./nagano-juku-kobetsu.html" class="blog-nav-current">▶ 長野市 塾 個別指導はどう選ぶ？失敗しないポイントを解説</a>
+      </div>
+    </nav>
 
     <div class="pr-box">
       <p class="pr-title"><span>📈</span>教室運営者様へ</p>
-      <p style="font-size:14px; margin-bottom:12px;">
-        個別指導は検索ニーズが非常に高く、集客と相性が良いジャンルです。長野市キッズナビに掲載して、真剣に塾を探している保護者へ直接アプローチしませんか？
-      </p>
+      <p style="font-size:14px; margin-bottom:12px;">個別指導は検索ニーズが非常に高く、集客と相性が良いジャンルです。長野市キッズナビに掲載して、真剣に塾を探している保護者へ直接アプローチしませんか？</p>
       <ul class="pr-list">
         <li>掲載無料</li>
         <li>クリック数の可視化</li>
         <li>保護者へ直接アプローチ可能</li>
       </ul>
-      <a href="https://forms.gle/xiMYtrGEonq9ynnt8" class="cta-btn cta-orange" target="_blank" rel="noopener noreferrer">
-        【無料】今すぐ掲載を申し込む（運営者様向け）→
-      </a>
+      <a href="https://forms.gle/xiMYtrGEonq9ynnt8" class="cta-btn cta-orange" target="_blank" rel="noopener noreferrer">【無料】今すぐ掲載を申し込む（運営者様向け）→</a>
     </div>
-
   </main>
-
 </body>
 </html>
