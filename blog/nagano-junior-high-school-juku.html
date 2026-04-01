@@ -10,253 +10,53 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Noto Sans JP', sans-serif;
-      background: #fafaf8;
-      color: #1a1a1a;
-      min-height: 100vh;
-    }
-
-    .blog-header {
-      background: linear-gradient(135deg, #1a6b3c 0%, #2d9e5f 60%, #38c172 100%);
-      padding: 40px 20px 36px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .blog-header::before {
-      content: '';
-      position: absolute;
-      top: -40px; right: -40px;
-      width: 180px; height: 180px;
-      background: rgba(255,255,255,0.07);
-      border-radius: 50%;
-    }
-    .blog-header::after {
-      content: '';
-      position: absolute;
-      bottom: -60px; left: -30px;
-      width: 220px; height: 220px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 50%;
-    }
-    .blog-header-badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.2);
-      color: #fff;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      padding: 4px 12px;
-      border-radius: 20px;
-      margin-bottom: 14px;
-      border: 1px solid rgba(255,255,255,0.3);
-    }
-    .blog-header h1 {
-      color: #fff;
-      font-size: 22px;
-      font-weight: 900;
-      line-height: 1.5;
-      margin: 0 0 10px;
-      position: relative;
-      z-index: 1;
-    }
-    .blog-header-meta {
-      color: rgba(255,255,255,0.8);
-      font-size: 12px;
-    }
-
-    .blog-body {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 28px 18px 60px;
-    }
-
-    .blog-nav {
-      background: #fff;
-      border-radius: 12px;
-      padding: 16px 18px;
-      margin-bottom: 28px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    .blog-nav-title {
-      font-weight: 700;
-      color: #1a6b3c;
-      margin-bottom: 10px;
-      font-size: 13px;
-    }
-    .blog-nav a {
-      display: block;
-      color: #2d9e5f;
-      text-decoration: none;
-      padding: 6px 0;
-      border-bottom: 1px solid #f0faf4;
-      font-size: 13px;
-    }
-    .blog-nav a:last-child { border-bottom: none; }
-    .blog-nav-current {
-      color: #1a1a1a !important;
-      font-weight: 700;
-      pointer-events: none;
-    }
-
-    .blog-lead {
-      background: #fff;
-      border-left: 4px solid #2d9e5f;
-      border-radius: 0 10px 10px 0;
-      padding: 18px;
-      margin-bottom: 28px;
-      font-size: 15px;
-      line-height: 1.85;
-      color: #333;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-
-    h2 {
-      font-size: 19px;
-      font-weight: 900;
-      color: #1a6b3c;
-      margin: 40px 0 16px;
-      padding: 14px 16px;
-      background: #f0faf4;
-      border-radius: 10px;
-      border-left: 5px solid #2d9e5f;
-      line-height: 1.5;
-    }
-
-    h3 {
-      font-size: 16px;
-      font-weight: 700;
-      color: #1a1a1a;
-      margin: 24px 0 10px;
-      padding: 0 0 6px;
-      border-bottom: 2px solid #e0f5ea;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .h3-icon {
-      display: inline-block;
-      background: #2d9e5f;
-      color: #fff;
-      font-size: 13px;
-      font-weight: 900;
-      padding: 2px 10px;
-      border-radius: 20px;
-      flex-shrink: 0;
-    }
-
-    p {
-      font-size: 15px;
-      line-height: 1.9;
-      color: #333;
-      margin-bottom: 14px;
-    }
-
-    .summary-box {
-      background: linear-gradient(135deg, #f0faf4, #e8f8ef);
-      border-radius: 14px;
-      padding: 22px 18px;
-      margin: 32px 0 0;
-      border: 1px solid #c3e8d0;
-    }
-    .summary-title {
-      font-size: 17px;
-      font-weight: 900;
-      color: #1a6b3c;
-      margin-bottom: 12px;
-      text-align: center;
-    }
-
-    .pr-box {
-      background: #fff8f0;
-      border: 2px solid #f59e0b;
-      border-radius: 14px;
-      padding: 22px 18px;
-      margin-top: 36px;
-    }
-    .pr-title {
-      font-size: 16px;
-      font-weight: 900;
-      color: #92400e;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .pr-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 16px;
-    }
-    .pr-list li {
-      font-size: 14px;
-      line-height: 1.8;
-      color: #444;
-      padding: 6px 0 6px 22px;
-      position: relative;
-    }
-    .pr-list li::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      color: #f59e0b;
-      font-weight: 900;
-    }
-
-    .cta-btn {
-      display: block;
-      width: 100%;
-      padding: 18px 16px;
-      border-radius: 50px;
-      font-size: 15px;
-      font-weight: 900;
-      text-align: center;
-      text-decoration: none;
-      margin: 24px 0;
-      letter-spacing: 0.03em;
-      line-height: 1.4;
-      -webkit-tap-highlight-color: transparent;
-      transition: opacity 0.15s, transform 0.15s;
-    }
-    .cta-btn:active {
-      opacity: 0.85;
-      transform: scale(0.97);
-    }
-    .cta-green {
-      background: linear-gradient(135deg, #2d9e5f, #38c172);
-      color: #fff;
-      box-shadow: 0 4px 16px rgba(45,158,95,0.35);
-    }
-    .cta-orange {
-      background: linear-gradient(135deg, #f59e0b, #f97316);
-      color: #fff;
-      box-shadow: 0 4px 16px rgba(249,115,22,0.35);
-    }
-
-    .divider {
-      border: none;
-      border-top: 2px dashed #d1fae5;
-      margin: 36px 0;
-    }
+    body { font-family: 'Noto Sans JP', sans-serif; background: #fafaf8; color: #1a1a1a; min-height: 100vh; }
+    .blog-header { background: linear-gradient(135deg, #1a6b3c 0%, #2d9e5f 60%, #38c172 100%); padding: 40px 20px 36px; text-align: center; position: relative; overflow: hidden; }
+    .blog-header::before { content: ''; position: absolute; top: -40px; right: -40px; width: 180px; height: 180px; background: rgba(255,255,255,0.07); border-radius: 50%; }
+    .blog-header::after { content: ''; position: absolute; bottom: -60px; left: -30px; width: 220px; height: 220px; background: rgba(255,255,255,0.05); border-radius: 50%; }
+    .blog-header-badge { display: inline-block; background: rgba(255,255,255,0.2); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; padding: 4px 12px; border-radius: 20px; margin-bottom: 14px; border: 1px solid rgba(255,255,255,0.3); }
+    .blog-header h1 { color: #fff; font-size: 22px; font-weight: 900; line-height: 1.5; margin: 0 0 10px; position: relative; z-index: 1; }
+    .blog-header-meta { color: rgba(255,255,255,0.8); font-size: 12px; }
+    .blog-body { max-width: 680px; margin: 0 auto; padding: 28px 18px 60px; }
+    .blog-nav { background: #fff; border-radius: 12px; margin-bottom: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); overflow: hidden; }
+    .blog-nav-toggle { width: 100%; background: none; border: none; padding: 16px 18px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; font-family: 'Noto Sans JP', sans-serif; font-weight: 700; color: #1a6b3c; font-size: 13px; -webkit-tap-highlight-color: transparent; }
+    .blog-nav-toggle-icon { font-size: 12px; transition: transform 0.25s; color: #2d9e5f; }
+    .blog-nav-toggle.open .blog-nav-toggle-icon { transform: rotate(180deg); }
+    .blog-nav-list { display: none; padding: 0 18px 12px; }
+    .blog-nav-list.open { display: block; }
+    .blog-nav-list a { display: block; color: #2d9e5f; text-decoration: none; padding: 6px 0; border-bottom: 1px solid #f0faf4; font-size: 13px; }
+    .blog-nav-list a:last-child { border-bottom: none; }
+    .blog-nav-current { color: #1a1a1a !important; font-weight: 700; pointer-events: none; }
+    .blog-lead { background: #fff; border-left: 4px solid #2d9e5f; border-radius: 0 10px 10px 0; padding: 18px; margin-bottom: 28px; font-size: 15px; line-height: 1.85; color: #333; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    h2 { font-size: 19px; font-weight: 900; color: #1a6b3c; margin: 40px 0 16px; padding: 14px 16px; background: #f0faf4; border-radius: 10px; border-left: 5px solid #2d9e5f; line-height: 1.5; }
+    h3 { font-size: 16px; font-weight: 700; color: #1a1a1a; margin: 24px 0 10px; padding: 0 0 6px; border-bottom: 2px solid #e0f5ea; display: flex; align-items: center; gap: 8px; }
+    .h3-icon { display: inline-block; background: #2d9e5f; color: #fff; font-size: 13px; font-weight: 900; padding: 2px 10px; border-radius: 20px; flex-shrink: 0; }
+    p { font-size: 15px; line-height: 1.9; color: #333; margin-bottom: 14px; }
+    .summary-box { background: linear-gradient(135deg, #f0faf4, #e8f8ef); border-radius: 14px; padding: 22px 18px; margin: 32px 0 0; border: 1px solid #c3e8d0; }
+    .summary-title { font-size: 17px; font-weight: 900; color: #1a6b3c; margin-bottom: 12px; text-align: center; }
+    .related-box { background: #fff; border-radius: 12px; padding: 16px 18px; margin: 32px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .related-title { font-size: 14px; font-weight: 700; color: #1a6b3c; margin-bottom: 10px; }
+    .related-box a { display: block; color: #2d9e5f; text-decoration: none; padding: 6px 0; border-bottom: 1px solid #f0faf4; font-size: 14px; }
+    .related-box a:last-child { border-bottom: none; }
+    .pr-box { background: #fff8f0; border: 2px solid #f59e0b; border-radius: 14px; padding: 22px 18px; margin-top: 36px; }
+    .pr-title { font-size: 16px; font-weight: 900; color: #92400e; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .pr-list { list-style: none; padding: 0; margin: 0 0 16px; }
+    .pr-list li { font-size: 14px; line-height: 1.8; color: #444; padding: 6px 0 6px 22px; position: relative; }
+    .pr-list li::before { content: '✓'; position: absolute; left: 0; color: #f59e0b; font-weight: 900; }
+    .cta-btn { display: block; width: 100%; padding: 18px 16px; border-radius: 50px; font-size: 15px; font-weight: 900; text-align: center; text-decoration: none; margin: 24px 0; letter-spacing: 0.03em; line-height: 1.4; -webkit-tap-highlight-color: transparent; transition: opacity 0.15s, transform 0.15s; }
+    .cta-btn:active { opacity: 0.85; transform: scale(0.97); }
+    .cta-green { background: linear-gradient(135deg, #2d9e5f, #38c172); color: #fff; box-shadow: 0 4px 16px rgba(45,158,95,0.35); }
+    .cta-orange { background: linear-gradient(135deg, #f59e0b, #f97316); color: #fff; box-shadow: 0 4px 16px rgba(249,115,22,0.35); }
+    .divider { border: none; border-top: 2px dashed #d1fae5; margin: 36px 0; }
   </style>
 </head>
 <body>
-
   <header class="blog-header">
     <div class="blog-header-badge">長野市キッズナビ｜塾選びガイド</div>
     <h1>長野市 中学生 塾の選び方<br>高校受験で後悔しない3つの重要ポイント</h1>
     <p class="blog-header-meta">長野市内54件以上の塾データに基づく客観ガイド</p>
   </header>
-
   <main class="blog-body">
-
-    <nav class="blog-nav">
-      <p class="blog-nav-title">📚 塾選びガイド 記事一覧</p>
-      <a href="./nagano-elementary-school-juku.html">小学生向け｜後悔しない3つのチェックポイント</a>
-      <a href="./nagano-junior-high-school-juku.html" class="blog-nav-current">▶ 中学生向け｜高校受験で後悔しない3つの重要ポイント</a>
-    </nav>
 
     <div class="blog-lead">
       長野市で中学生向けの塾を探している保護者の方へ。<br><br>
@@ -267,85 +67,76 @@
       現在、長野市内の学習塾<strong>54件以上の詳細データを網羅</strong>し、多くの保護者様に利用されている「長野市キッズナビ」が、客観的な視点で塾選びのポイントを解説します。
     </div>
 
-    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/" class="cta-btn cta-green">
-      【無料】長野市の中学生向け塾を一覧で見る→
-    </a>
+    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/" class="cta-btn cta-green">【無料】長野市の中学生向け塾を一覧で見る→</a>
 
     <h2>1. 長野市で中学生の塾を選ぶ「3つの絶対条件」</h2>
-
     <p>高校受験を見据えたとき、塾選びで絶対に外せないポイントが3つあります。</p>
 
     <h3><span class="h3-icon">①</span>志望校に特化した「入試対策」と「合格実績」</h3>
-    <p>
-      長野市の公立・私立高校の入試傾向は毎年変化しています。<br>
-      難関校を目指すなら、最新の出題傾向を熟知し、確かな合格実績を持つ専門塾の力が必要です。
-    </p>
+    <p>長野市の公立・私立高校の入試傾向は毎年変化しています。難関校を目指すなら、最新の出題傾向を熟知し、確かな合格実績を持つ専門塾の力が必要です。</p>
 
     <h3><span class="h3-icon">②</span>中学校別の「定期テスト・内申点対策」</h3>
-    <p>
-      内申点を確保するには、お子様が通う中学校のテスト範囲に合わせた対策が不可欠です。<br>
-      地元密着型の塾は、各中学の出題傾向を熟知しており、効率的な点数アップをサポートしてくれます。
-    </p>
+    <p>内申点を確保するには、お子様が通う中学校のテスト範囲に合わせた対策が不可欠です。地元密着型の塾は、各中学の出題傾向を熟知しており、効率的な点数アップをサポートしてくれます。</p>
 
     <h3><span class="h3-icon">③</span>集中できる「自習室」の環境</h3>
-    <p>
-      家ではスマホや誘惑に負けてしまう中学生にとって、「塾に行けば集中できる」という環境は、学習の質を左右します。<br>
-      授業がない日でも開放されている自習室の有無を必ずチェックしましょう。
-    </p>
+    <p>家ではスマホや誘惑に負けてしまう中学生にとって、「塾に行けば集中できる」という環境は、学習の質を左右します。授業がない日でも開放されている自習室の有無を必ずチェックしましょう。</p>
 
-    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/?area=nagano-station" class="cta-btn cta-green">
-      長野駅周辺の塾を一覧で見る→
-    </a>
+    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/?area=nagano-station" class="cta-btn cta-green">長野駅周辺の塾を一覧で見る→</a>
 
     <hr class="divider">
 
     <h2>2. 失敗しないために「無料体験授業」を必ず利用する</h2>
+    <p>どれほど評判の良い塾でも、お子様との相性が悪ければ成績は伸びません。<br><br>勉強のモチベーションを維持できるか、「ここなら頑張れそう！」という本人の直感を最優先にしてあげてください。<br><br>まずは「長野市キッズナビ」で候補を絞り込み、今すぐ無料体験の予約をすることをお勧めします。</p>
 
-    <p>
-      どれほど評判の良い塾でも、お子様との相性が悪ければ成績は伸びません。<br><br>
-      勉強のモチベーションを維持できるか、「ここなら頑張れそう！」という本人の直感を最優先にしてあげてください。<br><br>
-      まずは「長野市キッズナビ」で候補を絞り込み、今すぐ無料体験の予約をすることをお勧めします。
-    </p>
-
-    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/" class="cta-btn cta-green">
-      【3分で見つかる】条件に合う長野市の塾を今すぐ検索する→
-    </a>
+    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/" class="cta-btn cta-green">【3分で見つかる】条件に合う長野市の塾を今すぐ検索する→</a>
 
     <hr class="divider">
 
     <div class="summary-box">
       <p class="summary-title">まとめ：お子様の未来を「長野市キッズナビ」で切り拓く</p>
       <p>高校受験は、お子様の人生を左右する大きな分岐点です。</p>
-      <p>
-        「内申点対策に強い塾はどこ？」<br>
-        「長野駅周辺で、部活帰りに通える塾は？」
-      </p>
-      <p>
-        そんな疑問は、54件以上の掲載データを誇る「長野市キッズナビ」ですべて解決します。<br>
-        お子様にぴったりの学び場を、今すぐ見つけてください。
-      </p>
+      <p>「内申点対策に強い塾はどこ？」<br>「長野駅周辺で、部活帰りに通える塾は？」</p>
+      <p>そんな疑問は、54件以上の掲載データを誇る「長野市キッズナビ」ですべて解決します。<br>お子様にぴったりの学び場を、今すぐ見つけてください。</p>
     </div>
 
-    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/" class="cta-btn cta-green">
-      長野市の中学生向け塾を条件から探す（無料）→
-    </a>
+    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/" class="cta-btn cta-green">長野市の中学生向け塾を条件から探す（無料）→</a>
+
+    <div class="related-box">
+      <p class="related-title">塾選びで失敗したくない方はこちら</p>
+      <a href="./nagano-juku-hikaku.html">👉 塾の比較記事</a>
+    </div>
+
+    <nav class="blog-nav">
+      <button class="blog-nav-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">
+        📚 塾選びガイド 記事一覧
+        <span class="blog-nav-toggle-icon">▼</span>
+      </button>
+       <div class="blog-nav-list">
+        <a href="./nagano-elementary-school-juku.html">小学生向け｜後悔しない3つのチェックポイント</a>
+        <a href="./nagano-junior-high-school-juku.html">中学生向け｜高校受験で後悔しない3つの重要ポイント</a>
+        <a href="./nagano-juku-osusume.html">長野市でおすすめの塾｜失敗しない選び方</a>
+        <a href="./nagano-juku-ryokin.html">長野市の塾の料金相場｜小学生・中学生別に解説</a>
+        <a href="./nagano-juku-hikaku.html">長野市 塾 比較｜タイプ別おすすめ選び方</a>
+        <a href="./nagano-juku-itsukara.html">長野市 塾 いつから？最適タイミングを解説</a>
+        <a href="./nagano-juku-yasui.html">長野市 塾 安いおすすめは？失敗しない選び方を解説</a>
+        <a href="./nagano-juku-kobetsu.html">長野市 塾 個別指導はどう選ぶ？失敗しないポイントを解説</a>
+        <a href="./nagano-juku-kobetsu-vs-shudan.html">長野市 塾 個別指導と集団塾どっちがいい？違いと選び方を解説</a>
+        <a href="./nagano-juku-kuchikomi.html">長野市 塾 口コミは信じていい？失敗しない見極め方を解説</a>
+        <a href="./nagano-juku-yametahouga-ii.html">長野市 塾 やめたほうがいい？失敗例と後悔しない選び方を解説</a>
+        <a href="./nagano-juku-chugakusei-osusume.html">長野市 塾 中学生おすすめ｜高校受験で失敗しない選び方を解説</a>
+      </div>
+    </nav>
 
     <div class="pr-box">
       <p class="pr-title"><span>📈</span>塾・習い事の教室運営者様へ</p>
-      <p style="font-size:14px; margin-bottom:12px;">
-        「長野市キッズナビ」は現在アクセス数が急増中。長野市で集客を強化したい教室様にとって、最も効率的なプラットフォームです。
-      </p>
+      <p style="font-size:14px; margin-bottom:12px;">「長野市キッズナビ」は現在アクセス数が急増中。長野市で集客を強化したい教室様にとって、最も効率的なプラットフォームです。</p>
       <ul class="pr-list">
         <li><strong>集客力：</strong>塾選びに真剣な保護者層へダイレクトにアプローチ可能。</li>
         <li><strong>データ計測：</strong>貴校のページが何回クリックされたか、数値を可視化できます。</li>
         <li><strong>限定告知：</strong>現在、掲載枠には限りがあります。</li>
       </ul>
-      <a href="https://forms.gle/xiMYtrGEonq9ynnt8" class="cta-btn cta-orange" target="_blank" rel="noopener noreferrer">
-        無料で掲載を申し込む・お問い合わせはこちら→
-      </a>
+      <a href="https://forms.gle/xiMYtrGEonq9ynnt8" class="cta-btn cta-orange" target="_blank" rel="noopener noreferrer">無料で掲載を申し込む・お問い合わせはこちら→</a>
     </div>
-
   </main>
-
 </body>
 </html>
