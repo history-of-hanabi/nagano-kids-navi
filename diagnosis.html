@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>塾タイプ診断｜長野市キッズナビ</title>
+  <meta name="description" content="5つの質問に答えるだけで、お子さんに合う塾タイプと長野市内の塾が見つかります。無料・登録不要。" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Noto Sans JP','Hiragino Sans',sans-serif;background:#FFF7ED;}
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+const { useState, useEffect } = React;
+
+const SITE_URL = "https://history-of-hanabi.github.io/nagano-kids-navi/";
+const SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRpt_Jt4eGKpGuTevkguiaY-IGCXP52bFuhSwgRnYeF0IJkZRuZmHH3w4ZylDXA4obzuBUCIhFyXS1d/pub?output=csv";
+
+const FALLBACK_ITEMS = [
+  {name:"個別教室のトライ 長野本校",area:"長野駅周辺",grade:"小・中・高",trial:"あり",parking:"近隣コインパーキング"},
+  {name:"個別教室のトライ 上松校",area:"三輪交番周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"個別教室のトライ 長野運動公園前校",area:"長野運動公園周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"個別教室のトライ 青木島校",area:"丹波島橋南交差点周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"個別教室のトライ 篠ノ井校",area:"八十二銀行篠ノ井支店周辺",grade:"小・中・高",trial:"あり",parking:"近隣コインパーキング"},
+  {name:"個別指導の明光義塾 浅川教室",area:"桐原駅周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"個別指導の明光義塾 安茂里駅前教室",area:"安茂里駅周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"個別指導の明光義塾 北長野駅前教室",area:"北長野駅周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"個別指導の明光義塾 篠ノ井駅前教室",area:"篠ノ井駅周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"個別指導の明光義塾 長野青木島教室",area:"セブンイレブン長野青木島店周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"個別指導の明光義塾 長野稲葉教室",area:"レンゴー㈱長野工場周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"個別指導の明光義塾 長野七瀬教室",area:"南部小学校北交差点周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"個別指導の明光義塾 長野三輪教室",area:"善光寺下駅周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"個別指導の明光義塾 西尾張部教室",area:"八幡中央公園周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"個別指導の明光義塾 柳原教室",area:"柳原中央公園周辺",grade:"小・中・高",trial:"あり",parking:"なし"},
+  {name:"学習塾 Mi ga ku",area:"鍋屋田小学校周辺",grade:"小・中・高・大",trial:"あり",parking:"あり"},
+  {name:"長野ゼミナール 青木島教室",area:"更北中学校周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"学習塾 STUDIQ",area:"東部中学校周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"いしわた学習教室",area:"山田記念朝日病院周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"学習塾 横塾",area:"長野高専周辺",grade:"小・中",trial:"要問い合わせ",parking:"なし"},
+  {name:"松陰塾 長野吉田校",area:"長野運動公園総合体育館周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"学習空間 稲里教室",area:"ヤマダデンキ長野南店周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"学習塾 就英",area:"東京インテリア家具長野店周辺",grade:"小・中・高",trial:"要問い合わせ",parking:"あり"},
+  {name:"伸習塾 長野裾花教室",area:"裾花中学校周辺",grade:"小・中",trial:"あり",parking:"要問い合わせ"},
+  {name:"学研CAIスクール 長野中央教室",area:"稲田1・2丁目周辺",grade:"小・中",trial:"あり",parking:"あり"},
+  {name:"学習塾 モリスタ",area:"三陽中学校周辺",grade:"小・中・高",trial:"要問い合わせ",parking:"あり"},
+  {name:"自立学習塾RED 長野長池教室",area:"三陽中学校周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"えんぶ塾 長野北教室",area:"三陽中学校周辺",grade:"小・中",trial:"あり",parking:"あり"},
+  {name:"みんなの塾 中御所校",area:"長野バスターミナル周辺",grade:"小・中・高",trial:"要問い合わせ",parking:"あり"},
+  {name:"セルモ 高田古牧教室",area:"古牧小学校周辺",grade:"小・中",trial:"あり",parking:"あり"},
+  {name:"個別指導塾WAM 長野運動公園校",area:"長野運動公園総合運動場周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"いずみ塾 北長野校",area:"長野吉田高校周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"個別学習塾 オウル",area:"中氷鉋交差点周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"信学会 ゼミナール稲里校",area:"稲里西交差点周辺",grade:"小・中",trial:"要問い合わせ",parking:"あり"},
+  {name:"学び舎 かなえ",area:"川中島駅周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"学習塾 寺子屋いっぽ",area:"青木島小学校周辺",grade:"小・中",trial:"あり",parking:"あり"},
+  {name:"ノア進学塾",area:"本郷駅周辺",grade:"小・中・高",trial:"あり",parking:"要問い合わせ"},
+  {name:"志学の杜",area:"長野駅周辺",grade:"小・中・高",trial:"要問い合わせ",parking:"要問い合わせ"},
+  {name:"想進塾",area:"善光寺下駅周辺",grade:"小・中",trial:"あり",parking:"要問い合わせ"},
+  {name:"クレドアカデミー",area:"長野吉田高校周辺",grade:"中・高",trial:"あり",parking:"要問い合わせ"},
+  {name:"みんなの塾 ナーガ校",area:"セントラルスクゥエア周辺",grade:"小・中・高",trial:"要問い合わせ",parking:"あり"},
+  {name:"超個別指導塾まつがく 長野駅東口校",area:"長野駅周辺",grade:"小・中・高",trial:"あり",parking:"近隣コインパーキング"},
+  {name:"超個別指導塾まつがく 長野SBC通り校",area:"三輪交番周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"超個別指導塾まつがく 長野柳町校",area:"城東小学校周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"超個別指導塾まつがく 長野安茂里駅前校",area:"安茂里駅周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"超個別指導塾まつがく 長野広徳校",area:"広徳の湯周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"総合教育カルチャー",area:"青木島交差点周辺",grade:"小・中・高",trial:"あり",parking:"要問い合わせ"},
+  {name:"いずみ塾 三本柳校",area:"三本柳小学校周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"いずみ塾 西尾張部校",area:"三陽中学校周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"いずみ塾 大豆島校",area:"大豆島小学校周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"いずみ塾 今井駅前校",area:"今井駅周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"いずみ塾 篠ノ井駅前校",area:"篠ノ井駅周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"いずみ塾 稲葉校",area:"ビッグハット周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+  {name:"超個別指導塾まつがく 長野運動公園校",area:"長野運動公園周辺",grade:"小・中・高",trial:"あり",parking:"あり"},
+];
+
+const ROW_ORDER = ["あ行","か行","さ行","た行","な行","は行","ま行","や行","ら行","その他"];
+
+function getKanaRow(str){
+  const c=str.charAt(0);
+  if("あいうえおアイウエオ".includes(c))return"あ行";
+  if("かきくけこがぎぐげごカキクケコガギグゲゴ".includes(c))return"か行";
+  if("さしすせそざじずぜぞサシスセソザジズゼゾ".includes(c))return"さ行";
+  if("たちつてとだぢづでどタチツテトダヂヅデド".includes(c))return"た行";
+  if("なにぬねのナニヌネノ".includes(c))return"な行";
+  if("はひふへほばびぶべぼぱぴぷぺぽハヒフヘホバビブベボパピプペポ".includes(c))return"は行";
+  if("まみむめもマミムメモ".includes(c))return"ま行";
+  if("やゆよヤユヨ".includes(c))return"や行";
+  if("らりるれろラリルレロ".includes(c))return"ら行";
+  return"その他";
+}
+
+function buildAreaByRow(items){
+  const areas=[...new Set(items.map(d=>d.area).filter(Boolean))].sort();
+  const g={};
+  areas.forEach(a=>{const r=getKanaRow(a);if(!g[r])g[r]=[];g[r].push(a);});
+  return g;
+}
+
+function parseCSV(text){
+  const rows=[];let row=[],field='',inQ=false;
+  const str=text.charCodeAt(0)===0xFEFF?text.slice(1):text;
+  for(let i=0;i<str.length;i++){
+    const ch=str[i];
+    if(inQ){if(ch==='"'){if(str[i+1]==='"'){field+='"';i++;}else inQ=false;}else field+=ch;}
+    else if(ch==='"')inQ=true;
+    else if(ch===','){row.push(field.trim());field='';}
+    else if(ch==='\n'||ch==='\r'){row.push(field.trim());if(row.some(c=>c!==''))rows.push(row);row=[];field='';if(ch==='\r'&&str[i+1]==='\n')i++;}
+    else field+=ch;
+  }
+  row.push(field.trim());if(row.some(c=>c!==''))rows.push(row);return rows;
+}
+
+function csvToItems(rows){
+  if(rows.length<2)return[];
+  const headers=rows[0].map(h=>h.toLowerCase().trim());
+  return rows.slice(1).map(cols=>{
+    const obj={};headers.forEach((h,i)=>{obj[h]=cols[i]??'';});
+    return{name:obj.name||'',area:obj.area||'',grade:obj.grade||'',trial:obj.trial||'',parking:obj.parking||''};
+  }).filter(o=>o.name);
+}
+
+function countMatches(items,filters){
+  return items.filter(d=>{
+    if(filters.grade&&!d.grade.includes(filters.grade))return false;
+    if(filters.area&&d.area!==filters.area)return false;
+    if(filters.trial==="1"&&d.trial!=="あり")return false;
+    if(filters.parking==="1"&&d.parking!=="あり")return false;
+    return true;
+  }).length;
+}
+
+const QUESTIONS=[
+  {id:"grade",question:"お子さんの学年を教えてください",emoji:"📚",options:[
+    {label:"小学生（1〜4年生）",value:"小",sub:"基礎固めの時期"},
+    {label:"小学生（5〜6年生）",value:"小",sub:"中学準備・受験も視野に"},
+    {label:"中学生",value:"中",sub:"高校受験に向けて"},
+    {label:"高校生",value:"高",sub:"大学受験・定期テスト対策"},
+  ]},
+  {id:"concern",question:"今一番気になっていることは？",emoji:"💬",options:[
+    {label:"学校の授業についていけない",value:"basic",sub:"基礎から丁寧に復習したい"},
+    {label:"受験対策をしっかりしたい",value:"exam",sub:"志望校合格を目指したい"},
+    {label:"勉強習慣をつけさせたい",value:"habit",sub:"自分から勉強できるようにしたい"},
+    {label:"得意科目をさらに伸ばしたい",value:"advanced",sub:"もっと上のレベルへ"},
+  ]},
+  {id:"style",question:"どんな指導スタイルが合いそうですか？",emoji:"🏫",options:[
+    {label:"先生に1対1で教えてほしい",value:"individual",sub:"子どものペースに合わせてほしい"},
+    {label:"少人数のクラスで学びたい",value:"small",sub:"友達と一緒に切磋琢磨したい"},
+    {label:"まだわからない",value:"any",sub:"体験授業で試してみたい"},
+  ]},
+  {id:"priority",question:"塾選びで一番重視することは？",emoji:"⭐",options:[
+    {label:"料金を抑えたい",value:"price",sub:"コスパ重視"},
+    {label:"駐車場があると助かる",value:"parking",sub:"車で送迎したい"},
+    {label:"まず体験授業を受けたい",value:"trial",sub:"通う前に確認したい"},
+    {label:"通いやすい場所がいい",value:"access",sub:"エリア・駅近重視"},
+  ]},
+];
+
+function diagnose(answers){
+  const filters={};let jukuType="",message="";const points=[];
+  if(answers.grade)filters.grade=answers.grade;
+  if(answers.area)filters.area=answers.area;
+  if(answers.style==="individual"){jukuType="個別指導塾";points.push("お子さんのペースに合わせた完全個別指導");}
+  else if(answers.style==="small"){jukuType="少人数・集団塾";points.push("仲間と刺激し合える環境");}
+  else{jukuType="個別指導塾";points.push("まず体験授業で雰囲気を確認できる");filters.trial="1";}
+  if(answers.concern==="basic"){points.push("基礎から丁寧に指導してくれる教室");message="基礎固めには、お子さんのつまずきを見つけて一つずつ解決してくれる個別指導が特に効果的です。";}
+  else if(answers.concern==="exam"){points.push("受験対策カリキュラムが充実した教室");message="受験対策は早めのスタートが鍵。志望校に合わせたカリキュラムで計画的に進められる塾を選びましょう。";}
+  else if(answers.concern==="habit"){points.push("自習室・学習管理が充実した教室");message="勉強習慣は環境が大切。自習室が使える塾や、学習スケジュールを一緒に管理してくれる塾がおすすめです。";}
+  else{points.push("レベルに合わせた応用カリキュラム");message="得意を伸ばすには、上のレベルに挑戦できる環境が重要です。実力に合わせた指導をしてくれる塾を探しましょう。";}
+  if(answers.priority==="parking"){filters.parking="1";points.push("駐車場完備で送迎もラクラク");}
+  else if(answers.priority==="trial"){filters.trial="1";points.push("体験授業で安心してスタートできる");}
+  if(answers.area)points.push(`エリア：${answers.area.replace("周辺","")}`);
+  return{filters,jukuType,message,points};
+}
+
+function buildURL(filters){
+  const p=new URLSearchParams();
+  Object.entries(filters).forEach(([k,v])=>{if(v)p.set(k,v);});
+  const s=p.toString();return s?`${SITE_URL}#/?${s}`:SITE_URL;
+}
+function buildURLNoArea(filters){const{area,...rest}=filters;return buildURL(rest);}
+
+function Header({step,total,onBack}){
+  return(
+    <div style={{display:"flex",alignItems:"center",marginBottom:16,gap:8}}>
+      <button onClick={onBack} style={{display:"flex",alignItems:"center",justifyContent:"center",width:36,height:36,borderRadius:"50%",border:"2px solid #EDE9E0",background:"white",cursor:"pointer",flexShrink:0,fontSize:16,fontFamily:"inherit"}}>←</button>
+      <div style={{flex:1}}>
+        <div style={{display:"flex",justifyContent:"space-between",marginBottom:4}}>
+          <span style={{fontSize:12,color:"#888"}}>質問 {step} / {total}</span>
+          <span style={{fontSize:12,color:"#F97316",fontWeight:"bold"}}>{Math.round((step/total)*100)}%</span>
+        </div>
+        <div style={{background:"#EDE9E0",borderRadius:99,height:6,overflow:"hidden"}}>
+          <div style={{height:"100%",borderRadius:99,background:"linear-gradient(90deg,#F97316,#FBBF24)",width:`${(step/total)*100}%`,transition:"width 0.3s ease"}}/>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function CountBadge({count}){
+  if(count===null)return <span style={{fontSize:12,color:"#AAA"}}>確認中…</span>;
+  const color=count===0?"#EF4444":count<=3?"#F97316":"#16A34A";
+  return <span style={{display:"inline-flex",alignItems:"center",background:color,color:"white",borderRadius:99,padding:"2px 10px",fontSize:13,fontWeight:"bold"}}>{count}件</span>;
+}
+
+function AreaStep({value,onChange,areaByRow}){
+  const [selRow,setSelRow]=useState("");
+  const rows=ROW_ORDER.filter(r=>areaByRow[r]?.length>0);
+  return(
+    <div>
+      {value&&(
+        <div style={{display:"flex",alignItems:"center",gap:8,padding:"10px 14px",borderRadius:10,background:"#FFF7ED",border:"2px solid #F97316",marginBottom:12}}>
+          <span style={{fontSize:14,color:"#F97316",fontWeight:"bold",flex:1}}>📍 {value.replace("周辺","")}</span>
+          <button onClick={()=>{onChange("");setSelRow("");}} style={{background:"none",border:"none",cursor:"pointer",color:"#AAA",fontSize:18,lineHeight:1,padding:"0 4px"}}>×</button>
+        </div>
+      )}
+      <div style={{display:"flex",flexWrap:"wrap",gap:8,marginBottom:10}}>
+        {rows.map(row=>(
+          <button key={row} onClick={()=>setSelRow(r=>r===row?"":row)} style={{padding:"8px 14px",borderRadius:20,fontFamily:"inherit",border:`2px solid ${selRow===row?"#F97316":"#EDE9E0"}`,background:selRow===row?"#FFF7ED":"white",color:selRow===row?"#F97316":"#888",fontWeight:selRow===row?"bold":"normal",fontSize:14,cursor:"pointer"}}>{row}</button>
+        ))}
+      </div>
+      {selRow&&areaByRow[selRow]&&(
+        <div style={{background:"white",borderRadius:12,border:"1.5px solid #EDE9E0",overflow:"hidden",marginBottom:4}}>
+          {areaByRow[selRow].map((area,i)=>(
+            <button key={area} onClick={()=>{onChange(area);setSelRow("");}} style={{display:"block",width:"100%",padding:"12px 16px",textAlign:"left",fontFamily:"inherit",fontSize:14,border:"none",borderBottom:i<areaByRow[selRow].length-1?"1px solid #EDE9E0":"none",background:value===area?"#FFF7ED":"white",color:value===area?"#F97316":"#444",fontWeight:value===area?"bold":"normal",cursor:"pointer"}}>
+              {value===area?"✅ ":""}{area.replace("周辺","")}
+            </button>
+          ))}
+        </div>
+      )}
+      {!value&&<p style={{fontSize:12,color:"#BBB",textAlign:"center",marginTop:8}}>エリアを選ばずに進むこともできます</p>}
+    </div>
+  );
+}
+
+function App(){
+  const TOTAL=QUESTIONS.length+1;
+  const [step,setStep]=useState(0);
+  const [answers,setAnswers]=useState({});
+  const [selected,setSelected]=useState(null);
+  const [selArea,setSelArea]=useState("");
+  const [items,setItems]=useState(FALLBACK_ITEMS);
+  const areaByRow=buildAreaByRow(items);
+
+  useEffect(()=>{
+    fetch(SPREADSHEET_URL).then(r=>r.text()).then(text=>{
+      const parsed=csvToItems(parseCSV(text));
+      if(parsed.length>0)setItems(parsed);
+    }).catch(()=>{});
+  },[]);
+
+  const isArea=step===QUESTIONS.length+1;
+  const isResult=step===TOTAL+1;
+  const currentQ=(!isArea&&!isResult&&step>=1)?QUESTIONS[step-1]:null;
+  const result=isResult?diagnose(answers):null;
+  const matchCount=result?countMatches(items,result.filters):null;
+  const matchCountNoArea=result?.filters.area?countMatches(items,{...result.filters,area:undefined}):null;
+
+  const handleBack=()=>{
+    if(step===0)return;
+    const prev=step-1;
+    setStep(prev);
+    setSelected(null);
+    if(prev>=1&&prev<=QUESTIONS.length){
+      const pq=QUESTIONS[prev-1];
+      setSelected(answers[pq.id]??null);
+    }
+  };
+
+  const handleNext=()=>{
+    if(selected===null)return;
+    setAnswers(prev=>({...prev,[currentQ.id]:selected}));
+    setSelected(null);setStep(s=>s+1);
+  };
+
+  const handleAreaNext=()=>{
+    setAnswers(prev=>({...prev,area:selArea}));
+    setStep(s=>s+1);
+  };
+
+  const reset=()=>{setStep(0);setAnswers({});setSelected(null);setSelArea("");};
+
+  const wrap=(children)=>(
+    <div style={{fontFamily:"'Noto Sans JP','Hiragino Sans',sans-serif",maxWidth:480,margin:"0 auto",padding:16,background:"#FFF7ED",minHeight:"100vh"}}>
+      {children}
+    </div>
+  );
+
+  // トップ
+  if(step===0)return wrap(
+    <div style={{display:"flex",flexDirection:"column",justifyContent:"center",minHeight:"100vh",paddingBottom:32}}>
+      <div style={{background:"linear-gradient(135deg,#F97316,#FBBF24)",borderRadius:20,padding:"32px 20px",textAlign:"center",marginBottom:24,boxShadow:"0 8px 32px rgba(249,115,22,0.25)"}}>
+        <div style={{fontSize:48,marginBottom:12}}>🎯</div>
+        <div style={{fontSize:20,fontWeight:"bold",color:"white",marginBottom:8}}>塾タイプ診断</div>
+        <div style={{fontSize:13,color:"rgba(255,255,255,0.9)",lineHeight:1.7}}>5つの質問に答えるだけで<br/>お子さんに合う塾が見つかります</div>
+      </div>
+      <div style={{display:"flex",flexDirection:"column",gap:10,marginBottom:24}}>
+        {[{emoji:"⏱️",text:"所要時間：約1分"},{emoji:"🆓",text:"無料・登録不要"},{emoji:"📍",text:"エリア指定で近くの塾を絞り込めます"}].map((item,i)=>(
+          <div key={i} style={{display:"flex",alignItems:"center",gap:10,background:"white",borderRadius:10,padding:"10px 14px",border:"1.5px solid #EDE9E0",fontSize:13,color:"#555"}}>
+            <span style={{fontSize:18}}>{item.emoji}</span>{item.text}
+          </div>
+        ))}
+      </div>
+      <button onClick={()=>setStep(1)} style={{width:"100%",padding:"16px",borderRadius:14,border:"none",background:"linear-gradient(135deg,#F97316,#FBBF24)",color:"white",fontSize:17,fontWeight:"bold",fontFamily:"inherit",cursor:"pointer",boxShadow:"0 4px 14px rgba(249,115,22,0.4)"}}>
+        診断スタート →
+      </button>
+    </div>
+  );
+
+  // 通常質問
+  if(currentQ)return wrap(
+    <>
+      <Header step={step} total={TOTAL} onBack={handleBack}/>
+      <div style={{background:"white",borderRadius:16,padding:"20px 16px",border:"1.5px solid #EDE9E0",marginBottom:16}}>
+        <div style={{fontSize:28,marginBottom:8}}>{currentQ.emoji}</div>
+        <div style={{fontSize:16,fontWeight:"bold",color:"#1A1A2E",lineHeight:1.5}}>{currentQ.question}</div>
+      </div>
+      <div style={{display:"flex",flexDirection:"column",gap:10,marginBottom:20}}>
+        {currentQ.options.map((opt,i)=>(
+          <button key={i} onClick={()=>setSelected(opt.value)} style={{padding:"14px 16px",borderRadius:12,fontFamily:"inherit",border:`2px solid ${selected===opt.value?"#F97316":"#EDE9E0"}`,background:selected===opt.value?"#FFF7ED":"white",textAlign:"left",cursor:"pointer",transition:"all 0.15s"}}>
+            <div style={{fontSize:14,fontWeight:"bold",color:selected===opt.value?"#F97316":"#333"}}>{selected===opt.value?"✅ ":""}{opt.label}</div>
+            <div style={{fontSize:12,color:"#AAA",marginTop:3}}>{opt.sub}</div>
+          </button>
+        ))}
+      </div>
+      <button onClick={handleNext} disabled={selected===null} style={{width:"100%",padding:"14px",borderRadius:12,border:"none",background:selected!==null?"linear-gradient(135deg,#F97316,#FBBF24)":"#DDD",color:"white",fontSize:15,fontWeight:"bold",fontFamily:"inherit",cursor:selected!==null?"pointer":"not-allowed"}}>次へ →</button>
+    </>
+  );
+
+  // エリア選択
+  if(isArea)return wrap(
+    <>
+      <Header step={step} total={TOTAL} onBack={handleBack}/>
+      <div style={{background:"white",borderRadius:16,padding:"20px 16px",border:"1.5px solid #EDE9E0",marginBottom:16}}>
+        <div style={{fontSize:28,marginBottom:8}}>📍</div>
+        <div style={{fontSize:16,fontWeight:"bold",color:"#1A1A2E",lineHeight:1.5}}>通いやすいエリアはありますか？</div>
+        <div style={{fontSize:12,color:"#AAA",marginTop:6}}>選ばなくても診断結果を見られます</div>
+      </div>
+      <div style={{marginBottom:20}}>
+        <AreaStep value={selArea} onChange={setSelArea} areaByRow={areaByRow}/>
+      </div>
+      <button onClick={handleAreaNext} style={{width:"100%",padding:"14px",borderRadius:12,border:"none",background:"linear-gradient(135deg,#F97316,#FBBF24)",color:"white",fontSize:15,fontWeight:"bold",fontFamily:"inherit",cursor:"pointer",boxShadow:"0 4px 14px rgba(249,115,22,0.35)"}}>
+        {selArea?"診断結果を見る 🎯":"エリア指定なしで結果を見る →"}
+      </button>
+    </>
+  );
+
+  // 結果
+  if(isResult&&result)return wrap(
+    <>
+      <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:16}}>
+        <button onClick={handleBack} style={{display:"flex",alignItems:"center",justifyContent:"center",width:36,height:36,borderRadius:"50%",border:"2px solid #EDE9E0",background:"white",cursor:"pointer",flexShrink:0,fontSize:16,fontFamily:"inherit"}}>←</button>
+        <span style={{fontSize:14,fontWeight:"bold",color:"#555"}}>診断結果</span>
+      </div>
+      <div style={{background:"linear-gradient(135deg,#F97316,#FBBF24)",borderRadius:16,padding:"24px 16px",textAlign:"center",marginBottom:16,boxShadow:"0 4px 20px rgba(249,115,22,0.3)"}}>
+        <div style={{fontSize:13,color:"rgba(255,255,255,0.85)",marginBottom:6}}>診断結果</div>
+        <div style={{fontSize:26,fontWeight:"bold",color:"white",marginBottom:4}}>🏫 {result.jukuType}</div>
+        <div style={{fontSize:12,color:"rgba(255,255,255,0.85)"}}>が向いています</div>
+      </div>
+      <div style={{background:"white",borderRadius:14,padding:16,border:"1.5px solid #EDE9E0",marginBottom:12,lineHeight:1.8,fontSize:14,color:"#444"}}>
+        <div style={{fontSize:13,color:"#F97316",fontWeight:"bold",marginBottom:8}}>💡 アドバイス</div>
+        {result.message}
+      </div>
+      <div style={{background:"white",borderRadius:14,padding:16,border:"1.5px solid #EDE9E0",marginBottom:12}}>
+        <div style={{fontSize:13,color:"#1a6b3c",fontWeight:"bold",marginBottom:10}}>✅ あなたの条件に合ったポイント</div>
+        {result.points.map((p,i)=>(
+          <div key={i} style={{display:"flex",alignItems:"flex-start",gap:8,fontSize:13,color:"#555",marginBottom:8,lineHeight:1.5}}>
+            <span style={{color:"#F97316",flexShrink:0,fontWeight:"bold"}}>•</span>{p}
+          </div>
+        ))}
+      </div>
+      <div style={{background:"white",borderRadius:14,padding:16,border:"2px solid #F97316",marginBottom:12}}>
+        <div style={{fontSize:13,color:"#F97316",fontWeight:"bold",marginBottom:12}}>🔍 条件に合う長野市の塾を見る</div>
+        <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:8}}>
+          <span style={{fontSize:12,color:"#888"}}>該当件数</span>
+          <CountBadge count={matchCount}/>
+        </div>
+        <a href={buildURL(result.filters)} target="_blank" rel="noopener noreferrer"
+          style={{display:"block",padding:"13px",background:matchCount===0?"#DDD":"linear-gradient(135deg,#F97316,#FBBF24)",color:"white",borderRadius:12,textAlign:"center",textDecoration:"none",fontSize:15,fontWeight:"bold",boxShadow:matchCount===0?"none":"0 4px 14px rgba(249,115,22,0.35)"}}>
+          {matchCount===0?"条件に合う塾がありません":"該当する塾の一覧を見る →"}
+        </a>
+        {result.filters.area&&(
+          <div style={{marginTop:12}}>
+            <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:8}}>
+              <span style={{fontSize:12,color:"#888"}}>エリアを外した場合</span>
+              <CountBadge count={matchCountNoArea}/>
+            </div>
+            <a href={buildURLNoArea(result.filters)} target="_blank" rel="noopener noreferrer"
+              style={{display:"block",padding:"11px",background:"white",border:"2px solid #FDBA74",color:"#F97316",borderRadius:12,textAlign:"center",textDecoration:"none",fontSize:13,fontWeight:"bold"}}>
+              📍 エリアを外して再検索する
+            </a>
+          </div>
+        )}
+      </div>
+      <button onClick={reset} style={{width:"100%",padding:"13px",borderRadius:12,border:"2px solid #EDE9E0",background:"white",fontSize:14,fontWeight:"bold",color:"#888",cursor:"pointer",fontFamily:"inherit"}}>
+        🔄 もう一度診断する
+      </button>
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+  </script>
+</body>
+</html>
