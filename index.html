@@ -193,6 +193,13 @@ function SiteHeader({onNav, showStats, items, areas}){
           このサイトについて
         </button>
       </div>
+      {/* ヘッダー左上：診断ツールボタン */}
+      <div style={{position:'absolute',top:10,left:12,zIndex:1}}>
+        <a href="./diagnosis.html"
+          style={{display:'inline-block',background:'linear-gradient(135deg,#F97316,#FBBF24)',border:'none',borderRadius:20,padding:'6px 11px',fontSize:10,fontWeight:900,color:'#fff',textDecoration:'none',fontFamily:'inherit',whiteSpace:'nowrap',boxShadow:'0 2px 8px rgba(249,115,22,0.3)'}}>
+          🎯 塾タイプ診断
+        </a>
+      </div>
       <div style={{position:'relative'}}>
         <button onClick={()=>onNav('home')} style={{background:'none',border:'none',cursor:'pointer',padding:0,fontFamily:'inherit'}}>
           <div style={{display:'inline-flex',alignItems:'center',justifyContent:'center',width:44,height:44,borderRadius:12,background:'linear-gradient(135deg,#F97316,#FBBF24)',boxShadow:'0 4px 14px rgba(249,115,22,0.3)',marginBottom:6,fontSize:22}}>🎒</div>
