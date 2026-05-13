@@ -41,10 +41,6 @@
     .emphasis-box { background: #f0faf4; border: 2px solid #2d9e5f; border-radius: 12px; padding: 18px; margin: 20px 0; text-align: center; font-size: 15px; font-weight: 700; color: #1a6b3c; line-height: 1.7; }
     .summary-box { background: linear-gradient(135deg, #f0faf4, #e8f8ef); border-radius: 14px; padding: 22px 18px; margin: 32px 0 0; border: 1px solid #c3e8d0; }
     .summary-title { font-size: 17px; font-weight: 900; color: #1a6b3c; margin-bottom: 12px; text-align: center; }
-    .related-box { background: #fff; border-radius: 12px; padding: 16px 18px; margin: 32px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-    .related-title { font-size: 14px; font-weight: 700; color: #1a6b3c; margin-bottom: 10px; }
-    .related-box a { display: block; color: #2d9e5f; text-decoration: none; padding: 6px 0; border-bottom: 1px solid #f0faf4; font-size: 14px; }
-    .related-box a:last-child { border-bottom: none; }
     .pr-box { background: #fff8f0; border: 2px solid #f59e0b; border-radius: 14px; padding: 22px 18px; margin-top: 36px; }
     .pr-title { font-size: 16px; font-weight: 900; color: #92400e; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
     .pr-list { list-style: none; padding: 0; margin: 0 0 16px; }
@@ -55,44 +51,86 @@
     .cta-green { background: linear-gradient(135deg, #2d9e5f, #38c172); color: #fff; box-shadow: 0 4px 16px rgba(45,158,95,0.35); }
     .cta-orange { background: linear-gradient(135deg, #f59e0b, #f97316); color: #fff; box-shadow: 0 4px 16px rgba(249,115,22,0.35); }
     .divider { border: none; border-top: 2px dashed #d1fae5; margin: 36px 0; }
+    .axis-why { font-size: 13px; color: #555; background: #f7fdf9; border-radius: 8px; padding: 10px 14px; margin: 8px 0 14px; line-height: 1.75; border-left: 3px solid #c3e8d0; }
+    .diagnosis-nudge { text-align: center; font-size: 13px; color: #2d9e5f; font-weight: 700; margin: -8px 0 4px; }
+
+    /* 簡易比較表 */
+    .compare-table-wrap { overflow-x: auto; margin: 18px 0 24px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
+    .compare-table { width: 100%; border-collapse: collapse; font-size: 14px; background: #fff; border-radius: 12px; overflow: hidden; }
+    .compare-table th { background: #1a6b3c; color: #fff; font-weight: 700; padding: 11px 14px; text-align: left; font-size: 13px; }
+    .compare-table td { padding: 12px 14px; border-bottom: 1px solid #f0faf4; color: #333; line-height: 1.65; vertical-align: top; }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .compare-table tr:nth-child(even) td { background: #f9fefb; }
+    .compare-table .td-type { font-weight: 700; color: #1a6b3c; white-space: nowrap; }
   </style>
 </head>
 <body>
   <header class="blog-header">
     <div class="blog-header-badge">長野市キッズナビ｜塾選びガイド</div>
     <h1>長野市 塾 比較｜失敗しない選び方と<br>タイプ別おすすめを解説</h1>
-    <p class="blog-header-meta">長野市内54件以上の塾データに基づく客観ガイド</p>
+    <!-- ④ header meta 修正 -->
+    <p class="blog-header-meta">長野市内54件以上の塾情報を独自調査して比較</p>
   </header>
+
   <main class="blog-body">
 
+    <!-- ⑤ リード文に独自調査感を追加 -->
     <div class="blog-lead">
-      長野市で塾を探している保護者の方へ。<br><br>
-      「結局どの塾がいいの？」<br>
-      「違いがわからなくて決めきれない……」<br><br>
-      そんな状態で止まっていませんか？<br><br>
-      塾選びは比較せずに決めると、年間で数万円〜数十万円の差が出ることもあります。さらに、<strong>「思っていたのと違う」「成績が伸びない」という失敗</strong>にもつながります。<br><br>
-      この記事では、「長野市キッズナビ」が塾の違いと正しい比較方法をわかりやすく解説します。
+      「どの塾がいいか、全然わからない…」<br>
+      「塾代って、実際どのくらいかかるの？」<br>
+      「うちの子に合う塾があるかどうかも不安…」<br><br>
+      そんな気持ちで、塾選びが止まってしまっていませんか？<br><br>
+      実際に長野市内54件以上の塾を調査し、比較しやすいよう整理しました。塾は選び方次第で年間の費用も、お子様の成績の伸び方も大きく変わります。<strong>「なんとなく近いから」「有名だから」</strong>という理由で決めると、後から後悔することになりがちです。<br><br>
+      この記事では、初めての塾選びでも迷わないよう、比較のポイントを3つに絞ってお伝えします。
     </div>
 
-    <!-- フィルターなし：まず全体を見てもらう -->
-    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/diagnosis.html" class="cta-btn cta-orange">🎯 お子様に合う塾を診断する（無料・1分）→</a>
-    <h2>1. 長野市の塾を比較する3つの決定的なポイント</h2>
-    <p>失敗しないためには、以下の3軸で比較することが重要です。</p>
+    <!-- CTA①：診断ツール（冒頭・主CTA） -->
+    <p class="diagnosis-nudge">まず「どのタイプか」を確認したい方はこちら</p>
+    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/diagnosis.html" class="cta-btn cta-orange">🎯 1分でわかる！お子様に合う塾タイプ診断（無料）→</a>
+
+    <h2>1. 塾を比較するときの3つのポイント</h2>
+    <p>「なんとなく良さそう」で選ばないために、この3軸を使って比べてみてください。</p>
+
+    <!-- ⑥ 簡易比較表を追加 -->
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>タイプ</th>
+            <th>向いている子</th>
+            <th>費用感</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-type">個別指導</td>
+            <td>苦手を克服したい子<br>マイペースに進めたい子</td>
+            <td>やや高め<br><span style="font-size:12px;color:#888;">月15,000〜30,000円</span></td>
+          </tr>
+          <tr>
+            <td class="td-type">集団塾</td>
+            <td>競争で伸びる子<br>受験対策を進めたい子</td>
+            <td>比較的安い<br><span style="font-size:12px;color:#888;">月10,000〜25,000円</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <h3><span class="h3-icon">①</span>指導形式（個別指導 vs 集団塾）</h3>
+    <p class="axis-why">指導形式が合っていないと、どれだけ通っても成果が出にくくなります。お子様の性格・学習スタイルに合った形式を選ぶことが、最初の大事な一歩です。</p>
     <div class="compare-card">
       <span class="compare-card-label">🧑‍🏫 個別指導</span>
-      マイペースに進めたい、特定の苦手科目を克服したい子に最適。
+      マイペースに進めたい、特定の苦手科目を克服したい子に最適。先生に質問しやすく、自分のペースで進められます。
       <span class="compare-card-note">質問しやすい・自分のペース重視</span>
     </div>
     <div class="compare-card">
       <span class="compare-card-label">🏫 集団塾</span>
-      ライバルと競い合いたい、受験に向けたカリキュラムに乗りたい子に。
+      ライバルと競い合いながら伸びたい子、受験に向けたカリキュラムを着実にこなしたい子に。
       <span class="compare-card-note">競争環境・受験対策重視</span>
     </div>
-    <p style="font-size:14px; color:#1a6b3c; font-weight:700; margin-top:4px;">👉 お子様の「性格」で選ぶのが正解です。</p>
 
     <h3><span class="h3-icon">②</span>料金とコスパ</h3>
+    <p class="axis-why">月謝の他に、テキスト代・模試代・季節講習費などが加わると、年間の総額はかなり変わることがあります。「月謝だけ」で比べないことが大切です。</p>
     <div class="compare-card">
       <span class="compare-card-label">個別指導の月謝目安</span>
       15,000円〜30,000円（手厚い分、やや高め）
@@ -101,9 +139,10 @@
       <span class="compare-card-label">集団塾の月謝目安</span>
       10,000円〜25,000円（比較的リーズナブル）
     </div>
-    <p style="font-size:14px; color:#1a6b3c; font-weight:700;">👉 安さだけで選ばず、「目標達成に必要なサポート」があるかで比較しましょう。</p>
+    <p style="font-size:14px; color:#555; margin-top:4px;">※体験授業の際に年間総額の目安を確認しておくと安心です。</p>
 
     <h3><span class="h3-icon">③</span>通いやすさと継続性</h3>
+    <p class="axis-why">どれだけ良い塾でも、続けられなければ意味がありません。「家から近い」「送迎しやすい」かどうかは、半年・1年後の継続率に直結します。</p>
     <div class="compare-card">
       <span class="compare-card-label">🚗 送迎の負担</span>
       駐車場の有無や、学校帰りのアクセスの良さを確認。
@@ -113,56 +152,52 @@
       夜間の周辺環境や、入退室管理の有無もチェックポイント。
     </div>
 
-    <!-- 駐車場ありでフィルター -->
-    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/#/?parking=1" class="cta-btn cta-green">今すぐ駐車場ありの塾を3分で絞り込む→</a>
+    <!-- CTA②：一覧ページ（サブCTA・Section1末尾）③駐車場CTAを置き換え -->
+    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/" class="cta-btn cta-green">長野市の塾一覧を見ながら比較する→</a>
 
     <hr class="divider">
 
-    <h2>2. 【タイプ別】おすすめの選び方はこれ！</h2>
-    <p>お子様の現状に合わせて、最適なタイプを選んでください。</p>
+    <h2>2. お子様のタイプ別・選び方の目安</h2>
+    <p>「うちの子はどのタイプ？」という視点で読んでみてください。</p>
 
-    <!-- 集団塾フィルター -->
     <div class="type-card">
-      <span class="type-card-label">🔥 成績を一気に上げたい（負けず嫌いタイプ）</span>
+      <span class="type-card-label">🔥 負けず嫌い・成績を一気に上げたい</span>
       <span class="type-card-answer">→ 集団塾 ＋ 競争環境がおすすめ</span>
     </div>
-    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/#/?q=集団" class="cta-btn cta-green" style="margin-top:0;">集団塾を一覧で見る→</a>
-
-    <!-- 個別指導フィルター -->
     <div class="type-card">
-      <span class="type-card-label">😔 勉強が苦手・自信がない</span>
+      <span class="type-card-label">😔 勉強が苦手・自信をつけさせたい</span>
       <span class="type-card-answer">→ 個別指導塾 ＋ 褒める指導がおすすめ</span>
     </div>
-    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/#/?q=個別" class="cta-btn cta-green" style="margin-top:0;">個別指導塾を一覧で見る→</a>
-
-    <!-- 体験ありフィルター -->
     <div class="type-card">
-      <span class="type-card-label">⚽ 部活と両立したい（忙しいタイプ）</span>
-      <span class="type-card-answer">→ 柔軟なスケジュールが組める塾がおすすめ</span>
+      <span class="type-card-label">⚽ 部活と両立したい・忙しいスケジュール</span>
+      <span class="type-card-answer">→ 曜日・時間の融通が利く塾がおすすめ</span>
     </div>
-    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/#/?trial=1" class="cta-btn cta-green" style="margin-top:0;">無料体験できる塾を一覧で見る→</a>
+
+    <p style="font-size:14px; color:#555; margin-top:4px;">「どのタイプかよくわからない」という方は、下の診断を使うと整理しやすくなります。</p>
+
+    <!-- ② 一覧CTAを追加（Section2末尾） -->
+    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/" class="cta-btn cta-green">長野市の塾一覧を見ながら比較する→</a>
 
     <hr class="divider">
 
     <h2>3. 迷ったときの「失敗しない」最適解</h2>
-    <p>結論は一つです。</p>
 
-    <div class="emphasis-box">必ず「2〜3校」を体験して決めること</div>
+    <div class="emphasis-box">まず「2〜3校」体験してから決める</div>
 
-    <p>実際の教室の雰囲気や先生との相性は、ネットの情報だけでは100%わかりません。<br><br><strong>体験を惜しむ人は、高い確率で塾選びに失敗します。</strong></p>
-
-    <!-- 体験ありフィルター -->
-    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/#/?trial=1" class="cta-btn cta-green">【無料体験OK】今すぐ体験できる塾を比較する→</a>
+    <p>実際の教室の雰囲気、先生との相性、通いやすさ——これらはネットの情報だけでは判断できません。</p>
+    <p>体験授業はほとんどの塾で<strong>無料</strong>です。入会を強要されることはありませんので、気軽に足を運んでみてください。「合わなければ断って大丈夫」という気持ちで体験するのが、良い塾を見つける一番の近道です。</p>
+    <!-- ③ 無料体験CTAは削除。Section3はテキストのみで締める -->
 
     <hr class="divider">
 
     <div class="summary-box">
       <p class="summary-title">まとめ：比較して、納得できる塾を見つけよう</p>
-      <p>長野市で塾を選ぶなら、<strong>「比較して決めること」</strong>が最重要です。<br><br>迷っているなら、まずは「長野市キッズナビ」の豊富なデータを使って、無料で比較することから始めてください。</p>
+      <p>塾選びで大切なのは、「なんとなく」で決めないことです。<br><br>指導形式・料金・通いやすさの3軸で比べて、最後は体験で確かめる。この流れを踏めば、後悔しない選択に近づけます。<br><br>迷ったときは診断ツールをうまく使いながら、ぜひ前に進んでみてください。</p>
     </div>
 
-    <!-- フィルターなし：全体を見てもらう -->
-    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/diagnosis.html" class="cta-btn cta-orange">🎯 お子様に合う塾を診断する（無料・1分）→</a>
+    <!-- CTA③：診断ツール（最後・主CTA） -->
+    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/diagnosis.html" class="cta-btn cta-orange">🎯 お子様に合う塾タイプを診断する（無料・1分）→</a>
+
     <nav class="blog-nav">
       <button class="blog-nav-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">
         📚 塾選びガイド 記事一覧
@@ -193,6 +228,7 @@
       </ul>
       <a href="https://forms.gle/xiMYtrGEonq9ynnt8" class="cta-btn cta-orange" target="_blank" rel="noopener noreferrer">【無料】今すぐ掲載を申し込む（運営者様向け）→</a>
     </div>
+
   </main>
 </body>
 </html>
