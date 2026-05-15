@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>長野市 夏期講習 部活両立｜忙しい中学生・高校生でも続けやすい塾の選び方</title>
+  <meta name="description" content="長野市で部活と両立しやすい夏期講習を探している方向け。忙しい中学生・高校生でも無理なく通える塾の特徴や、失敗しない選び方を解説します。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans JP', sans-serif; background: #fafaf8; color: #1a1a1a; line-height: 1.8; }
+    .blog-header { background: linear-gradient(135deg, #1a6b3c 0%, #2d9e5f 60%, #38c172 100%); padding: 40px 20px 36px; text-align: center; position: relative; overflow: hidden; }
+    .blog-header::before, .blog-header::after { content: ''; position: absolute; border-radius: 50%; background: rgba(255,255,255,0.08); }
+    .blog-header::before { width: 180px; height: 180px; top: -50px; right: -50px; }
+    .blog-header::after { width: 220px; height: 220px; bottom: -80px; left: -50px; }
+    .blog-header-badge { display: inline-block; background: rgba(255,255,255,0.2); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .08em; padding: 4px 12px; border-radius: 999px; margin-bottom: 14px; border: 1px solid rgba(255,255,255,0.3); position: relative; z-index: 1; }
+    .blog-header h1 { color: #fff; font-size: 22px; font-weight: 900; line-height: 1.5; position: relative; z-index: 1; }
+    .blog-header-meta { color: rgba(255,255,255,0.85); font-size: 12px; margin-top: 10px; position: relative; z-index: 1; }
+    .blog-body { max-width: 680px; margin: 0 auto; padding: 28px 18px 60px; }
+    .blog-lead { background: #fff; border-left: 4px solid #2d9e5f; border-radius: 0 12px 12px 0; padding: 18px; margin-bottom: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); font-size: 15px; line-height: 1.9; color: #333; }
+    h2 { font-size: 20px; font-weight: 900; color: #1a6b3c; margin: 40px 0 16px; padding: 14px 16px; background: #f0faf4; border-left: 5px solid #2d9e5f; border-radius: 10px; line-height: 1.5; }
+    h3 { font-size: 16px; font-weight: 700; color: #1a1a1a; margin: 26px 0 12px; padding-bottom: 6px; border-bottom: 2px solid #e0f5ea; display: flex; align-items: center; gap: 8px; }
+    .h3-icon { background: #2d9e5f; color: #fff; font-size: 12px; font-weight: 900; border-radius: 999px; padding: 3px 10px; flex-shrink: 0; }
+    p { font-size: 15px; color: #333; margin-bottom: 14px; }
+    .point-box { background: #fff; border-radius: 12px; padding: 16px 18px; margin-bottom: 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); border-left: 4px solid #38c172; }
+    .type-card { background: #fff; border-radius: 12px; padding: 16px 18px; margin-bottom: 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); border-left: 4px solid #2d9e5f; }
+    .point-title { font-weight: 700; margin-bottom: 6px; font-size: 15px; color: #1a6b3c; }
+    .type-card-label { font-weight: 700; margin-bottom: 6px; font-size: 14px; color: #1a1a1a; }
+    .type-card-answer { color: #1a6b3c; font-weight: 700; font-size: 14px; }
+    .emphasis-box { background: #f0faf4; border: 2px solid #2d9e5f; border-radius: 12px; padding: 18px; margin: 20px 0; text-align: center; color: #1a6b3c; font-weight: 700; line-height: 1.8; }
+    .summary-box { background: linear-gradient(135deg, #f0faf4, #e8f8ef); border: 1px solid #c3e8d0; border-radius: 14px; padding: 22px 18px; margin-top: 36px; }
+    .summary-title { font-size: 17px; font-weight: 900; color: #1a6b3c; text-align: center; margin-bottom: 14px; }
+    .cta-btn { display: block; width: 100%; padding: 18px 16px; border-radius: 999px; text-align: center; text-decoration: none; font-size: 15px; font-weight: 900; line-height: 1.5; margin: 24px 0; transition: opacity .15s, transform .15s; -webkit-tap-highlight-color: transparent; }
+    .cta-btn:active { opacity: .85; transform: scale(.97); }
+    .cta-green { background: linear-gradient(135deg, #2d9e5f, #38c172); color: #fff; box-shadow: 0 4px 16px rgba(45,158,95,.35); }
+    .cta-orange { background: linear-gradient(135deg, #f59e0b, #f97316); color: #fff; box-shadow: 0 4px 16px rgba(249,115,22,.35); }
+    .divider { border: none; border-top: 2px dashed #d1fae5; margin: 36px 0; }
+    .blog-nav { background: #fff; border-radius: 12px; margin: 32px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05); overflow: hidden; }
+    .blog-nav-toggle { width: 100%; background: none; border: none; padding: 16px 18px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-family: inherit; font-weight: 700; font-size: 13px; color: #1a6b3c; -webkit-tap-highlight-color: transparent; }
+    .blog-nav-toggle-icon { font-size: 12px; color: #2d9e5f; transition: transform .25s; }
+    .blog-nav-toggle.open .blog-nav-toggle-icon { transform: rotate(180deg); }
+    .blog-nav-list { display: none; padding: 0 18px 12px; }
+    .blog-nav-list.open { display: block; }
+    .blog-nav-list a { display: block; text-decoration: none; color: #2d9e5f; padding: 7px 0; border-bottom: 1px solid #f0faf4; font-size: 13px; }
+    .blog-nav-list a:last-child { border-bottom: none; }
+    .blog-nav-current { color: #1a1a1a !important; font-weight: 700; pointer-events: none; }
+    .pr-box { background: #fff8f0; border: 2px solid #f59e0b; border-radius: 14px; padding: 22px 18px; margin-top: 36px; }
+    .pr-title { font-size: 16px; font-weight: 900; color: #92400e; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .pr-list { list-style: none; margin-bottom: 16px; }
+    .pr-list li { position: relative; padding-left: 22px; margin-bottom: 8px; font-size: 14px; color: #444; }
+    .pr-list li::before { content: '✓'; position: absolute; left: 0; color: #f59e0b; font-weight: 900; }
+  </style>
+</head>
+
+<body>
+
+  <header class="blog-header">
+    <div class="blog-header-badge">長野市キッズナビ｜夏期講習ガイド</div>
+    <h1>長野市 夏期講習 部活両立｜<br>忙しい中学生・高校生でも続けやすい塾の選び方</h1>
+    <p class="blog-header-meta">長野市内54件以上の塾情報を独自調査して比較</p>
+  </header>
+
+  <main class="blog-body">
+
+    <div class="blog-lead">
+      「部活が忙しくて、夏期講習まで手が回らない…」<br>
+      「夏休みも大会や練習がある…」<br>
+      「勉強との両立って本当にできるの？」<br><br>
+      そんな悩みを抱えるご家庭はかなり多いです。<br><br>
+      実際、部活と勉強を無理なく両立できるかどうかは、<strong>塾選びでかなり変わります。</strong><br><br>
+      長野市内54件以上の塾情報を調査した上で、この記事では「忙しい子でも続けやすい夏期講習の選び方」をわかりやすく整理しました。
+    </div>
+
+    <!-- CTA①：診断ツール（冒頭） -->
+    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/diagnosis.html" class="cta-btn cta-orange">🎯 1分でわかる！お子様に合う塾タイプ診断（無料）→</a>
+
+    <h2>1. 部活と両立しやすい夏期講習の特徴</h2>
+
+    <h3><span class="h3-icon">①</span>時間変更に柔軟</h3>
+    <div class="point-box">
+      <div class="point-title">急な予定変更に対応できるか重要</div>
+      部活は大会・遠征・練習試合などで予定が変わりやすいです。振替対応や曜日変更が柔軟な塾は、かなり通いやすくなります。
+    </div>
+
+    <h3><span class="h3-icon">②</span>個別指導との相性が良い</h3>
+    <div class="point-box">
+      <div class="point-title">遅れても調整しやすい</div>
+      集団授業だと欠席時の遅れが大きくなりがちですが、個別指導なら進度調整しやすく、忙しい子にも向いています。
+    </div>
+
+    <h3><span class="h3-icon">③</span>通塾距離が短い</h3>
+    <div class="point-box">
+      <div class="point-title">移動時間は意外と大きい</div>
+      夏は部活後の疲労も大きいです。学校帰りや自宅近くで通える塾のほうが、継続しやすい傾向があります。
+    </div>
+
+    <!-- CTA②：一覧ページ（中盤） -->
+    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/" class="cta-btn cta-green">長野市の塾一覧を見ながら比較する→</a>
+
+    <hr class="divider">
+
+    <h2>2. こんなタイプは「部活両立型」の塾がおすすめ</h2>
+
+    <div class="type-card">
+      <div class="type-card-label">⚽ 部活を最後まで頑張りたい</div>
+      <div class="type-card-answer">→ 柔軟なスケジュール対応が重要</div>
+    </div>
+    <div class="type-card">
+      <div class="type-card-label">😔 疲れて集団授業についていけない</div>
+      <div class="type-card-answer">→ 個別指導との相性が良い</div>
+    </div>
+    <div class="type-card">
+      <div class="type-card-label">📚 受験勉強も遅れたくない</div>
+      <div class="type-card-answer">→ 短時間集中型の夏期講習がおすすめ</div>
+    </div>
+
+    <p style="font-size:14px;color:#555;margin-top:6px;">「うちの子に合う塾タイプが分からない」という場合は、診断ツールを使うと整理しやすくなります。</p>
+
+    <!-- CTA③：一覧ページ（中盤2） -->
+    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/" class="cta-btn cta-green">長野市の塾一覧を見ながら比較する→</a>
+
+    <hr class="divider">
+
+    <h2>3. 部活と夏期講習を両立するコツ</h2>
+
+    <div class="emphasis-box">「全部完璧にやろう」としないことが大事</div>
+
+    <p>夏休みは、部活も勉強も負荷が大きくなります。だからこそ、「毎日長時間勉強する」よりも、<strong>継続できる仕組み</strong>を作るほうが重要です。</p>
+    <p>無理に詰め込みすぎると、途中で疲れて続かなくなるケースも多いです。夏期講習は「勉強習慣を崩さない」くらいの感覚で始めると、結果的にうまくいきやすいです。</p>
+
+    <hr class="divider">
+
+    <!-- まとめ：箇条書きを文章化 -->
+    <div class="summary-box">
+      <div class="summary-title">まとめ｜部活と両立できる塾選びが大切</div>
+      <p>夏期講習は、「勉強量」だけで選ぶと失敗しやすいです。部活が忙しい子ほど、時間変更できるか・通いやすいか・個別調整しやすいか、この3つを重視したほうが結果的に続きやすくなります。<br><br>まずは無理なく通える塾を比較しながら、体験授業で相性を確認してみてください。</p>
+    </div>
+
+    <!-- CTA④：診断ツール（まとめ後） -->
+    <a href="https://history-of-hanabi.github.io/nagano-kids-navi/diagnosis.html" class="cta-btn cta-orange">🎯 お子様に合う塾タイプを診断する（無料・1分）→</a>
+
+    <!-- blog-nav：12件フルリスト・タイトル統一・ファイル名修正 -->
+    <nav class="blog-nav">
+      <button class="blog-nav-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">
+        📚 塾選びガイド 記事一覧
+        <span class="blog-nav-toggle-icon">▼</span>
+      </button>
+      <div class="blog-nav-list">
+        <a href="./nagano-elementary-school-juku.html">小学生向け｜後悔しない3つのチェックポイント</a>
+        <a href="./nagano-junior-high-school-juku.html">中学生向け｜高校受験で後悔しない3つの重要ポイント</a>
+        <a href="./nagano-juku-osusume.html">長野市でおすすめの塾｜失敗しない選び方</a>
+        <a href="./nagano-juku-ryokin.html">長野市の塾の料金相場｜小学生・中学生別に解説</a>
+        <a href="./nagano-juku-hikaku.html">長野市 塾 比較｜タイプ別おすすめ選び方</a>
+        <a href="./nagano-juku-itsukara.html">長野市 塾 いつから？最適タイミングを解説</a>
+        <a href="./nagano-juku-yasui.html">長野市 塾 安いおすすめは？失敗しない選び方を解説</a>
+        <a href="./nagano-juku-kobetsu.html">長野市 塾 個別指導はどう選ぶ？失敗しないポイントを解説</a>
+        <a href="./nagano-juku-kobetsu-vs-shudan.html">長野市 塾 個別指導と集団塾どっちがいい？違いと選び方を解説</a>
+        <a href="./nagano-juku-kuchikomi.html">長野市 塾 口コミは信じていい？失敗しない見極め方を解説</a>
+        <a href="./nagano-juku-yametahouga-ii.html">長野市 塾 やめたほうがいい？失敗例と後悔しない選び方を解説</a>
+        <a href="./nagano-juku-chugakusei-osusume.html">長野市 塾 中学生おすすめ｜高校受験で失敗しない選び方を解説</a>
+      </div>
+    </nav>
+
+    <div class="pr-box">
+      <p class="pr-title"><span>📈</span>教室運営者様へ</p>
+      <p style="font-size:14px;margin-bottom:12px;">「長野市キッズナビ」は、真剣に塾を探している保護者が集まる専門サイトです。</p>
+      <ul class="pr-list">
+        <li><strong>掲載無料 / データ計測可能 / 集客導線あり</strong></li>
+        <li>現在、掲載枠には限りがあります。</li>
+      </ul>
+      <a href="https://forms.gle/xiMYtrGEonq9ynnt8" class="cta-btn cta-orange" target="_blank" rel="noopener noreferrer">【無料】今すぐ掲載を申し込む（運営者様向け）→</a>
+    </div>
+
+  </main>
+
+</body>
+</html>
