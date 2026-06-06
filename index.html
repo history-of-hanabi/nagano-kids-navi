@@ -491,6 +491,7 @@ function HomePage({onNav, filters, setFilters}){
   return(
     <div style={{minHeight:'100vh',background:'#FFF7ED',paddingBottom:96}}>
       <SiteHeader onNav={onNav} showStats={true} items={items} areas={areas}/>
+      <SummerBanner />  {/* ← この1行を追加 */}
       {csvError&&<div style={{background:'#FFF7ED',borderBottom:'1px solid #FDBA74',padding:'7px 16px',fontSize:12,color:'#92400E',textAlign:'center'}}>⚠️ サンプルデータを表示中</div>}
 
       {/* 検索バー */}
