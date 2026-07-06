@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>子どもが学校へ行きたくないと言い出したら｜初期対応ガイド｜保護者向け</title>
+  <meta name="description" content="子どもが「学校に行きたくない」と言い出したときの初期対応を保護者向けに解説。最初の48時間でやること・やってはいけないこと・不登校になる前にできること・相談先まで詳しくまとめました。">
+
+  <link rel="icon" type="image/svg+xml" href="/nagano-kids-navi/favicon.svg" />
+  <link rel="apple-touch-icon" href="/nagano-kids-navi/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YST2S5X11W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YST2S5X11W');
+  </script>
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:'Noto Sans JP',sans-serif;
+      background:#fafaf8;
+      color:#1a1a1a;
+      line-height:1.8;
+    }
+
+    .blog-header{
+      background:linear-gradient(135deg,#1a6b3c 0%,#2d9e5f 60%,#38c172 100%);
+      padding:48px 20px;
+      text-align:center;
+      color:#fff;
+      position:relative;
+      overflow:hidden;
+    }
+    .blog-header::before{
+      content:'';position:absolute;
+      top:-60px;right:-60px;
+      width:220px;height:220px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.07);
+    }
+    .blog-header::after{
+      content:'';position:absolute;
+      bottom:-90px;left:-50px;
+      width:280px;height:280px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.04);
+    }
+    .blog-header-badge{
+      display:inline-block;
+      background:rgba(255,255,255,.18);
+      border:1px solid rgba(255,255,255,0.3);
+      padding:4px 14px;
+      border-radius:20px;
+      font-size:11px;
+      font-weight:700;
+      margin-bottom:14px;
+      letter-spacing:0.08em;
+      position:relative;z-index:1;
+    }
+    .blog-header h1{
+      font-size:22px;
+      line-height:1.5;
+      font-weight:900;
+      margin-bottom:12px;
+      position:relative;z-index:1;
+    }
+    .blog-header-sub{
+      font-size:13px;
+      opacity:0.9;
+      position:relative;z-index:1;
+      line-height:1.7;
+    }
+    .blog-header-meta{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:14px;
+      position:relative;z-index:1;
+    }
+    .blog-header-meta span{
+      font-size:11px;
+      opacity:0.85;
+      background:rgba(255,255,255,.15);
+      padding:3px 10px;
+      border-radius:12px;
+    }
+
+    .blog-body{
+      max-width:680px;
+      margin:auto;
+      padding:28px 18px 60px;
+    }
+
+    .toc{
+      background:#fff;
+      border:1px solid #c3e8d0;
+      border-radius:14px;
+      padding:20px 18px;
+      margin-bottom:28px;
+      box-shadow:0 2px 8px rgba(0,0,0,.05);
+    }
+    .toc-title{
+      font-size:14px;
+      font-weight:900;
+      color:#1a6b3c;
+      margin-bottom:12px;
+      display:flex;
+      align-items:center;
+      gap:6px;
+    }
+    .toc ol{padding-left:18px;}
+    .toc li{font-size:13px;line-height:2.1;}
+    .toc a{color:#2d9e5f;text-decoration:none;}
+
+    .blog-lead{
+      background:#fff;
+      border-left:4px solid #2d9e5f;
+      padding:20px 18px;
+      border-radius:0 12px 12px 0;
+      margin-bottom:24px;
+      box-shadow:0 2px 8px rgba(0,0,0,.05);
+      font-size:15px;
+      line-height:1.9;
+    }
+
+    .conclusion-box{
+      background:linear-gradient(135deg,#1a6b3c,#2d9e5f);
+      color:#fff;
+      border-radius:16px;
+      padding:22px 20px;
+      margin-bottom:32px;
+      box-shadow:0 4px 20px rgba(26,107,60,.3);
+    }
+    .conclusion-box-title{
+      font-size:16px;
+      font-weight:900;
+      margin-bottom:14px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .conclusion-list{list-style:none;}
+    .conclusion-list li{
+      font-size:14px;
+      line-height:1.8;
+      padding:6px 0 6px 24px;
+      position:relative;
+      border-bottom:1px solid rgba(255,255,255,.15);
+    }
+    .conclusion-list li:last-child{border-bottom:none;}
+    .conclusion-list li::before{
+      content:'✅';
+      position:absolute;left:0;font-size:13px;
+    }
+
+    h2{
+      font-size:20px;
+      color:#1a6b3c;
+      font-weight:900;
+      margin:48px 0 18px;
+      padding:16px 18px;
+      background:#f0faf4;
+      border-left:5px solid #2d9e5f;
+      border-radius:10px;
+      line-height:1.5;
+      scroll-margin-top:20px;
+    }
+    h3{
+      font-size:17px;
+      font-weight:700;
+      margin:28px 0 12px;
+      padding-left:12px;
+      border-left:3px solid #38c172;
+      color:#1a1a1a;
+      line-height:1.5;
+      scroll-margin-top:20px;
+    }
+    p{
+      margin-bottom:16px;
+      font-size:15px;
+      color:#333;
+      line-height:1.9;
+    }
+
+    .point-card{
+      background:#fff;
+      border-left:4px solid #38c172;
+      padding:16px 18px;
+      border-radius:12px;
+      margin-bottom:12px;
+      box-shadow:0 2px 10px rgba(0,0,0,.06);
+    }
+    .point-card-title{
+      font-size:15px;
+      font-weight:700;
+      color:#1a6b3c;
+      margin-bottom:6px;
+    }
+    .warning-card{
+      background:#fff;
+      border-left:4px solid #f59e0b;
+      padding:16px 18px;
+      border-radius:12px;
+      margin-bottom:12px;
+      box-shadow:0 2px 10px rgba(0,0,0,.06);
+    }
+    .warning-card-title{
+      font-size:15px;
+      font-weight:700;
+      color:#92400e;
+      margin-bottom:6px;
+    }
+
+    .ng-card{
+      background:#fff;
+      border-left:4px solid #ef4444;
+      padding:16px 18px;
+      border-radius:12px;
+      margin-bottom:12px;
+      box-shadow:0 2px 10px rgba(0,0,0,.06);
+    }
+    .ng-card-title{
+      font-size:15px;
+      font-weight:700;
+      color:#b91c1c;
+      margin-bottom:6px;
+      display:flex;
+      align-items:center;
+      gap:6px;
+    }
+    .ng-card p{font-size:14px;color:#444;margin-bottom:0;line-height:1.9;}
+
+    .info-box{
+      background:linear-gradient(135deg,#f0faf4,#e8f8ef);
+      border:1px solid #c3e8d0;
+      border-radius:14px;
+      padding:20px 18px;
+      margin:24px 0;
+    }
+    .info-box-title{
+      font-size:15px;
+      font-weight:900;
+      color:#1a6b3c;
+      margin-bottom:10px;
+      display:flex;
+      align-items:center;
+      gap:6px;
+    }
+    .info-box p{font-size:14px;margin-bottom:8px;}
+    .info-box p:last-child{margin-bottom:0;}
+
+    .reword-card{
+      background:#fff;
+      border-radius:14px;
+      padding:18px;
+      margin-bottom:14px;
+      box-shadow:0 2px 10px rgba(0,0,0,.06);
+      border:1px solid #e5e7eb;
+    }
+    .reword-card-bad{
+      font-size:14px;
+      color:#b91c1c;
+      background:#fef2f2;
+      border-radius:8px;
+      padding:10px 14px;
+      margin-bottom:10px;
+      font-weight:700;
+    }
+    .reword-card-bad::before{content:'❌ NG：';}
+    .reword-card-good{
+      font-size:14px;
+      color:#1a6b3c;
+      background:#f0faf4;
+      border-radius:8px;
+      padding:10px 14px;
+      font-weight:700;
+    }
+    .reword-card-good::before{content:'✅ OK：';}
+
+    /* ステップカード */
+    .step-card{
+      background:#fff;
+      border-radius:14px;
+      padding:18px;
+      margin-bottom:14px;
+      box-shadow:0 2px 10px rgba(0,0,0,.06);
+      display:flex;
+      gap:16px;
+      align-items:flex-start;
+    }
+    .step-number{
+      background:linear-gradient(135deg,#2d9e5f,#38c172);
+      color:#fff;
+      font-size:16px;
+      font-weight:900;
+      width:36px;
+      height:36px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
+    }
+    .step-body{flex:1;}
+    .step-title{
+      font-size:15px;
+      font-weight:700;
+      color:#1a6b3c;
+      margin-bottom:6px;
+    }
+    .step-text{
+      font-size:14px;
+      color:#444;
+      line-height:1.9;
+      margin-bottom:0;
+    }
+
+    /* サインカード */
+    .sign-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:12px;
+      margin:20px 0;
+    }
+    .sign-card{
+      background:#fff;
+      border-radius:12px;
+      padding:16px 18px;
+      box-shadow:0 2px 8px rgba(0,0,0,.06);
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      border-left:4px solid #f59e0b;
+    }
+    .sign-card-icon{font-size:20px;flex-shrink:0;margin-top:2px;}
+    .sign-card-body{flex:1;}
+    .sign-card-title{
+      font-size:14px;
+      font-weight:700;
+      color:#92400e;
+      margin-bottom:4px;
+    }
+    .sign-card-text{
+      font-size:13px;
+      color:#555;
+      line-height:1.8;
+      margin-bottom:0;
+    }
+
+    .compare-table-wrap{overflow-x:auto;margin:20px 0 28px;}
+    .compare-table{
+      width:100%;
+      border-collapse:collapse;
+      background:#fff;
+      font-size:14px;
+    }
+    .compare-table th{
+      background:#1a6b3c;
+      color:#fff;
+      padding:12px;
+      text-align:left;
+    }
+    .compare-table td{
+      padding:12px;
+      border-bottom:1px solid #eee;
+      vertical-align:top;
+    }
+    .compare-table tr:last-child td{border-bottom:none;}
+
+    .cta-btn{
+      display:block;
+      width:100%;
+      text-align:center;
+      padding:18px;
+      border-radius:50px;
+      text-decoration:none;
+      font-weight:900;
+      font-size:15px;
+      margin:24px 0;
+      line-height:1.5;
+      transition:.15s;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .cta-btn:active{transform:scale(.97);opacity:.85;}
+    .cta-green{
+      background:linear-gradient(135deg,#2d9e5f,#38c172);
+      color:#fff;
+      box-shadow:0 4px 16px rgba(45,158,95,.35);
+    }
+    .cta-orange{
+      background:linear-gradient(135deg,#f59e0b,#f97316);
+      color:#fff;
+      box-shadow:0 4px 16px rgba(249,115,22,.35);
+    }
+
+    .related-link-box{
+      background:#fff;
+      border:1px solid #c3e8d0;
+      border-radius:12px;
+      padding:14px 16px;
+      margin:16px 0 0;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      transition:.15s;
+    }
+    .related-link-box:active{opacity:.8;}
+    .related-link-icon{font-size:22px;flex-shrink:0;}
+    .related-link-text{flex:1;}
+    .related-link-label{
+      font-size:11px;
+      font-weight:700;
+      color:#2d9e5f;
+      background:#f0faf4;
+      padding:2px 8px;
+      border-radius:4px;
+      display:inline-block;
+      margin-bottom:4px;
+    }
+    .related-link-title{
+      font-size:14px;
+      font-weight:700;
+      color:#1a1a1a;
+      line-height:1.5;
+    }
+    .related-link-arrow{
+      font-size:16px;
+      color:#2d9e5f;
+      font-weight:900;
+      flex-shrink:0;
+    }
+
+    .divider{
+      border:none;
+      border-top:2px dashed #d1fae5;
+      margin:40px 0;
+    }
+
+    .summary-box{
+      background:linear-gradient(135deg,#f0faf4,#e8f8ef);
+      border:1px solid #c3e8d0;
+      padding:22px 18px;
+      border-radius:14px;
+      margin-top:32px;
+    }
+    .summary-title{
+      text-align:center;
+      font-weight:900;
+      color:#1a6b3c;
+      margin-bottom:12px;
+      font-size:18px;
+      line-height:1.5;
+    }
+
+    .blog-nav{
+      background:#fff;
+      border-radius:12px;
+      margin-top:32px;
+      box-shadow:0 2px 8px rgba(0,0,0,.05);
+      overflow:hidden;
+    }
+    .blog-nav-toggle{
+      width:100%;
+      border:none;
+      background:none;
+      padding:16px 18px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      font-family:'Noto Sans JP',sans-serif;
+      font-weight:700;
+      color:#1a6b3c;
+      font-size:13px;
+      cursor:pointer;
+    }
+    .blog-nav-toggle-icon{
+      font-size:12px;
+      color:#2d9e5f;
+      transition:transform 0.25s;
+    }
+    .blog-nav-toggle.open .blog-nav-toggle-icon{transform:rotate(180deg);}
+    .blog-nav-list{display:none;padding:0 18px 12px;}
+    .blog-nav-list.open{display:block;}
+    .blog-nav-list a{
+      display:block;
+      padding:7px 0;
+      color:#2d9e5f;
+      text-decoration:none;
+      border-bottom:1px solid #f0faf4;
+      font-size:13px;
+    }
+    .blog-nav-list a:last-child{border-bottom:none;}
+    .blog-nav-current{
+      color:#1a1a1a !important;
+      font-weight:700;
+      pointer-events:none;
+    }
+    .blog-nav-group-label{
+      font-size:11px;
+      font-weight:700;
+      color:#fff;
+      background:#2d9e5f;
+      padding:5px 12px;
+      margin:8px 0 2px;
+      border-radius:4px;
+      letter-spacing:0.06em;
+    }
+
+    .pr-box{
+      background:#fff8f0;
+      border:2px solid #f59e0b;
+      border-radius:14px;
+      padding:22px 18px;
+      margin-top:32px;
+    }
+    .pr-title{
+      font-size:16px;
+      font-weight:900;
+      color:#92400e;
+      margin-bottom:12px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .pr-list{list-style:none;margin-bottom:16px;}
+    .pr-list li{
+      padding:6px 0 6px 22px;
+      position:relative;
+      font-size:14px;
+      color:#444;
+    }
+    .pr-list li::before{
+      content:'✓';
+      position:absolute;left:0;
+      color:#f59e0b;font-weight:900;
+    }
+
+    .site-footer{
+      text-align:center;
+      margin:40px 0 20px;
+      font-size:13px;
+    }
+    .site-footer a{color:#2d9e5f;text-decoration:none;}
+
+    .eeeat-note{
+      background:#f8f8f8;
+      border:1px solid #ddd;
+      border-radius:10px;
+      padding:14px 16px;
+      margin-top:32px;
+      font-size:12px;
+      color:#666;
+      line-height:1.8;
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="blog-header">
+  <div class="blog-header-badge">不登校サポートガイド｜保護者・支援者向け</div>
+  <h1>子どもが学校へ行きたくないと言い出したら｜<br>初期対応ガイド</h1>
+  <p class="blog-header-sub">最初の対応が回復の速さを左右する。48時間以内にやること・避けることを解説</p>
+  <div class="blog-header-meta">
+    <span>📖 読了時間の目安：約10分</span>
+    <span>✅ 保護者・支援者向け</span>
+  </div>
+</header>
+
+<main class="blog-body">
+
+  <nav class="toc">
+    <div class="toc-title">📋 この記事の目次</div>
+    <ol>
+      <li><a href="#signal">「行きたくない」は重要なサイン</a></li>
+      <li><a href="#first48">最初の48時間でやること</a></li>
+      <li><a href="#ng">絶対にやってはいけない初期対応</a></li>
+      <li><a href="#signs">不登校の前兆サイン一覧</a></li>
+      <li><a href="#reword">言い換えるだけで変わる初期の声かけ</a></li>
+      <li><a href="#consult">相談先と連絡先</a></li>
+      <li><a href="#summary">まとめ</a></li>
+    </ol>
+  </nav>
+
+  <div class="blog-lead">
+    「今朝、子どもが突然『学校に行きたくない』と言い出した」――この言葉を聞いた瞬間、多くの保護者は動揺し、どう対応すればいいかわからなくなります。「一時的なものだろう」と流すべきか、「無理にでも連れて行くべきか」、「学校に相談すべきか」……。この最初の対応の仕方が、その後の回復の速さを大きく左右します。この記事では、「行きたくない」と言われたときの初期対応として、最初の48時間でやること・やってはいけないこと・相談先まで保護者向けに詳しく解説します。
+  </div>
+
+  <div class="conclusion-box">
+    <div class="conclusion-box-title">📌 この記事のポイント</div>
+    <ul class="conclusion-list">
+      <li>「行きたくない」という言葉は、子どもが出せた最初のSOSとして受け取る</li>
+      <li>最初の反応で「話してよかった」と思えるかどうかが、その後を左右する</li>
+      <li>無理に登校させることは短期的には解決に見えても長期的には逆効果になりやすい</li>
+      <li>早めに学校・スクールカウンセラーに相談することで選択肢が広がる</li>
+    </ul>
+  </div>
+
+  <!-- CTA① オレンジ -->
+  <a href="../diagnosis.html" class="cta-btn cta-orange">
+    🎯 お子様に合う学習スタイルを診断する（無料・1分）→
+  </a>
+
+  <!-- ===== セクション1 ===== -->
+  <h2 id="signal">①「行きたくない」は重要なサイン</h2>
+
+  <p>「学校に行きたくない」という言葉は、子どもが保護者に出した最初のSOSです。この言葉を発するまでに、子どもはすでに多くのことを一人で抱えてきたと考えるのが自然です。言えずにいた期間の方が、言えた後より長かったというケースも珍しくありません。</p>
+
+  <div class="info-box">
+    <div class="info-box-title">💡 言えたこと自体を「大事な一歩」として受け取る</div>
+    <p>「行きたくない」と言えたのは、子どもがそれだけ保護者を信頼しているからです。言えずに黙って学校に行き続け、心身が限界に達してから突然動けなくなるケースと比べると、言葉にできたこの段階での対応は、回復を大幅に早められる可能性があります。</p>
+    <p>「なぜ言わなかったの」ではなく「話してくれてありがとう」という受け取り方が、この瞬間に最も大切な姿勢です。</p>
+  </div>
+
+  <div class="info-box">
+    <div class="info-box-title">💡 一時的なものか・深刻なものかを見極める必要はない</div>
+    <p>「今日だけかな」「気のせいかな」と判断しようとする保護者も多いですが、初期段階で「一時的か・深刻か」を見極めようとする必要はありません。どちらの場合でも、最初の対応は同じ「受け止める・話を聞く・安心感を与える」です。見極めようとして問い詰めたり否定したりする方が、より深刻な状態に発展するリスクがあります。</p>
+  </div>
+
+  <!-- ===== セクション2 ===== -->
+  <h2 id="first48">② 最初の48時間でやること</h2>
+
+  <p>「行きたくない」と言われてから最初の48時間の対応が、その後の経過を大きく左右します。以下のステップを参考に、落ち着いて順番に対応しましょう。</p>
+
+  <div class="step-card">
+    <div class="step-number">1</div>
+    <div class="step-body">
+      <div class="step-title">まず「そうか、話してくれてありがとう」と受け止める</div>
+      <p class="step-text">子どもが「行きたくない」と言った瞬間、保護者が最初にすべきことは「なぜ？」「どうして？」と聞くことでも、「そんなこと言わないで」と否定することでもありません。「そうか、話してくれてありがとう」「つらかったね」という受け止めの言葉が、子どもに「話してよかった」という感覚を与えます。この感覚が、その後の回復の土台になります。</p>
+    </div>
+  </div>
+
+  <div class="step-card">
+    <div class="step-number">2</div>
+    <div class="step-body">
+      <div class="step-title">その日の登校を無理強いしない</div>
+      <p class="step-text">「行きたくない」と言った当日に無理に登校させることは避けましょう。無理に連れて行っても、子どもの中にある問題は解決されず、むしろ「話しても意味がなかった」という感覚を残します。「今日は休んでいい」という許可を出すことで、子どもの心身への負担を減らし、次の対話につなげることができます。</p>
+    </div>
+  </div>
+
+  <div class="step-card">
+    <div class="step-number">3</div>
+    <div class="step-body">
+      <div class="step-title">学校に欠席の連絡を入れる</div>
+      <p class="step-text">子どもが休む場合は、担任に欠席の連絡を入れます。このとき「理由」を細かく説明する必要はありません。「体調不良」や「本人の意向で」という一言で十分です。担任への報告の際に「少し話を聞いていただけますか」と相談の糸口を作っておくことで、後の連携がスムーズになります。</p>
+    </div>
+  </div>
+
+  <div class="step-card">
+    <div class="step-number">4</div>
+    <div class="step-body">
+      <div class="step-title">子どもの話を「聞く」時間を作る（ただし問い詰めない）</div>
+      <p class="step-text">子どもが話したそうな様子であれば、落ち着いた環境で話を聞く時間を作りましょう。ポイントは「聞く」こと。「なぜ行けないの？」「何があったの？」と聞くのではなく、「何か話したいことがあれば聞くよ」「話したくなかったら話さなくていい」という姿勢を保ちます。子どもが話してくれたことには、否定せず・アドバイスせず・まず「そうなんだね」と受け取ることが大切です。</p>
+    </div>
+  </div>
+
+  <div class="step-card">
+    <div class="step-number">5</div>
+    <div class="step-body">
+      <div class="step-title">翌日以降の登校について、子どもと一緒に考える</div>
+      <p class="step-text">「明日はどうしたい？」という問いかけを、穏やかに子どもに投げかけてみましょう。「行けそうなら行く」「もう少し休みたい」「わからない」どんな答えでも否定せず、一緒に次のステップを考えましょう。「無理に行かなくていい」という安心感と「あなたのことを考えている」という姿勢が、子どもの心に伝わることが重要です。</p>
+    </div>
+  </div>
+
+  <div class="step-card">
+    <div class="step-number">6</div>
+    <div class="step-body">
+      <div class="step-title">欠席が続く場合は早めに学校・スクールカウンセラーに相談する</div>
+      <p class="step-text">2〜3日以上欠席が続く場合、または子どもの様子が明らかに深刻だと感じる場合は、担任・教頭・スクールカウンセラーへの相談を早めに進めましょう。「大げさかな」と思わずに動くことが重要です。相談が早ければ早いほど、選択肢が広がります。</p>
+    </div>
+  </div>
+
+  <!-- CTA② グリーン -->
+  <a href="../index.html" class="cta-btn cta-green">
+    📋 長野市の塾一覧をまとめて確認する →
+  </a>
+
+  <!-- ===== セクション3 ===== -->
+  <h2 id="ng">③ 絶対にやってはいけない初期対応</h2>
+
+  <p>「行きたくない」と言われた瞬間に、保護者が無意識にやってしまいがちなNG対応があります。善意から出た言動でも、子どもへの影響は大きいです。</p>
+
+  <div class="ng-card">
+    <div class="ng-card-title">「そんなこと言わないで、行きなさい」と否定する</div>
+    <p>子どもが勇気を振り絞って伝えた「行きたくない」という気持ちを即座に否定することは、「話しても無駄だった」という感覚を残します。次から「言わない」ようになり、状態がさらに悪化してから初めて保護者が気づくという悪循環につながります。</p>
+  </div>
+
+  <div class="ng-card">
+    <div class="ng-card-title">「なぜ行けないの？理由を教えて」と原因を問い詰める</div>
+    <p>子ども自身も「なぜ行きたくないのか」を言語化できないことがほとんどです。問い詰めることで「うまく説明できない自分はおかしい」という自己嫌悪がさらに深まります。理由を聞くより「話してくれてありがとう」という受け止めが先です。</p>
+  </div>
+
+  <div class="ng-card">
+    <div class="ng-card-title">無理に車や自転車で連れて行こうとする</div>
+    <p>身体的に連れて行こうとする行為は、子どもに強いトラウマを残す可能性があります。「家は安全ではない」という感覚が定着し、回復の土台となる「家での安心感」が失われます。</p>
+  </div>
+
+  <div class="ng-card">
+    <div class="ng-card-title">「みんな行っているのに」「お父さん・お母さんの頃は…」と比べる・説教する</div>
+    <p>比較・説教は子どもの自己否定感をさらに深めます。「自分はみんなと違う・おかしい」という感覚が強まり、回復が遅れます。どんなに正論であっても、この段階では届きません。</p>
+  </div>
+
+  <div class="ng-card">
+    <div class="ng-card-title">「少し休んだら行けるよね」と安易に約束させる</div>
+    <p>「今日休んだら明日は絶対行く」という約束を取り付けることは、翌日行けなかったときに「約束を破った」という罪悪感を子どもに与えます。回復は線形ではなく波があるため、約束を課すことは逆効果です。</p>
+  </div>
+
+  <div class="ng-card">
+    <div class="ng-card-title">保護者同士で子どもの前で言い争う</div>
+    <p>「甘やかせばいい」「厳しくしなきゃ」という保護者間の意見の相違を子どもの前でぶつけることは、子どもに「自分のせいで家が壊れている」という罪悪感を与えます。方針は子どものいないところで話し合い、子どもの前では一貫した姿勢を見せましょう。</p>
+  </div>
+
+  <!-- ===== セクション4 ===== -->
+  <h2 id="signs">④ 不登校の前兆サイン一覧</h2>
+
+  <p>「行きたくない」と言葉にする前に、子どもはすでにいくつかのサインを出していることが多くあります。以下のサインが複数見られた場合は、早めの対応が大切です。</p>
+
+  <div class="sign-grid">
+
+    <div class="sign-card">
+      <span class="sign-card-icon">🌙</span>
+      <div class="sign-card-body">
+        <div class="sign-card-title">日曜日の夜になると元気がなくなる</div>
+        <p class="sign-card-text">「サザエさん症候群」とも呼ばれる症状です。週明けの学校を意識して不安・憂鬱が強まります。毎週繰り返される場合は注意が必要です。</p>
+      </div>
+    </div>
+
+    <div class="sign-card">
+      <span class="sign-card-icon">🤢</span>
+      <div class="sign-card-body">
+        <div class="sign-card-title">朝になると腹痛・頭痛・吐き気を訴える</div>
+        <p class="sign-card-text">身体症状として現れる心理的なストレスのサインです。午後になると回復するパターンが続く場合は、学校への不安が原因の可能性があります。</p>
+      </div>
+    </div>
+
+    <div class="sign-card">
+      <span class="sign-card-icon">😶</span>
+      <div class="sign-card-body">
+        <div class="sign-card-title">学校の話をしなくなった・聞いても答えない</div>
+        <p class="sign-card-text">以前は学校の話をしていた子どもが急に口を閉ざすようになった場合、何らかのトラブルや悩みを抱えているサインである可能性があります。</p>
+      </div>
+    </div>
+
+    <div class="sign-card">
+      <span class="sign-card-icon">📚</span>
+      <div class="sign-card-body">
+        <div class="sign-card-title">宿題をまったくやらなくなった</div>
+        <p class="sign-card-text">学習意欲の低下・無気力感のサインです。以前とのギャップが大きい場合は、単なるサボりではなく心理的な問題が背景にある可能性があります。</p>
+      </div>
+    </div>
+
+    <div class="sign-card">
+      <span class="sign-card-icon">😴</span>
+      <div class="sign-card-body">
+        <div class="sign-card-title">睡眠が乱れた・夜眠れないと訴える</div>
+        <p class="sign-card-text">不安・緊張が強い状態が続くと、睡眠に影響が出ます。特に「夜中に何度も目が覚める」「なかなか眠れない」という訴えが続く場合は注意が必要です。</p>
+      </div>
+    </div>
+
+    <div class="sign-card">
+      <span class="sign-card-icon">😠</span>
+      <div class="sign-card-body">
+        <div class="sign-card-title">家での暴言・八つ当たりが増えた</div>
+        <p class="sign-card-text">学校での抑圧されたストレスが家庭での反発として出ることがあります。「家で発散している」ということは、外では必死に我慢しているサインでもあります。</p>
+      </div>
+    </div>
+
+    <div class="sign-card">
+      <span class="sign-card-icon">🏃</span>
+      <div class="sign-card-body">
+        <div class="sign-card-title">登校しぶりが増えた・遅刻が増えた</div>
+        <p class="sign-card-text">毎朝の登校に時間がかかる・頻繁に遅刻するという行動パターンは、学校への拒否感が少しずつ高まっているサインです。</p>
+      </div>
+    </div>
+
+    <div class="sign-card">
+      <span class="sign-card-icon">🍽️</span>
+      <div class="sign-card-body">
+        <div class="sign-card-title">食欲が明らかに落ちた</div>
+        <p class="sign-card-text">強いストレス・抑うつ状態では食欲が低下します。急激な食欲の変化は、心身のバランスが崩れているサインとして受け取ることが大切です。</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="warning-card">
+    <div class="warning-card-title">⚠️ サインが複数重なっているときは早めの相談を</div>
+    <p>上記のサインが2〜3個以上重なっている場合や、急激に変化している場合は、早めにスクールカウンセラーや学校への相談を始めてください。「大げさかな」と思わず動くことが、長期化を防ぐ最善策です。</p>
+  </div>
+
+  <!-- CTA③ グリーン -->
+  <a href="../index.html" class="cta-btn cta-green">
+    📋 長野市の塾一覧をまとめて確認する →
+  </a>
+
+  <!-- ===== セクション5 ===== -->
+  <h2 id="reword">⑤ 言い換えるだけで変わる初期の声かけ</h2>
+
+  <p>「行きたくない」と言われたときの最初の言葉かけは、その後の関係性を左右します。NGな言葉と、代わりになる言葉を確認しておきましょう。</p>
+
+  <div class="reword-card">
+    <div class="reword-card-bad">そんなこと言わないで、行きなさい</div>
+    <div class="reword-card-good">そうか、話してくれてありがとう。つらかったね</div>
+  </div>
+
+  <div class="reword-card">
+    <div class="reword-card-bad">なんで行けないの？理由を教えてよ</div>
+    <div class="reword-card-good">話したくなったら聞くよ。言わなくてもいいからね</div>
+  </div>
+
+  <div class="reword-card">
+    <div class="reword-card-bad">みんな行っているのに、あなただけ特別扱いできない</div>
+    <div class="reword-card-good">あなたはあなたのペースでいい。今日は休もう</div>
+  </div>
+
+  <div class="reword-card">
+    <div class="reword-card-bad">今日休んだら明日は必ず行くよね？</div>
+    <div class="reword-card-good">今日はゆっくり休んで。明日のことは明日考えよう</div>
+  </div>
+
+  <div class="reword-card">
+    <div class="reword-card-bad">学校に行かないと将来どうするの</div>
+    <div class="reword-card-good">先のことより、今あなたが元気でいることが一番大事</div>
+  </div>
+
+  <div class="reword-card">
+    <div class="reword-card-bad">お父さん・お母さんの頃はそんなことなかった</div>
+    <div class="reword-card-good">（比較しない。今の子どもの状態だけを見る）</div>
+  </div>
+
+  <div class="reword-card">
+    <div class="reword-card-bad">先生に怒られるよ、友達に置いていかれるよ</div>
+    <div class="reword-card-good">何があっても、お父さん・お母さんはあなたの味方だよ</div>
+  </div>
+
+  <!-- ===== セクション6 ===== -->
+  <h2 id="consult">⑥ 相談先と連絡先</h2>
+
+  <p>「行きたくない」という段階で、一人で抱え込まずに相談できる場所を知っておくことが大切です。相談が早ければ早いほど、選択肢が広がります。</p>
+
+  <div class="point-card">
+    <div class="point-card-title">① 担任・教頭（最初の窓口）</div>
+    <p>まず在籍校の担任に連絡・相談することが基本です。「子どもが学校に行くことを嫌がっています。少し相談させてください」という一言で十分です。担任が話しにくい場合は教頭への相談も選択肢です。学校側の対応・配慮が必要な場合は早めに動くほど効果的です。</p>
+  </div>
+
+  <div class="point-card">
+    <div class="point-card-title">② スクールカウンセラー（心理の専門家）</div>
+    <p>学校に配置されているスクールカウンセラーは、子どもと保護者の両方の相談に対応しています。「子どもが行きたくないと言っている」という段階でも相談できます。予約方法は学校によって異なるため、担任に「スクールカウンセラーと話したい」と伝えてください。</p>
+  </div>
+
+  <div class="point-card">
+    <div class="point-card-title">③ 教育委員会の相談窓口</div>
+    <p>市区町村の教育委員会には、不登校・学校生活に関する相談窓口が設けられています。学校への相談がしにくい場合や、第三者的な立場からのアドバイスが欲しい場合に有効です。長野市の場合は長野市教育委員会の相談窓口に問い合わせてください。</p>
+  </div>
+
+  <div class="point-card">
+    <div class="point-card-title">④ 教育支援センター（公的な通所施設）</div>
+    <p>欠席が続き始めたら、教育委員会が設置する教育支援センターへの相談・通所も選択肢になります。基本的に無料で利用でき、在籍校の出席扱いになる場合もあります。まずは学校を通じて問い合わせを行いましょう。</p>
+  </div>
+
+  <div class="point-card">
+    <div class="point-card-title">⑤ 子どもの人権110番（子ども本人が相談できる窓口）</div>
+    <p>子どもが保護者や学校には言えない悩みを相談できる電話窓口です。法務省が設置しており、無料で利用できます。「子どもが自分で相談したい」という場合に紹介してあげましょう。電話番号は0120-007-110（無料・全国共通）です。</p>
+  </div>
+
+  <div class="compare-table-wrap">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>相談先</th>
+          <th>特徴</th>
+          <th>タイミング</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>担任・教頭</strong></td>
+          <td>学校側の配慮・対応を得られる。情報共有ができる</td>
+          <td>「行きたくない」と言われた直後</td>
+        </tr>
+        <tr>
+          <td><strong>スクールカウンセラー</strong></td>
+          <td>心理の専門家。子ども・保護者どちらも相談可能</td>
+          <td>欠席が出始めたとき</td>
+        </tr>
+        <tr>
+          <td><strong>教育委員会の相談窓口</strong></td>
+          <td>第三者的立場。学校への橋渡しも可能</td>
+          <td>学校への相談が難しい場合</td>
+        </tr>
+        <tr>
+          <td><strong>教育支援センター</strong></td>
+          <td>公的・無料・出席扱い対応。通所形式の支援</td>
+          <td>欠席が1〜2週間以上続いたとき</td>
+        </tr>
+        <tr>
+          <td><strong>小児科・児童精神科</strong></td>
+          <td>身体症状・起立性調節障害・抑うつ等の医療的対応</td>
+          <td>身体症状が続く場合・抑うつが疑われる場合</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <a class="related-link-box" href="./futoukou-kyoiku-shien-center.html">
+    <span class="related-link-icon">📄</span>
+    <span class="related-link-text">
+      <span class="related-link-label">関連記事</span>
+      <span class="related-link-title">教育支援センターとは｜利用方法・出席扱い・対象者を解説</span>
+    </span>
+    <span class="related-link-arrow">›</span>
+  </a>
+
+  <a class="related-link-box" href="./futoukou-stages-guide.html" style="margin-top:10px;">
+    <span class="related-link-icon">📄</span>
+    <span class="related-link-text">
+      <span class="related-link-label">関連記事</span>
+      <span class="related-link-title">不登校の種類と段階別サポートガイド｜タイプ・回復の流れ・関わり方を解説</span>
+    </span>
+    <span class="related-link-arrow">›</span>
+  </a>
+
+  <a class="related-link-box" href="./futoukou-kakawarikata.html" style="margin-top:10px;">
+    <span class="related-link-icon">📄</span>
+    <span class="related-link-text">
+      <span class="related-link-label">関連記事</span>
+      <span class="related-link-title">不登校の子どもへの関わり方｜保護者がやってはいけないことと今日からできること</span>
+    </span>
+    <span class="related-link-arrow">›</span>
+  </a>
+
+  <hr class="divider">
+
+  <!-- ===== まとめ ===== -->
+  <div class="summary-box" id="summary">
+    <p class="summary-title">まとめ｜最初の「受け止め方」がその後のすべてを左右する</p>
+    <p>「学校に行きたくない」という言葉は、子どもが出した最初のSOSです。この言葉に対する最初の反応が、その後の回復の速さを大きく左右します。否定・問い詰め・無理強いではなく「そうか、話してくれてありがとう」という受け止めが、子どもに「話してよかった」という安心感を与えます。欠席が続く場合は担任・スクールカウンセラーへの相談を早めに始め、一人で抱え込まずに動いてください。保護者が冷静に・安心感を持って子どもに向き合えることが、回復への最大の支えになります。</p>
+  </div>
+
+  <div class="summary-box" style="margin-top:20px;">
+    <p class="summary-title">不登校の勉強について、もっと詳しく知りたい方へ</p>
+    <p>不登校の子どもの勉強法について、家庭学習・個別指導・フリースクール・通信教育・高校受験まで、より詳しく網羅的に知りたい方はこちらの完全ガイドをご覧ください。</p>
+    <a href="./futoukou-gakushu-guide.html" class="cta-btn cta-green" style="margin-top:12px;">
+      📚 不登校の勉強法 完全ガイドを見る →
+    </a>
+  </div>
+
+  <div class="summary-box" style="margin-top:20px;">
+    <p class="summary-title">夏期講習をまとめて比較したい方へ</p>
+    <p>長野市の夏期講習について、小学生・中学生・高校受験・個別指導・料金比較などをまとめて確認したい方はこちらをご覧ください。</p>
+    <a href="./nagano-juku-kakikoushuu-kanzengaido.html" class="cta-btn cta-green" style="margin-top:12px;">
+      長野市の夏期講習まとめを見る →
+    </a>
+  </div>
+
+  <div class="summary-box" style="margin-top:20px;">
+    <p class="summary-title">塾の料金についてもっと知りたい方へ</p>
+    <p>長野市の塾料金について、月謝・年間費用・小学生・中学生・個別指導の料金まで、知りたい情報ごとにまとめて確認したい方はこちらをご覧ください。</p>
+    <a href="./nagano-juku-ryokin-kanzengaido.html" class="cta-btn cta-green" style="margin-top:12px;">
+      長野市の塾料金完全ガイドを見る →
+    </a>
+  </div>
+
+  <!-- CTA④ オレンジ -->
+  <a href="../diagnosis.html" class="cta-btn cta-orange">
+    🎯 お子様に合う学習スタイルを診断する（無料・1分）→
+  </a>
+
+  <!-- E-E-A-T免責文 -->
+  <div class="eeeat-note">
+    📌 この記事について<br>
+    この記事は、文部科学省の資料・不登校支援に関する公的な教育制度・心理学的知見を参考に作成しています。子どもの状態・回復のペース・必要なサポートは一人ひとり異なります。この記事の内容はあくまで一般的な指針であり、個別の状況への対応については在籍校のスクールカウンセラー・教育委員会・医療機関へのご相談をおすすめします。一人で抱え込まず、まずは学校か教育委員会に相談することをおすすめします。
+  </div>
+
+  <!-- blog-nav -->
+  <nav class="blog-nav">
+    <button class="blog-nav-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open');">
+      📚 塾選びガイド 記事一覧
+      <span class="blog-nav-toggle-icon">▼</span>
+    </button>
+    <div class="blog-nav-list">
+
+      <div class="blog-nav-group-label">通常の塾選び記事</div>
+      <a href="./nagano-elementary-school-juku.html">小学生向け｜後悔しない3つのチェックポイント</a>
+      <a href="./nagano-junior-high-school-juku.html">中学生向け｜高校受験で後悔しない3つの重要ポイント</a>
+      <a href="./nagano-juku-osusume.html">長野市でおすすめの塾｜失敗しない選び方</a>
+      <a href="./nagano-juku-ryokin.html">長野市の塾の料金相場｜小学生・中学生別に解説</a>
+      <a href="./nagano-juku-hikaku.html">長野市 塾 比較｜タイプ別おすすめ選び方</a>
+      <a href="./nagano-juku-itsukara.html">長野市 塾 いつから？最適タイミングを解説</a>
+      <a href="./nagano-juku-yasui.html">長野市 塾 安いおすすめは？失敗しない選び方を解説</a>
+      <a href="./nagano-juku-kobetsu.html">長野市 塾 個別指導はどう選ぶ？失敗しないポイントを解説</a>
+      <a href="./nagano-juku-kobetsu-vs-shudan.html">長野市 塾 個別指導と集団塾どっちがいい？違いと選び方を解説</a>
+      <a href="./nagano-juku-kuchikomi.html">長野市 塾 口コミは信じていい？失敗しない見極め方を解説</a>
+      <a href="./nagano-juku-yametahouga-ii.html">長野市 塾 やめたほうがいい？失敗例と後悔しない選び方を解説</a>
+      <a href="./nagano-juku-chugakusei-osusume.html">長野市 塾 中学生おすすめ｜高校受験で失敗しない選び方を解説</a>
+
+      <div class="blog-nav-group-label">夏期講習特集</div>
+      <a href="./nagano-juku-kakikoushuu-kanzengaido.html">長野市 夏期講習おすすめ完全ガイド</a>
+      <a href="./nagano-juku-kakikoushuu-chugakusei.html">長野市 夏期講習 中学生向けガイド</a>
+      <a href="./nagano-juku-kakikoushuu-shogakusei.html">長野市 夏期講習 小学生向けガイド</a>
+      <a href="./nagano-juku-kakikoushuu-koukoujuken.html">長野市 夏期講習 高校受験対策</a>
+      <a href="./nagano-juku-kakikoushuu-koukousei.html">長野市 夏期講習 高校生向けガイド</a>
+      <a href="./nagano-juku-kakikoushuu-chugakujuken.html">長野市 夏期講習 中学受験対策</a>
+      <a href="./nagano-juku-kakikoushuu-kobetsu.html">長野市 夏期講習 個別指導の選び方</a>
+      <a href="./nagano-juku-kakikoushuu-kobetsu-yasui.html">長野市 夏期講習 個別指導×安い</a>
+      <a href="./nagano-juku-kakikoushuu-yasui.html">長野市 夏期講習 費用を抑える方法</a>
+      <a href="./nagano-juku-kakikoushuu-shogakusei-yasui.html">長野市 夏期講習 小学生×安い</a>
+      <a href="./nagano-juku-kakikoushuu-chugakusei-yasui.html">長野市 夏期講習 中学生×安い</a>
+      <a href="./nagano-juku-kakikoushuu-hikaku.html">長野市 夏期講習 塾を比較する</a>
+      <a href="./nagano-juku-kakikoushuu-muryotaiken.html">長野市 夏期講習 無料体験について</a>
+      <a href="./nagano-juku-kakikoushuu-tanki.html">長野市 夏期講習 短期受講ガイド</a>
+      <a href="./nagano-juku-kakikoushuu-itsukara.html">長野市 夏期講習 いつから始まる？</a>
+      <a href="./nagano-juku-kakikoushuu-moushikomi.html">長野市 夏期講習 申込時期ガイド</a>
+      <a href="./nagano-juku-kakikoushuu-tochusanka.html">長野市 夏期講習 途中参加できる？</a>
+      <a href="./nagano-juku-kakikoushuu-maniawanai.html">長野市 夏期講習 今からでも間に合う？</a>
+      <a href="./nagano-juku-kakikoushuu-nanikosuru.html">長野市 夏期講習 何をするの？</a>
+      <a href="./nagano-juku-kakikoushuu-hitsuyou.html">長野市 夏期講習 本当に必要？</a>
+      <a href="./nagano-juku-kakikoushuu-bukatsu.html">長野市 夏期講習 部活との両立</a>
+      <a href="./nagano-juku-kakikoushuu-ikitakunai.html">長野市 夏期講習 行きたくない場合は？</a>
+      <a href="./nagano-juku-kakikoushuu-benkyogirai.html">長野市 夏期講習 勉強嫌いの子向け</a>
+      <a href="./nagano-juku-kakikoushuu-tsuzukanai.html">長野市 夏期講習 続かないか不安な方へ</a>
+      <a href="./nagano-juku-kakikoushuu-seiseki-agaranai.html">長野市 夏期講習 成績が上がらない場合は？</a>
+      <a href="./nagano-juku-kakikoushuu-shippai.html">長野市 夏期講習 失敗しない選び方</a>
+
+      <div class="blog-nav-group-label">料金・相場特集</div>
+      <a href="./nagano-juku-ryokin-kanzengaido.html">長野市 塾料金 完全ガイド</a>
+      <a href="./nagano-juku-gessha.html">長野市 塾 月謝｜料金相場と選び方</a>
+      <a href="./nagano-juku-souba.html">長野市 塾 相場｜平均料金と選び方</a>
+      <a href="./nagano-juku-hiyou.html">長野市 塾 費用｜年間総額を解説</a>
+      <a href="./nagano-juku-nenkanhiyou.html">長野市 塾 年間費用｜1年間の総額</a>
+      <a href="./nagano-juku-shougakusei-ryoukin.html">長野市 塾 小学生 料金</a>
+      <a href="./nagano-juku-chugakusei-ryoukin.html">長野市 塾 中学生 料金</a>
+      <a href="./nagano-juku-kobetusidou-ryoukin.html">長野市 個別指導 料金</a>
+      <a href="./nagano-juku-takai.html">長野市 塾 高い｜価値の見極め方</a>
+      <a href="./nagano-juku-yasui-shougakusei.html">長野市 塾 安い 小学生</a>
+      <a href="./nagano-juku-yasui-chugakusei.html">長野市 塾 安い 中学生</a>
+
+      <div class="blog-nav-group-label">お悩み・不安特集</div>
+      <a href="./nagano-juku-nayami-kanzengaido.html">塾のお悩み完全ガイド</a>
+      <a href="./nagano-juku-ikanakutemoii-hatena.html">長野市 塾 行かなくてもいい？</a>
+      <a href="./nagano-juku-kouka-nai.html">長野市 塾 効果ない</a>
+      <a href="./nagano-juku-tsuzukanai.html">長野市 塾 続かない</a>
+      <a href="./nagano-juku-yarukinai.html">長野市 塾 やる気ない</a>
+      <a href="./nagano-juku-ikitakunai-newver.html">長野市 塾 行きたくない</a>
+      <a href="./nagano-juku-iyagaru.html">長野市 塾 嫌がる</a>
+      <a href="./nagano-juku-koukai.html">長野市 塾 後悔</a>
+      <a href="./nagano-juku-shippai.html">長野市 塾 失敗</a>
+      <a href="./nagano-juku-awanai.html">長野市 塾 合わない</a>
+      <a href="./nagano-juku-yametai-new.html">長野市 塾 辞めたい</a>
+      <a href="./nagano-juku-hitsuyounai.html">長野市 塾 必要ない</a>
+      <a href="./nagano-juku-seisekiagaranai.html">長野市 塾 成績上がらない</a>
+      <a href="./nagano-juku-muitenai.html">長野市 塾 向いてない</a>
+
+      <div class="blog-nav-group-label">個別指導特集</div>
+      <a href="./nagano-juku-kobetsushidou-kanzengaido.html">長野市 個別指導 完全ガイド</a>
+      <a href="./nagano-juku-kobetsushidou-osusume.html">長野市 個別指導 おすすめ</a>
+      <a href="./nagano-juku-kobetsushidou-shogakusei.html">長野市 個別指導 小学生</a>
+      <a href="./nagano-juku-kobetsushidou-chugakusei.html">長野市 個別指導 中学生</a>
+      <a href="./nagano-juku-kobetsushidou-koukousei.html">長野市 個別指導 高校生</a>
+      <a href="./nagano-juku-kobetsushidou-koukoujuken.html">長野市 個別指導 高校受験</a>
+      <a href="./nagano-juku-kobetsushidou-ryokin.html">長野市 個別指導 料金</a>
+      <a href="./nagano-juku-kobetsushidou-yasui.html">長野市 個別指導 安い</a>
+      <a href="./nagano-juku-kobetsushidou-taiken.html">長野市 個別指導 体験</a>
+      <a href="./nagano-juku-kobetsushidou-docchi.html">長野市 個別指導 集団塾どっち</a>
+      <a href="./nagano-juku-kobetsushidou-shu1.html">長野市 個別指導 週1</a>
+      <a href="./nagano-juku-kobetsushidou-seisekiagaranai.html">長野市 個別指導 成績上がらない</a>
+      <a href="./nagano-juku-kobetsushidou-awanai.html">長野市 個別指導 合わない</a>
+      <a href="./nagano-juku-kobetsushidou-yametai.html">長野市 個別指導 辞めたい</a>
+      <a href="./nagano-juku-kobetsushidou-benkyogirai.html">長野市 個別指導 勉強嫌い</a>
+      <a href="./nagano-juku-kobetsushidou-bukatsu.html">長野市 個別指導 部活両立</a>
+      <a href="./nagano-juku-kobetsushidou-futoukou.html">長野市 個別指導 不登校</a>
+
+    </div>
+  </nav>
+
+  <!-- pr-box -->
+  <div class="pr-box">
+    <p class="pr-title">📈 教室運営者様へ</p>
+    <p style="font-size:14px;margin-bottom:12px;">
+      「長野市キッズナビ」は、真剣に塾を探している保護者が集まる専門サイトです。
+    </p>
+    <ul class="pr-list">
+      <li>掲載無料 / データ計測可能 / 集客導線あり</li>
+      <li>現在、掲載枠には限りがあります。</li>
+    </ul>
+    <a href="https://forms.gle/xiMYtrGEonq9ynnt8"
+       class="cta-btn cta-orange"
+       target="_blank"
+       rel="noopener noreferrer">
+      【無料】掲載を申し込む →
+    </a>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <a href="../privacy-policy.html">プライバシーポリシー・免責事項</a>
+</footer>
+
+</body>
+</html>
