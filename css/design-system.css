@@ -8,16 +8,17 @@
    ========================================================= */
 
 :root {
-  /* 5色パレット */
-  --color-green: #1a6b3c;      /* 安心・信頼 */
+  /* 5色パレット（2026年7月リフレッシュ：コントラスト比4.5:1以上を維持したまま彩度・色相を調整） */
+  --color-green: #0f7a47;      /* 安心・信頼（旧#1a6b3cの濁りを除去し彩度を上げたクリーンな深緑） */
   --color-green-soft: #e6f1eb; /* 緑の淡色背景 */
   --color-orange: #d9772e;     /* CTA */
   --color-orange-soft: #fbead9;
   --color-red: #c14545;        /* 注意 */
   --color-red-soft: #f9e6e6;
-  --color-blue: #3b6fa8;       /* 補足 */
+  --color-blue: #3a76b0;       /* 補足（白背景上のカードタイトル用。旧#3b6fa8よりわずかに軽やかに） */
+  --color-blue-deep: #2c5a86;  /* blueの濃色版。hover時の淡色背景上や、既存リンク文字などコントラストがシビアな箇所専用 */
   --color-blue-soft: #e7eef7;
-  --color-grey: #6b6b64;       /* 補助 */
+  --color-grey: #75756c;       /* 補助（旧#6b6b64より少し軽やかに） */
   --color-grey-soft: #f0efec;
 
   --color-text: #2b2b26;
@@ -95,7 +96,7 @@ img { max-width: 100%; display: block; }
   color: var(--color-text-sub);
 }
 
-.breadcrumb a { color: var(--color-blue); }
+.breadcrumb a { color: var(--color-blue-deep); }
 
 .breadcrumb__sep {
   margin: 0 6px;
@@ -191,19 +192,19 @@ img { max-width: 100%; display: block; }
 
 .ia-group:first-of-type .ia-group__heading {
   font-size: 0.95rem;
-  color: var(--color-blue);
+  color: var(--color-blue-deep);
 }
 
-/* ---------- プライマリーカード（お悩み別ガイドのみ、視覚的に最も重い） ---------- */
+/* ---------- プライマリーカード（お悩み別ガイドのみ、他カードよりほんの少しだけ強調） ---------- */
 .primary-card {
   position: relative;
   cursor: pointer;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-left-width: 4px;
+  border-left-width: 5px;
   border-left-color: var(--color-blue);
   border-radius: var(--radius);
-  padding: 24px 46px 24px 22px;
+  padding: 20px 42px 20px 20px;
   transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
 }
 
@@ -213,8 +214,8 @@ img { max-width: 100%; display: block; }
   right: 18px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 1.3rem;
-  color: var(--color-text-sub);
+  font-size: 1.15rem;
+  color: var(--color-blue);
   pointer-events: none;
   transition: transform 0.15s ease, color 0.15s ease;
 }
@@ -228,24 +229,29 @@ img { max-width: 100%; display: block; }
 
 .primary-card:hover::after,
 .primary-card:active::after {
-  color: var(--color-blue);
+  color: var(--color-blue-deep);
   transform: translateY(-50%) translateX(3px);
 }
 
 .primary-card__icon {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   line-height: 1;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .primary-card__title {
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  margin: 0 0 8px;
+  margin: 0 0 6px;
 }
 
 .primary-card__link {
-  color: var(--color-text);
+  color: var(--color-blue);
+}
+
+.primary-card:hover .primary-card__link,
+.primary-card:active .primary-card__link {
+  color: var(--color-blue-deep);
 }
 
 .primary-card__link::after {
@@ -255,7 +261,7 @@ img { max-width: 100%; display: block; }
 }
 
 .primary-card__desc {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--color-text-sub);
   margin: 0;
 }
@@ -293,18 +299,25 @@ img { max-width: 100%; display: block; }
   top: 50%;
   transform: translateY(-50%);
   font-size: 1.1rem;
-  color: var(--color-text-sub);
+  color: var(--color-blue);
   pointer-events: none;
   transition: transform 0.15s ease, color 0.15s ease;
 }
 
-.nav-card:hover::after {
+.nav-card:hover::after,
+.nav-card:active::after {
+  color: var(--color-blue-deep);
   transform: translateY(-50%) translateX(3px);
 }
 
 /* カード全体をタップ領域にしつつ、実際のリンクはタイトル1つだけにする */
 .nav-card__link {
-  color: var(--color-text);
+  color: var(--color-blue);
+}
+
+.nav-card:hover .nav-card__link,
+.nav-card:active .nav-card__link {
+  color: var(--color-blue-deep);
 }
 
 .nav-card__link::after {
@@ -320,13 +333,10 @@ img { max-width: 100%; display: block; }
 .nav-card--grey { border-left-color: var(--color-grey); }
 
 .nav-card--blue:hover, .nav-card--blue:active { border-color: var(--color-blue); background: var(--color-blue-soft); transform: translateY(-2px); }
-.nav-card--blue:hover::after, .nav-card--blue:active::after { color: var(--color-blue); }
 
 .nav-card--green:hover, .nav-card--green:active { border-color: var(--color-green); background: var(--color-green-soft); transform: translateY(-2px); }
-.nav-card--green:hover::after, .nav-card--green:active::after { color: var(--color-green); }
 
 .nav-card--grey:hover, .nav-card--grey:active { border-color: var(--color-grey); background: var(--color-grey-soft); transform: translateY(-2px); }
-.nav-card--grey:hover::after, .nav-card--grey:active::after { color: var(--color-grey); }
 
 .nav-card__icon {
   font-size: 1.2rem;
@@ -406,7 +416,7 @@ img { max-width: 100%; display: block; }
 }
 
 .tool-hint a {
-  color: var(--color-blue);
+  color: var(--color-blue-deep);
   font-weight: 700;
 }
 
