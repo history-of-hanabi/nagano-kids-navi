@@ -22,9 +22,10 @@
 
   --color-text: #2b2b26;
   --color-text-sub: #5b5b54;
-  --color-bg: #fafaf8;
-  --color-surface: #ffffff;
-  --color-border: #e3e1da;
+  --color-bg: #faf7f1;
+  --color-surface: #fffefb;
+  --color-border: #e8e1d3;
+  --color-hero-bg: #fdf6ea;
 
   --radius: 8px;
   --font-jp: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif;
@@ -103,9 +104,13 @@ img { max-width: 100%; display: block; }
 
 /* ---------- ヒーロー ---------- */
 .hero {
-  padding: 56px 20px 40px;
+  background: var(--color-hero-bg);
+  border-radius: var(--radius);
   max-width: var(--max-width);
-  margin: 0 auto;
+  margin: 16px auto 0;
+  margin-left: max(20px, calc((100% - var(--max-width)) / 2));
+  margin-right: max(20px, calc((100% - var(--max-width)) / 2));
+  padding: 40px 20px 32px;
   text-align: left;
 }
 
@@ -133,8 +138,10 @@ img { max-width: 100%; display: block; }
   padding: 14px 24px;
   border-radius: var(--radius);
   border-left: none;
+  transition: opacity 0.15s ease;
 }
 
+.cta-button:hover,
 .cta-button:active { opacity: 0.85; }
 
 /* ---------- よくあるお悩みタグ ---------- */
@@ -150,11 +157,17 @@ img { max-width: 100%; display: block; }
 .tag-link {
   display: inline-block;
   font-size: 0.85rem;
-  padding: 9px 16px;
+  padding: 10px 18px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   color: var(--color-text);
   background: var(--color-surface);
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.tag-link:hover {
+  border-color: var(--color-blue);
+  background: var(--color-blue-soft);
 }
 
 /* ---------- IAグループ（行動ベースのセクション区切り） ---------- */
@@ -176,32 +189,57 @@ img { max-width: 100%; display: block; }
   letter-spacing: 0.02em;
 }
 
+.ia-group:first-of-type .ia-group__heading {
+  font-size: 0.95rem;
+  color: var(--color-blue);
+}
+
 /* ---------- プライマリーカード（お悩み別ガイドのみ、視覚的に最も重い） ---------- */
 .primary-card {
   position: relative;
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
+  cursor: pointer;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-left-width: 4px;
   border-left-color: var(--color-blue);
   border-radius: var(--radius);
-  padding: 22px 20px;
+  padding: 24px 46px 24px 22px;
+  transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.primary-card::after {
+  content: "→";
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.3rem;
+  color: var(--color-text-sub);
+  pointer-events: none;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.primary-card:hover,
+.primary-card:active {
+  transform: translateY(-2px);
+  border-color: var(--color-blue);
+  background: var(--color-blue-soft);
+}
+
+.primary-card:hover::after,
+.primary-card:active::after {
+  color: var(--color-blue);
+  transform: translateY(-50%) translateX(3px);
 }
 
 .primary-card__icon {
-  font-size: 1.7rem;
+  font-size: 1.8rem;
   line-height: 1;
-}
-
-.primary-card__body {
-  flex: 1;
-  min-width: 0;
+  margin-bottom: 10px;
 }
 
 .primary-card__title {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: 700;
   margin: 0 0 8px;
 }
@@ -217,7 +255,7 @@ img { max-width: 100%; display: block; }
 }
 
 .primary-card__desc {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   color: var(--color-text-sub);
   margin: 0;
 }
@@ -225,7 +263,7 @@ img { max-width: 100%; display: block; }
 .category-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 14px;
+  gap: 16px;
 }
 
 @media (min-width: 640px) {
@@ -238,12 +276,30 @@ img { max-width: 100%; display: block; }
 
 .nav-card {
   position: relative;
+  cursor: pointer;
   display: block;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-left-width: 4px;
   border-radius: var(--radius);
-  padding: 16px 18px;
+  padding: 18px 40px 18px 18px;
+  transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.nav-card::after {
+  content: "→";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  color: var(--color-text-sub);
+  pointer-events: none;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.nav-card:hover::after {
+  transform: translateY(-50%) translateX(3px);
 }
 
 /* カード全体をタップ領域にしつつ、実際のリンクはタイトル1つだけにする */
@@ -262,6 +318,15 @@ img { max-width: 100%; display: block; }
 .nav-card--red { border-left-color: var(--color-red); }
 .nav-card--blue { border-left-color: var(--color-blue); }
 .nav-card--grey { border-left-color: var(--color-grey); }
+
+.nav-card--blue:hover, .nav-card--blue:active { border-color: var(--color-blue); background: var(--color-blue-soft); transform: translateY(-2px); }
+.nav-card--blue:hover::after, .nav-card--blue:active::after { color: var(--color-blue); }
+
+.nav-card--green:hover, .nav-card--green:active { border-color: var(--color-green); background: var(--color-green-soft); transform: translateY(-2px); }
+.nav-card--green:hover::after, .nav-card--green:active::after { color: var(--color-green); }
+
+.nav-card--grey:hover, .nav-card--grey:active { border-color: var(--color-grey); background: var(--color-grey-soft); transform: translateY(-2px); }
+.nav-card--grey:hover::after, .nav-card--grey:active::after { color: var(--color-grey); }
 
 .nav-card__icon {
   font-size: 1.2rem;
@@ -294,8 +359,8 @@ img { max-width: 100%; display: block; }
 .site-notice {
   max-width: var(--max-width);
   margin: 20px auto 0;
-  padding-left: 20px;
-  padding-right: 20px;
+  margin-left: max(20px, calc((100% - var(--max-width)) / 2));
+  margin-right: max(20px, calc((100% - var(--max-width)) / 2));
 }
 
 .site-notice__text {
