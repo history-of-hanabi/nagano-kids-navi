@@ -1,33 +1,39 @@
 /* =========================================================
    長野市キッズナビ 共通デザインシステム
-   2026年7月確定版
-   - 配色は5色のみ（green/orange/red/blue/grey）
+   2026年7月確定版（役割ベース配色にリニューアル）
+   - 色は「カテゴリの区別」ではなく「役割」で使う：
+     ブランド(blue)=ヘッダー/リンク/カードタイトル/矢印、
+     orange=CTA、red=注意警告、green=記事本文の安心/ポイント/成功、
+     grey=補助情報。ナビゲーションカードの色分けは廃止し、
+     違いはアイコン・タイトル・説明文で表現する。
    - 角丸8pxで統一（CTAのピル型は廃止）
-   - 影は使わず、左ボーダー4pxでカード種類を区別
+   - 影は使わず、浮き上がり+枠線+背景色でクリック可能性を表現
    - 絵文字は📄💡⚠️📋🎯の5種のみ
    ========================================================= */
 
 :root {
-  /* 5色パレット（2026年7月リフレッシュ：コントラスト比4.5:1以上を維持したまま彩度・色相を調整） */
-  --color-green: #0f7a47;      /* 安心・信頼（旧#1a6b3cの濁りを除去し彩度を上げたクリーンな深緑） */
-  --color-green-soft: #e6f1eb; /* 緑の淡色背景 */
-  --color-orange: #d9772e;     /* CTA */
+  /* ブランドカラー（メイン。ヘッダー・リンク・カードタイトル・矢印に統一使用） */
+  --color-blue: #3a76b0;       /* 白背景上のテキスト用。コントラスト比4.7:1 */
+  --color-blue-deep: #2c5a86;  /* 濃色版。ヘッダー背景・淡色背景上のテキスト・hover時に使用 */
+  --color-blue-soft: #eaf2fb;  /* 淡色背景 */
+
+  /* 役割別カラー */
+  --color-orange: #d9772e;     /* CTA専用 */
   --color-orange-soft: #fbead9;
-  --color-red: #c14545;        /* 注意 */
+  --color-red: #c14545;        /* 注意・警告専用 */
   --color-red-soft: #f9e6e6;
-  --color-blue: #3a76b0;       /* 補足（白背景上のカードタイトル用。旧#3b6fa8よりわずかに軽やかに） */
-  --color-blue-deep: #2c5a86;  /* blueの濃色版。hover時の淡色背景上や、既存リンク文字などコントラストがシビアな箇所専用 */
-  --color-blue-soft: #e7eef7;
-  --color-grey: #75756c;       /* 補助（旧#6b6b64より少し軽やかに） */
-  --color-grey-soft: #f0efec;
+  --color-green: #16a34a;      /* 記事本文の「安心・ポイント・成功」専用（ナビゲーションには使わない） */
+  --color-green-soft: #e7f7ee;
+  --color-grey: #6b7078;       /* 補助情報専用 */
+  --color-grey-soft: #f1f2f4;
 
   --color-text: #2b2b26;
   --color-text-sub: #5b5b54;
-  --color-bg: #faf7f1;
-  --color-surface: #fffefb;
-  --color-card-bg: #f9fbff;    /* カード専用背景。わずかに青みを帯びた白で現代的な印象に */
-  --color-border: #e8e1d3;
-  --color-hero-bg: #fdf6ea;
+  --color-bg: #f7f8fa;         /* ニュートラル〜わずかに青みを帯びた白 */
+  --color-surface: #ffffff;
+  --color-card-bg: #f9fbff;    /* カード専用背景。透明感のある白 */
+  --color-border: #e4e7ec;
+  --color-hero-bg: #eff5fb;    /* ブランドブルーと調和する淡いブルー背景 */
 
   --radius: 8px;
   --font-jp: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif;
@@ -58,9 +64,9 @@ img { max-width: 100%; display: block; }
   padding: 0 20px;
 }
 
-/* ---------- ヘッダー（グラデーション廃止・緑単色フラット） ---------- */
+/* ---------- ヘッダー（ブランドブルーに統一） ---------- */
 .site-header {
-  background: var(--color-green);
+  background: var(--color-blue-deep);
   color: #fff;
   padding: 18px 20px;
 }
@@ -84,7 +90,7 @@ img { max-width: 100%; display: block; }
 
 .site-header__tagline {
   font-size: 0.8rem;
-  color: #d9ede1;
+  color: #d6e6f5;
   margin: 0;
 }
 
@@ -296,9 +302,16 @@ img { max-width: 100%; display: block; }
   background: var(--color-card-bg);
   border: 1px solid var(--color-border);
   border-left-width: 4px;
+  border-left-color: var(--color-blue);
   border-radius: var(--radius);
   padding: 18px 56px 18px 18px;
   transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.nav-card:hover,
+.nav-card:active {
+  transform: translateY(-2px);
+  background: var(--color-blue-soft);
 }
 
 .nav-card::after {
@@ -342,18 +355,6 @@ img { max-width: 100%; display: block; }
   position: absolute;
   inset: 0;
 }
-
-.nav-card--green { border-left-color: var(--color-green); }
-.nav-card--orange { border-left-color: var(--color-orange); }
-.nav-card--red { border-left-color: var(--color-red); }
-.nav-card--blue { border-left-color: var(--color-blue); }
-.nav-card--grey { border-left-color: var(--color-grey); }
-
-.nav-card--blue:hover, .nav-card--blue:active { border-color: var(--color-blue); background: var(--color-blue-soft); transform: translateY(-2px); }
-
-.nav-card--green:hover, .nav-card--green:active { border-color: var(--color-green); background: var(--color-green-soft); transform: translateY(-2px); }
-
-.nav-card--grey:hover, .nav-card--grey:active { border-color: var(--color-grey); background: var(--color-grey-soft); transform: translateY(-2px); }
 
 .nav-card__icon {
   font-size: 1.2rem;
@@ -472,7 +473,7 @@ img { max-width: 100%; display: block; }
 /* ---------- フッター ---------- */
 .site-footer {
   margin-top: 40px;
-  background: var(--color-green-soft);
+  background: var(--color-blue-soft);
   padding: 28px 20px;
 }
 
@@ -492,7 +493,7 @@ img { max-width: 100%; display: block; }
   list-style: none;
 }
 
-.site-footer__links a { color: var(--color-green); font-weight: 700; }
+.site-footer__links a { color: var(--color-blue-deep); font-weight: 700; }
 
 .site-footer__copy { margin: 0; font-size: 0.75rem; color: var(--color-text-sub); }
 
