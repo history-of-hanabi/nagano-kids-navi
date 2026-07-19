@@ -6,7 +6,7 @@
      orange=CTA、red=注意警告、green=記事本文の安心/ポイント/成功、
      grey=補助情報。ナビゲーションカードの色分けは廃止し、
      違いはアイコン・タイトル・説明文で表現する。
-   - 角丸8pxで統一（CTAのピル型は廃止）
+   - 角丸10pxで統一（CTAのピル型は廃止）
    - 影は使わず、浮き上がり+枠線+背景色でクリック可能性を表現
    - 絵文字は📄💡⚠️📋🎯の5種のみ
    ========================================================= */
@@ -29,12 +29,13 @@
 
   --color-text: #2b2b26;
   --color-text-sub: #5b5b54;
-  --color-bg: #f9fafb;         /* ほぼ白、わずかに青みを感じる程度 */
+  --color-bg: #fafaf8;         /* ごくわずかに暖色寄りのニュートラル */
   --color-surface: #ffffff;
   --color-card-bg: #fdfeff;    /* ほぼ白のカード背景 */
   --color-border: #eceef1;
+  --color-hero-bg: #f1f6fb;    /* Heroの「迎え入れ感」用。淡いブルー、境界線・影なしで使用 */
 
-  --radius: 8px;
+  --radius: 10px;
   --font-jp: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif;
 
   --max-width: 960px;
@@ -111,9 +112,12 @@ img { max-width: 100%; display: block; }
 
 /* ---------- ヒーロー（カード感を弱め、余白をタイトに） ---------- */
 .hero {
-  background: transparent;
+  background: var(--color-hero-bg);
+  border-radius: var(--radius);
   max-width: var(--max-width);
-  margin: 0 auto;
+  margin: 12px auto 0;
+  margin-left: max(20px, calc((100% - var(--max-width)) / 2));
+  margin-right: max(20px, calc((100% - var(--max-width)) / 2));
   padding: 28px 20px 16px;
   text-align: left;
 }
@@ -252,7 +256,7 @@ img { max-width: 100%; display: block; }
   justify-content: center;
   font-size: 1.05rem;
   border-radius: var(--radius);
-  background: var(--color-grey-soft);
+  background: var(--color-blue-soft);
   margin-bottom: 10px;
 }
 
@@ -367,7 +371,7 @@ img { max-width: 100%; display: block; }
   justify-content: center;
   font-size: 0.95rem;
   border-radius: var(--radius);
-  background: var(--color-grey-soft);
+  background: var(--color-blue-soft);
   margin-bottom: 8px;
 }
 
