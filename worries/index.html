@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お悩み別ガイド｜長野市キッズナビ</title>
+<meta name="description" content="不登校、発達障害・グレーゾーン、勉強についていけないなど、長野市の保護者が抱えるお悩みから、お子さまに合った学びを考えるヒントをご紹介します。">
+<link rel="icon" href="/nagano-kids-navi/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://nagano-kids-navi.github.io/nagano-kids-navi/worries/index.html">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/design-system.css">
+
+<!-- 構造化データ: パンくず -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://nagano-kids-navi.github.io/nagano-kids-navi/index.html" },
+    { "@type": "ListItem", "position": 2, "name": "お悩み別ガイド", "item": "https://nagano-kids-navi.github.io/nagano-kids-navi/worries/index.html" }
+  ]
+}
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YST2S5X11W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YST2S5X11W');
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <p class="site-header__title"><a href="../index.html">長野市キッズナビ</a></p>
+    <p class="site-header__tagline">長野市の地域教育メディア</p>
+  </div>
+</header>
+
+<nav class="breadcrumb" aria-label="パンくずリスト">
+  <a href="../index.html">ホーム</a><span class="breadcrumb__sep">›</span>お悩み別ガイド
+</nav>
+
+<main>
+
+  <!--
+    Hero
+    役割：このページの入口。トップページのブランドコピー「一緒に考える」を
+          「お悩み」という文脈に絞って継承する。
+    理由：ページごとにトーンが変わると世界観が崩れるため、Hero/Leadの構文パターンは
+          トップページと完全に揃える（主語・語尾・「ヒントをお届けします」の形を統一）。
+    将来：カテゴリが10種類に増えた場合、リード文の具体例（不登校・発達障害等）は
+          代表的な3〜4例に絞ったまま変更しない想定（全列挙はしない）。
+  -->
+  <section class="hero">
+    <h1 class="hero__title">お悩みから、お子さまに合った学びを、一緒に考える。</h1>
+    <p class="hero__lead">不登校、発達障害・グレーゾーン、勉強についていけないなど、今のお悩みから、お子さまに合った学びを考えるヒントをお届けします。</p>
+  </section>
+
+  <!--
+    公開状況の告知バー
+    役割：テーマ別記事(futoukou.html等)が未公開であることを事前に伝える。
+    理由：トップページと同一の運用ルール(info-box + site-noticeの再利用)。
+    将来：全テーマ記事が揃い次第、このブロックごと削除する。
+  -->
+  <div class="info-box site-notice">
+    <p class="site-notice__text">現在、テーマ別の記事を順次公開中です。一部のページは近日公開予定です。</p>
+  </div>
+
+  <!--
+    共感の導入文
+    役割：「悩みを分類する」のではなく「一緒に整理する」という、このページの立場を最初に伝える。
+    理由：保護者の状態を断定せず(「〜している」と決めつけない)、共感の言葉から入ることで
+          安心感を優先するブランドトーンを保つ。
+    将来：ここは各テーマ記事にも共通する導入の型として流用できる。
+  -->
+  <section class="ia-group">
+    <p class="about__text">
+      何から考えればいいかわからない。<br>
+      調べても情報が多く、迷ってしまう。<br>
+      そんなときは、まず今のお悩みを整理するところから、一緒に考えていきましょう。
+    </p>
+  </section>
+
+  <!--
+    お悩みテーマ一覧
+    役割：現時点で用意している5テーマへの入口。トップページの「よくあるお悩みタグ」と
+          同じID(futoukou/hattatsu-gray/benkyou-tsuiteikenai/koukou-juken/katei-gakushu)を
+          各カードに付与し、アンカーリンクの着地先として機能させる。
+    理由：IDはmemory記録済みの命名規則に準拠。将来、各カードのリンク先(futoukou.html等)を
+          独立ページとして公開する際も、このIDと同じスラッグをファイル名にすることで
+          リンク切れが起きない設計にしている。
+    将来：カテゴリは今後10種（勉強しない/ゲームばかりしている/朝起きられない/
+          学校へ行きたくない/その他教育の悩み）まで拡張予定。追加時はcategory-gridに
+          カードを追加するだけでよく、レイアウト変更は不要。
+  -->
+  <section class="ia-group">
+    <h2 class="ia-group__heading">お悩みのテーマから探す</h2>
+    <div class="category-grid">
+
+      <article class="nav-card" id="futoukou">
+        <div class="nav-card__icon" aria-hidden="true">⚠️</div>
+        <h3 class="nav-card__title"><a class="nav-card__link" href="futoukou.html">不登校</a></h3>
+        <p class="nav-card__desc">学校に行きづらい、行きたくないと感じているとき。お子さまの気持ちや、今からできることについて理解を深められる記事を紹介しています。</p>
+      </article>
+
+      <article class="nav-card" id="hattatsu-gray">
+        <div class="nav-card__icon" aria-hidden="true">📋</div>
+        <h3 class="nav-card__title"><a class="nav-card__link" href="hattatsu-gray.html">発達障害・グレーゾーン</a></h3>
+        <p class="nav-card__desc">「発達障害かもしれない」と感じたときに、まず知っておきたい特性や関わり方について、考えるヒントを紹介しています。</p>
+      </article>
+
+      <article class="nav-card" id="benkyou-tsuiteikenai">
+        <div class="nav-card__icon" aria-hidden="true">💡</div>
+        <h3 class="nav-card__title"><a class="nav-card__link" href="benkyou-tsuiteikenai.html">勉強についていけない</a></h3>
+        <p class="nav-card__desc">授業や宿題が思うように進まないとき、お子さまに合った関わり方を一緒に考えるための記事を紹介しています。</p>
+      </article>
+
+      <article class="nav-card" id="koukou-juken">
+        <div class="nav-card__icon" aria-hidden="true">🎯</div>
+        <h3 class="nav-card__title"><a class="nav-card__link" href="koukou-juken.html">高校受験</a></h3>
+        <p class="nav-card__desc">長野市の高校受験について、情報をどう整理していけばよいか、今から考えておきたいことを紹介しています。</p>
+      </article>
+
+      <article class="nav-card" id="katei-gakushu">
+        <div class="nav-card__icon" aria-hidden="true">📄</div>
+        <h3 class="nav-card__title"><a class="nav-card__link" href="katei-gakushu.html">家庭学習</a></h3>
+        <p class="nav-card__desc">おうちでの学び方に悩んだときに、参考になる考え方や工夫を紹介しています。</p>
+      </article>
+
+    </div>
+  </section>
+
+  <!--
+    悩み→相談先への橋渡し
+    役割：一人で抱え込まないための導線。トップページのprimary-cardと同じ
+          コンポーネントを再利用し、新しいUIは作らない。
+    理由：「相談する」という行動は「記事を読む」とは別の性質のため、
+          このページの最後に独立したセクションとして配置している
+          （MASTER MAPの「悩み記事から相談先への横方向リンクを最低1本」ルールに対応）。
+    将来：ここに個別記事(futoukou.html等)が増えたら、各記事の末尾にも
+          同種の相談先リンクを設置する想定。
+  -->
+  <section class="ia-group">
+    <h2 class="ia-group__heading">どこに相談したらよいかわからない方へ</h2>
+    <div class="primary-card">
+      <div class="primary-card__icon" aria-hidden="true">📋</div>
+      <div class="primary-card__body">
+        <h3 class="primary-card__title"><a class="primary-card__link" href="../institutions/index.html">相談先・支援機関を見る</a></h3>
+        <p class="primary-card__desc">お子さまの状況に応じて相談できる窓口や支援機関を紹介しています。必要なときに相談先を知ることも、お子さまに合った学びを考えるための一つの方法です。</p>
+      </div>
+    </div>
+  </section>
+
+  <p class="tool-hint">
+    迷ったら <a href="../diagnosis.html">学び方診断</a> もご利用いただけます。
+  </p>
+
+  <!--
+    About（このページでできること）
+    役割：トップページと同じ構成（できることの一覧→運営姿勢）をこのページのスコープに
+          合わせて再掲する。既存の.aboutコンポーネントをそのまま再利用し、新規CSSは追加しない。
+    理由：3項目目「知ることができる」は、プロジェクト憲章6節の推奨語彙（知る／理解する）に
+          沿った表現。1項目目の「理解を深められる」と語尾が重複しないよう使い分けており、
+          4項目全体で「理解を深められる／得られる／知ることができる／つながる」と
+          語尾を分散させることで単調さを避けている。
+    将来：カテゴリ数が増えても、この4項目の構成（理解・ヒント・関連記事・相談先）は
+          変更せず維持する想定。
+  -->
+  <section class="about">
+    <h2 class="about__title">このページでできること</h2>
+    <ul class="about__list">
+      <li>お悩みについて理解を深められる</li>
+      <li>お子さまに合った学びを考えるヒントが得られる</li>
+      <li>関連するテーマについて知ることができる</li>
+      <li>必要に応じて相談先につながる</li>
+    </ul>
+    <p class="about__text">
+      お悩みは一つではなく、複数重なることもあります。そのような場合も、一つずつ整理しながら、お子さまに合った学びを一緒に考えていきましょう。
+    </p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <ul class="site-footer__links">
+      <li><a href="../articles/index.html">記事一覧</a></li>
+      <li><a href="../diagnosis.html">学び方診断</a></li>
+      <li><a href="https://forms.gle/xiMYtrGEonq9ynnt8">掲載をご希望の教育機関様はこちら</a></li>
+    </ul>
+    <p class="site-footer__copy">&copy; 長野市キッズナビ</p>
+  </div>
+</footer>
+
+</body>
+</html>
