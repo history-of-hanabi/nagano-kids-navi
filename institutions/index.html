@@ -1,1 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>相談先・支援機関｜長野市キッズナビ</title>
+<meta name="description" content="学校、教育支援センター、行政機関、民間相談機関、地域の相談先など、長野市で利用できる相談先の種類や役割を長野市キッズナビがわかりやすくご紹介します。">
+<link rel="icon" href="/nagano-kids-navi/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://nagano-kids-navi.github.io/nagano-kids-navi/institutions/index.html">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/design-system.css">
+
+<!-- 構造化データ: パンくず -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://nagano-kids-navi.github.io/nagano-kids-navi/index.html" },
+    { "@type": "ListItem", "position": 2, "name": "相談先・支援機関", "item": "https://nagano-kids-navi.github.io/nagano-kids-navi/institutions/index.html" }
+  ]
+}
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YST2S5X11W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YST2S5X11W');
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <p class="site-header__title"><a href="../index.html">長野市キッズナビ</a></p>
+    <p class="site-header__tagline">長野市の地域教育メディア</p>
+  </div>
+</header>
+
+<nav class="breadcrumb" aria-label="パンくずリスト">
+  <a href="../index.html">ホーム</a><span class="breadcrumb__sep">›</span>相談先・支援機関
+</nav>
+
+<main>
+
+  <!--
+    Hero
+    役割：worries/methods と同じ構文パターンを踏襲し、トップページのブランドコピー
+          「一緒に考える」を「相談先」という文脈に絞って継承する。
+    理由：このページは「相談先を比較・案内する」ページではなく、相談先の種類や役割を
+          理解したうえで、お子さまに合った相談先を考えるためのページである
+          （サイト設計書6節：役割は「相談先を知る」ことであり、比較ページではない）。
+  -->
+  <section class="hero">
+    <h1 class="hero__title">お子さまに合った相談先を、一緒に考える。</h1>
+    <p class="hero__lead">学校、教育支援センター、行政機関、民間相談機関、地域の相談先など、それぞれの役割を知り、お子さまに合った相談先を考えるヒントをお届けします。</p>
+  </section>
+
+  <!--
+    公開状況の告知バー
+    役割：テーマ別記事(gakkou.html等)が未公開であることを事前に伝える。
+    理由：worries/methods と同一の運用ルール（info-box + site-noticeの再利用）。
+    将来：全テーマ記事が揃い次第、このブロックごと削除する。
+  -->
+  <div class="info-box site-notice">
+    <p class="site-notice__text">現在、テーマ別の記事を順次公開中です。一部のページは近日公開予定です。</p>
+  </div>
+
+  <!--
+    導入文
+    役割：「相談先を紹介する」のではなく「相談先の種類や役割を理解し、自分に合った
+          相談先を考える」という、このページの立場を最初に伝える。
+    理由：相談先には様々な種類があり、どこがどのような役割を持つかがわかりにくいため、
+          比較や序列ではなく「役割の違い」を整理する視点であることを明示する。
+    将来：glossary（教育の基礎知識）でも制度の説明として関連する場合は、
+          このページへ相互リンクする想定。
+  -->
+  <section class="ia-group">
+    <p class="about__text">
+      このページでは、相談先を紹介するのではなく、それぞれの種類や役割を理解し、お子さまに合った相談先を考えるための情報をご紹介します。<br>
+      相談先といっても、学校の中にある窓口から、地域や行政の機関、民間の相談機関まで、さまざまな種類があります。<br>
+      それぞれ役割や関わり方が異なるため、まずは違いを理解し、お子さまに合った相談先を考えることが大切です。
+    </p>
+  </section>
+
+  <!--
+    相談先テーマ一覧
+    役割：現時点で用意している5テーマ（学校／教育支援センター／行政機関／
+          民間相談機関／地域の相談先）への入口。
+    理由：id属性には将来の個別記事ファイル名（gakkou.html等）と一致するスラッグを
+          あらかじめ付与し、パンくず・アンカーリンクの移行に備える
+          （worries/methods と同じ設計思想）。ディレクトリがmethodsとは異なるため、
+          スラッグの一部（gakkou等）が重複してもファイルパスとしては衝突しない。
+    注記：ここでの「学校」は担任・スクールカウンセラー等、相談窓口としての学校を指す。
+          学びの場としての「学校」（methods/index.htmlのgakkou）とは異なる文脈であり、
+          カード説明文でも書き分けている（サイト設計書5・6節）。
+    将来：5テーマ以外の相談先が明確な独立テーマとして育った場合のみ、
+          category-gridにカードを追加する。学年別・地域別の複製は行わない
+          （学年・地域はタグとして記事に付与する）。
+  -->
+  <section class="ia-group">
+    <h2 class="ia-group__heading">相談先の役割から探す</h2>
+    <div class="category-grid">
+
+      <article class="nav-card" id="gakkou">
+        <div class="nav-card__icon" aria-hidden="true">📋</div>
+        <h3 class="nav-card__title"><a class="nav-card__link" href="gakkou.html">学校（相談窓口として）</a></h3>
+        <p class="nav-card__desc">担任やスクールカウンセラーなど、学校の相談窓口としての役割について理解を深める記事をご紹介します。</p>
+      </article>
+
+      <article class="nav-card" id="kyouiku-shien-center">
+        <div class="nav-card__icon" aria-hidden="true">💡</div>
+        <h3 class="nav-card__title"><a class="nav-card__link" href="kyouiku-shien-center.html">教育支援センター</a></h3>
+        <p class="nav-card__desc">教育支援センターの役割や利用の流れについて理解を深める記事をご紹介します。</p>
+      </article>
+
+      <article class="nav-card" id="gyousei">
+        <div class="nav-card__icon" aria-hidden="true">📄</div>
+        <h3 class="nav-card__title"><a class="nav-card__link" href="gyousei.html">行政機関</a></h3>
+        <p class="nav-card__desc">市や県などの行政機関が担う相談支援の役割について理解を深める記事をご紹介します。</p>
+      </article>
+
+      <article class="nav-card" id="minkan-soudan">
+        <div class="nav-card__icon" aria-hidden="true">🎯</div>
+        <h3 class="nav-card__title"><a class="nav-card__link" href="minkan-soudan.html">民間相談機関</a></h3>
+        <p class="nav-card__desc">NPOやカウンセリングルームなど、民間相談機関の役割について理解を深める記事をご紹介します。</p>
+      </article>
+
+      <article class="nav-card" id="chiiki-soudan">
+        <div class="nav-card__icon" aria-hidden="true">⚠️</div>
+        <h3 class="nav-card__title"><a class="nav-card__link" href="chiiki-soudan.html">地域の相談先</a></h3>
+        <p class="nav-card__desc">地域の居場所やつながりの中にある相談先の役割について理解を深める記事をご紹介します。</p>
+      </article>
+
+    </div>
+  </section>
+
+  <!--
+    相談先→お悩み別ガイドへの橋渡し
+    役割：「相談先を知る」ことと「今のお困りごとを整理する」ことは表裏の関係にあるため、
+          worries/index.htmlのprimary-cardと同じコンポーネントを再利用し、
+          相互リンクの形にする（worries側は既にinstitutionsへ橋渡し済み）。
+    理由：新しいUIは作らず、既存コンポーネントの再利用にとどめる。
+    将来：個別記事(gakkou.html等)が公開されたら、各記事の末尾にも同種の
+          お悩み別ガイドへの導線を設置する想定。
+  -->
+  <section class="ia-group">
+    <h2 class="ia-group__heading">今のお困りごとから考えたい方へ</h2>
+    <div class="primary-card">
+      <div class="primary-card__icon" aria-hidden="true">⚠️</div>
+      <div class="primary-card__body">
+        <h3 class="primary-card__title"><a class="primary-card__link" href="../worries/index.html">お悩み別ガイドを見る</a></h3>
+        <p class="primary-card__desc">今のお困りごとから記事を探すことで、お子さまに合った相談先の選択肢を整理するきっかけになります。</p>
+      </div>
+    </div>
+  </section>
+
+  <p class="tool-hint">
+    学び方から探したい方は <a href="../methods/index.html">学び方ガイド</a> もご利用いただけます。
+  </p>
+
+  <!--
+    About（このページでできること）
+    役割：worries/methods と同じ構成（できることの一覧→運営姿勢に類する結び）を
+          このページのスコープに合わせて再掲する。既存の.aboutコンポーネントを
+          そのまま再利用し、新規CSSは追加しない。
+    理由：4項目とも「相談先」の文脈に合わせて語尾を分散させ、単調さを避けている。
+    将来：テーマ数が増えても、この4項目の構成（種類・役割・検討・関連導線）は
+          変更せず維持する想定。
+  -->
+  <section class="about">
+    <h2 class="about__title">このページでできること</h2>
+    <ul class="about__list">
+      <li>相談先の種類を知ることができる</li>
+      <li>それぞれの役割を理解できる</li>
+      <li>相談先の選択肢を考えられる</li>
+      <li>お悩み別ガイドとあわせて活用できる</li>
+    </ul>
+    <p class="about__text">
+      相談先に「正解」はなく、状況やタイミングによって合う相談先は変わります。状況に応じて複数の相談先を活用しながら、お子さまに合った相談先を一緒に考えていきましょう。
+    </p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <ul class="site-footer__links">
+      <li><a href="../articles/index.html">記事一覧</a></li>
+      <li><a href="../diagnosis.html">学び方診断</a></li>
+      <li><a href="https://forms.gle/xiMYtrGEonq9ynnt8">掲載をご希望の教育機関様はこちら</a></li>
+    </ul>
+    <p class="site-footer__copy">&copy; 長野市キッズナビ</p>
+  </div>
+</footer>
+
+</body>
+</html>
 
