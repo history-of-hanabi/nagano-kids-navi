@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nagano-kids-navi.github.io/nagano-kids-navi/sitemap.xml
