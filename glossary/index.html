@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>教育の基礎知識｜長野市キッズナビ</title>
+<meta name="description" content="不登校とは、発達障害とは、通信教育とはなど、長野市キッズナビが教育に関する言葉や制度をわかりやすく解説します。">
+<link rel="icon" href="/nagano-kids-navi/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://nagano-kids-navi.github.io/nagano-kids-navi/glossary/index.html">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/design-system.css">
+
+<!-- 構造化データ: パンくず -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://nagano-kids-navi.github.io/nagano-kids-navi/index.html" },
+    { "@type": "ListItem", "position": 2, "name": "教育の基礎知識", "item": "https://nagano-kids-navi.github.io/nagano-kids-navi/glossary/index.html" }
+  ]
+}
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YST2S5X11W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YST2S5X11W');
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <p class="site-header__title"><a href="../index.html">長野市キッズナビ</a></p>
+    <p class="site-header__tagline">長野市の地域教育メディア</p>
+  </div>
+</header>
+
+<nav class="breadcrumb" aria-label="パンくずリスト">
+  <a href="../index.html">ホーム</a><span class="breadcrumb__sep">›</span>教育の基礎知識
+</nav>
+
+<main>
+
+  <!--
+    Hero
+    役割：worries/methods/institutions と同じ構文パターンを踏襲しつつ、
+          このページの性質（教育用語辞典）に合わせて動詞を「考える」ではなく
+          「理解する」に置き換える。
+    理由：サイト設計書9節の役割は「教育用語辞典」であり、他の3ハブ（お悩み／学び方／
+          相談先）のように選択肢から何かを選ぶページではない。用語の意味を
+          正しく知ることがこのページのゴールであるため、Heroの動詞もそれに合わせる。
+  -->
+  <section class="hero">
+    <h1 class="hero__title">教育の言葉や制度を、一緒に理解する。</h1>
+    <p class="hero__lead">「不登校とは」「発達障害とは」「通信教育とは」など、教育に関する言葉や制度をわかりやすく知るための情報をお届けします。</p>
+  </section>
+
+  <!--
+    公開状況の告知バー
+    役割：用語別記事(futoukou.html等)が未公開であることを事前に伝える。
+    理由：worries/methods/institutions と同一の運用ルール（info-box + site-noticeの再利用）。
+    将来：全用語記事が揃い次第、このブロックごと削除する。
+  -->
+  <div class="info-box site-notice">
+    <p class="site-notice__text">現在、用語別の記事を順次公開中です。一部のページは近日公開予定です。</p>
+  </div>
+
+  <!--
+    導入文
+    役割：「テーマ別に悩みを整理する」「選択肢を紹介する」他の3ハブとは異なり、
+          このページは「言葉や制度そのものを正確に説明する」立場であることを
+          最初に伝える。
+    理由：サイト設計書9節に「AI検索にも対応する」とある通り、「○○とは」という
+          検索意図に直接答える教育用語辞典として設計する。ただし用語の説明で
+          終わらせず、理解した先でお悩み別ガイド等につながる導線を持たせる。
+    将来：新しい用語記事を追加する際も、この「まず言葉の意味を正確に伝える」
+          という立場を崩さない。
+  -->
+  <section class="ia-group">
+    <p class="about__text">
+      このページでは、不登校や発達障害、通信教育など、教育に関する言葉や制度について、正確でわかりやすい説明をご紹介します。<br>
+      ニュースや学校からのお知らせで見聞きしても、意味がよくわからない言葉もあるかもしれません。<br>
+      まずは言葉の意味や制度を知ることで、お子さまの状況や選択肢を考える土台にしていきましょう。
+    </p>
+  </section>
+
+  <!--
+    教育用語辞典 カード一覧
+    役割：現時点で用意している5つの用語（不登校／発達障害／通信教育／教育支援センター／
+          家庭学習）への入口。
+    理由：id属性には将来の個別記事ファイル名（futoukou.html等）と一致するスラッグを
+          あらかじめ付与し、パンくず・アンカーリンクの移行に備える
+          （worries/methods/institutions と同じ設計思想）。worries・institutionsと
+          同じ語（futoukou、kyouiku-shien-center等）をスラッグに用いている用語も
+          あるが、ディレクトリが異なるためファイルパスとしては衝突しない。
+    注記：ここでの各用語は「テーマとして悩みを整理する」（worries）や
+          「相談先の役割を理解する」（institutions）とは異なり、言葉そのものの
+          定義・制度の説明に主眼を置く。同じ言葉が複数ハブで扱われる場合も、
+          このページでは教育用語辞典としての説明にとどめ、内容を重複させない。
+    将来：5用語以外の言葉が増えた場合も、category-gridにカードを追加するだけで
+          よく、レイアウト変更は不要。
+  -->
+  <section class="ia-group">
+    <h2 class="ia-group__heading">用語から探す</h2>
+    <div class="category-grid">
+
+      <article class="nav-card" id="futoukou">
+        <div class="nav-card__icon" aria-hidden="true">📄</div>
+        <h3 class="nav-card__title"><a class="nav-card__link" href="futoukou.html">不登校とは</a></h3>
+        <p class="nav-card__desc">不登校について理解を深める記事をご紹介します。</p>
+      </article>
+
+      <article class="nav-card" id="hattatsu-shougai">
+        <div class="nav-card__icon" aria-hidden="true">💡</div>
+        <h3 class="nav-card__title"><a class="nav-card__link" href="hattatsu-shougai.html">発達障害とは</a></h3>
+        <p class="nav-card__desc">発達障害について理解を深める記事をご紹介します。</p>
+      </article>
+
+      <article class="nav-card" id="tsushin-kyouiku">
+        <div class="nav-card__icon" aria-hidden="true">📋</div>
+        <h3 class="nav-card__title"><a class="nav-card__link" href="tsushin-kyouiku.html">通信教育とは</a></h3>
+        <p class="nav-card__desc">通信教育について理解を深める記事をご紹介します。</p>
+      </article>
+
+      <article class="nav-card" id="kyouiku-shien-center">
+        <div class="nav-card__icon" aria-hidden="true">🎯</div>
+        <h3 class="nav-card__title"><a class="nav-card__link" href="kyouiku-shien-center.html">教育支援センターとは</a></h3>
+        <p class="nav-card__desc">教育支援センターについて理解を深める記事をご紹介します。</p>
+      </article>
+
+      <article class="nav-card" id="katei-gakushu">
+        <div class="nav-card__icon" aria-hidden="true">⚠️</div>
+        <h3 class="nav-card__title"><a class="nav-card__link" href="katei-gakushu.html">家庭学習とは</a></h3>
+        <p class="nav-card__desc">家庭学習について理解を深める記事をご紹介します。</p>
+      </article>
+
+    </div>
+  </section>
+
+  <!--
+    用語理解→お悩み別ガイドへの橋渡し
+    役割：「言葉の意味を知る」ことと「今のお困りごとを整理する」ことをつなぐ導線。
+          worries/institutionsのprimary-cardと同じコンポーネントを再利用する。
+    理由：用語を正しく理解した先で、実際のお悩みに沿った記事へ進めるようにし、
+          教育用語辞典としての説明で内容が完結してしまわないようにする
+          （サイト設計書12節の循環導線を補強する位置づけ）。新しいUIは作らない。
+    将来：個別用語記事(futoukou.html等)が公開されたら、各記事の末尾にも同種の
+          お悩み別ガイドへの導線を設置する想定。
+  -->
+  <section class="ia-group">
+    <h2 class="ia-group__heading">今のお困りごとから考えたい方へ</h2>
+    <div class="primary-card">
+      <div class="primary-card__icon" aria-hidden="true">⚠️</div>
+      <div class="primary-card__body">
+        <h3 class="primary-card__title"><a class="primary-card__link" href="../worries/index.html">お悩み別ガイドを見る</a></h3>
+        <p class="primary-card__desc">今のお困りごとから記事を探すことで、次に考えることを整理するきっかけになります。</p>
+      </div>
+    </div>
+  </section>
+
+  <p class="tool-hint">
+    相談先について知りたい方は <a href="../institutions/index.html">相談先・支援機関</a> もご利用いただけます。
+  </p>
+
+  <!--
+    About（このページでできること）
+    役割：worries/methods/institutions と同じ構成（できることの一覧→運営姿勢に
+          類する結び）を、このページのスコープに合わせて再掲する。既存の.aboutコンポーネントを
+          そのまま再利用し、新規CSSは追加しない。
+    理由：4項目とも「用語理解」の文脈に合わせて語尾を分散させ、単調さを避けている。
+    将来：用語数が増えても、この4項目の構成（意味・制度・関連テーマ・お悩み別ガイド）は
+          変更せず維持する想定。
+  -->
+  <section class="about">
+    <h2 class="about__title">このページでできること</h2>
+    <ul class="about__list">
+      <li>教育に関する言葉の意味を知ることができる</li>
+      <li>制度の仕組みを理解できる</li>
+      <li>教育に関する言葉や制度の理解を深められる</li>
+      <li>お悩み別ガイドとあわせて活用できる</li>
+    </ul>
+    <p class="about__text">
+      教育に関する言葉や制度を正しく理解することは、お子さまに合った学び方や相談先を一緒に考えるための土台になります。
+    </p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <ul class="site-footer__links">
+      <li><a href="../articles/index.html">記事一覧</a></li>
+      <li><a href="../diagnosis.html">学び方診断</a></li>
+      <li><a href="https://forms.gle/xiMYtrGEonq9ynnt8">掲載をご希望の教育機関様はこちら</a></li>
+    </ul>
+    <p class="site-footer__copy">&copy; 長野市キッズナビ</p>
+  </div>
+</footer>
+
+</body>
+</html>
