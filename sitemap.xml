@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  長野市キッズナビ sitemap.xml
+
+  役割：現時点で実際に公開している（404にならない）ページのみを対象とする。
+  理由：MASTER MAPの運用方針上、記事は順次公開中であり、worries/futoukou.html等の
+        個別記事・diagnosis.html・articles/index.htmlはまだ未実装のため、
+        ここに含めるとSearch Consoleでインデックス未登録エラーとして検出されてしまう。
+  将来：個別記事・診断ページ・記事一覧ページが公開され次第、<url>ブロックを追加する。
+        404.htmlはnoindexのため、意図的にここへは含めない。
+  更新：ページを新規公開するたびに、このファイルへ<url>を追加する運用とする。
+        lastmodは実際に更新した日付に手動で書き換える。
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://nagano-kids-navi.github.io/nagano-kids-navi/index.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://nagano-kids-navi.github.io/nagano-kids-navi/worries/index.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://nagano-kids-navi.github.io/nagano-kids-navi/methods/index.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://nagano-kids-navi.github.io/nagano-kids-navi/institutions/index.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://nagano-kids-navi.github.io/nagano-kids-navi/glossary/index.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
