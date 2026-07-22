@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>学び方ガイド｜長野市キッズナビ</title>
+<meta name="description" content="学校・家庭・地域・民間など、お子さまに合った学びの選択肢を長野市キッズナビがわかりやすくご紹介します。個別指導・集団指導といった分類ではなく、教育全体の視点で学び方を考えるヒントをお届けします。">
+<link rel="icon" href="/nagano-kids-navi/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://nagano-kids-navi.github.io/nagano-kids-navi/methods/index.html">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/design-system.css">
+
+<!-- 構造化データ: パンくず -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://nagano-kids-navi.github.io/nagano-kids-navi/index.html" },
+    { "@type": "ListItem", "position": 2, "name": "学び方ガイド", "item": "https://nagano-kids-navi.github.io/nagano-kids-navi/methods/index.html" }
+  ]
+}
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YST2S5X11W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YST2S5X11W');
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <p class="site-header__title"><a href="../index.html">長野市キッズナビ</a></p>
+    <p class="site-header__tagline">長野市の地域教育メディア</p>
+  </div>
+</header>
+
+<nav class="breadcrumb" aria-label="パンくずリスト">
+  <a href="../index.html">ホーム</a><span class="breadcrumb__sep">›</span>学び方ガイド
+</nav>
+
+<main>
+
+  <!--
+    Hero
+    役割：worries/index.htmlと同じ構文パターンを踏襲し、トップページのブランドコピー
+          「一緒に考える」を「学び方」という文脈に絞って継承する。
+    理由：ページごとの世界観のブレを防ぐため、主語・語尾・「ヒントをお届けします」の
+          形はサイト全体で統一する。
+  -->
+  <section class="hero">
+    <h1 class="hero__title">お子さまに合った学びの選択肢を、一緒に考える。</h1>
+    <p class="hero__lead">学校、家庭、地域、民間など、多様な学びの選択肢について、お子さまに合った学びを考えるためのヒントをお届けします。</p>
+  </section>
+
+  <!--
+    公開状況の告知バー
+    役割：テーマ別記事(gakkou.html等)が未公開であることを事前に伝える。
+    理由：worries/index.htmlと同一の運用ルール（info-box + site-noticeの再利用）。
+    将来：全テーマ記事が揃い次第、このブロックごと削除する。
+  -->
+  <div class="info-box site-notice">
+    <p class="site-notice__text">現在、テーマ別の記事を順次公開中です。一部のページは近日公開予定です。</p>
+  </div>
+
+  <!--
+    導入文
+    役割：「学び方を分類する」のではなく「選択肢を一緒に整理する」という、このページの
+          立場を最初に伝える。
+    理由：塾検索サイトが行うような「個別指導／集団指導」の分類は採用しない
+          （サイト設計書5節・プロジェクト憲章9節）。学校・家庭・地域・民間という
+          教育全体の視点で学びをとらえる姿勢を、本文に入る前に明示する。
+    将来：worries/index.htmlの導入文と対になる構成として、今後のハブページ
+          （institutions/glossary）でも同型の導入を踏襲する想定。
+  -->
+  <section class="ia-group">
+    <p class="about__text">
+      このページでは、勉強方法ではなく、お子さまがどのような環境や場で学ぶかという視点から、さまざまな選択肢をご紹介します。<br>
+      学校での学び、家庭での学び、地域とのつながりの中での学び、
+      民間のサービスを活用した学びなど、選択肢はさまざまです。<br>
+      ここでは、それぞれの学びの場について、一緒に考えていきましょう。
+    </p>
+  </section>
+
+  <!--
+    学び方テーマ一覧
+    役割：現時点で用意している4テーマ（学校／家庭／地域／民間）への入口。
+    理由：id属性には将来の個別記事ファイル名（gakkou.html等）と一致するスラッグを
+          あらかじめ付与し、パンくず・アンカーリンクの移行に備える
+          （worries/index.htmlのfutoukou等と同じ設計思想）。
+    注記：ここでの「学校」は学びの場としての学校教育を指す。相談窓口としての
+          「学校」（担任・スクールカウンセラー等）はinstitutions側の文脈であり、
+          混同しないようカード説明文で書き分けている（サイト設計書5・6節）。
+    将来：4テーマ以外の学び方（オンライン学習など）が明確な独立テーマとして
+          育った場合のみ、category-gridにカードを追加する。学年別・地域別の
+          複製は行わない（学年・地域はタグとして記事に付与する）。
+  -->
+  <section class="ia-group">
+    <h2 class="ia-group__heading">学びの場から探す</h2>
+    <div class="category-grid">
+
+      <article class="nav-card" id="gakkou">
+        <div class="nav-card__icon" aria-hidden="true">📋</div>
+        <h3 class="nav-card__title"><a class="nav-card__link" href="gakkou.html">学校での学び</a></h3>
+        <p class="nav-card__desc">授業や学級活動など、学校という場でのお子さまの学びについて理解を深める記事をご紹介します。</p>
+      </article>
+
+      <article class="nav-card" id="katei">
+        <div class="nav-card__icon" aria-hidden="true">💡</div>
+        <h3 class="nav-card__title"><a class="nav-card__link" href="katei.html">家庭での学び</a></h3>
+        <p class="nav-card__desc">おうちでの関わり方や環境づくりなど、家庭という場での学びについて理解を深める記事をご紹介します。</p>
+      </article>
+
+      <article class="nav-card" id="chiiki">
+        <div class="nav-card__icon" aria-hidden="true">📄</div>
+        <h3 class="nav-card__title"><a class="nav-card__link" href="chiiki.html">地域での学び</a></h3>
+        <p class="nav-card__desc">地域の居場所や活動など、学校や家庭以外の場での学びについて理解を深める記事をご紹介します。</p>
+      </article>
+
+      <article class="nav-card" id="minkan">
+        <div class="nav-card__icon" aria-hidden="true">🎯</div>
+        <h3 class="nav-card__title"><a class="nav-card__link" href="minkan.html">民間のサービスを活用した学び</a></h3>
+        <p class="nav-card__desc">学習塾や通信教育など、民間のサービスを活用した学びについて理解を深める記事をご紹介します。</p>
+      </article>
+
+    </div>
+  </section>
+
+  <!--
+    学び方→学び方診断への橋渡し
+    役割：「学び方を知る」次のステップとして、お子さまに合いそうな学び方を考える
+          きっかけを提供する。サイト設計書12節の基本導線
+          「トップ → 学び方 → 記事 → 学び方診断」に対応させ、worries/index.htmlの
+          primary-cardと同じコンポーネントを再利用する（新しいUIは作らない）。
+    理由：診断は「答え」を出すものではないため、説明文でも断定を避け、
+          「考えるヒント」という立場を崩さない（プロジェクト憲章10節）。
+    将来：個別記事(gakkou.html等)が公開されたら、各記事の末尾にも同種の
+          診断への導線を設置する想定。
+  -->
+  <section class="ia-group">
+    <h2 class="ia-group__heading">どの学び方が合っているか迷ったら</h2>
+    <div class="primary-card">
+      <div class="primary-card__icon" aria-hidden="true">🎯</div>
+      <div class="primary-card__body">
+        <h3 class="primary-card__title"><a class="primary-card__link" href="../diagnosis.html">学び方診断を受けてみる</a></h3>
+        <p class="primary-card__desc">いくつかの質問に答えることで、学びの選択肢を整理するきっかけになります。診断結果は答えではなく、ご家庭で考えていくための参考としてご活用ください。</p>
+      </div>
+    </div>
+  </section>
+
+  <p class="tool-hint">
+    お悩みから探したい方は <a href="../worries/index.html">お悩み別ガイド</a> もご利用いただけます。
+  </p>
+
+  <!--
+    About（このページでできること）
+    役割：worries/index.htmlと同じ構成（できることの一覧→運営姿勢に類する結び）を
+          このページのスコープに合わせて再掲する。既存の.aboutコンポーネントを
+          そのまま再利用し、新規CSSは追加しない。
+    理由：4項目とも「学び方」の文脈に合わせて語尾を分散させ、単調さを避けている。
+    将来：テーマ数が増えても、この4項目の構成（理解・ヒント・関連テーマ・診断）は
+          変更せず維持する想定。
+  -->
+  <section class="about">
+    <h2 class="about__title">このページでできること</h2>
+    <ul class="about__list">
+      <li>学びの選択肢を知ることができる</li>
+      <li>それぞれの特徴を理解できる</li>
+      <li>お子さまに合った学びを考えられる</li>
+      <li>学び方診断で考えを整理できる</li>
+    </ul>
+    <p class="about__text">
+      学び方に「正解」はなく、お子さまによって合う形はさまざまです。一つに絞り込まず、それぞれの特徴を知りながら、お子さまに合った学びを一緒に考えていきましょう。
+    </p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <ul class="site-footer__links">
+      <li><a href="../articles/index.html">記事一覧</a></li>
+      <li><a href="../diagnosis.html">学び方診断</a></li>
+      <li><a href="https://forms.gle/xiMYtrGEonq9ynnt8">掲載をご希望の教育機関様はこちら</a></li>
+    </ul>
+    <p class="site-footer__copy">&copy; 長野市キッズナビ</p>
+  </div>
+</footer>
+
+</body>
+</html>
