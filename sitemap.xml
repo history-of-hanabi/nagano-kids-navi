@@ -76,4 +76,32 @@
     <priority>0.7</priority>
   </url>
 
+  <url>
+    <loc>https://nagano-kids-navi.github.io/nagano-kids-navi/glossary/hattatsu-shougai.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nagano-kids-navi.github.io/nagano-kids-navi/worries/hattatsu-gray.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nagano-kids-navi.github.io/nagano-kids-navi/methods/katei.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nagano-kids-navi.github.io/nagano-kids-navi/institutions/gakkou.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
