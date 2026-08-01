@@ -6,7 +6,7 @@
 本メモはそれらに含めるには変化が速すぎる「運用状況・実務メモ」を独立して管理する
 ためのものです。内容が3文書と矛盾する場合は3文書を優先してください。
 
-作成・更新：2026年7月31日時点。公開ページが増えるたびに9・10節を更新する。
+作成・更新：2026年8月2日時点。公開ページが増えるたびに9・10節を更新する。
 
 1. サイト概要（要点）
 サイト名：長野市キッズナビ
@@ -28,7 +28,7 @@ institutions/（相談先・支援機関）、glossary/（教育の基礎知識�
 （glossary型／worries型／methods型／institutions型）の具体的な構成は
 03_制作ガイドライン.md（v1.2）を参照。
 
-3. 現在の公開済みページ一覧（2026年7月31日時点、計24ページ）
+3. 現在の公開済みページ一覧（2026年8月2日時点、計25ページ）
 トップ・ハブ（5）
 
 index.html
@@ -36,6 +36,11 @@ worries/index.html
 methods/index.html
 institutions/index.html
 glossary/index.html
+
+補助導線（1）
+
+articles/index.html（記事一覧。カテゴリ別に19記事へのリンクを整理。
+  記事本文の代替にはしない位置づけ／サイト設計書11節）
 
 個別記事（19）
 
@@ -81,8 +86,10 @@ glossary（5カード）：futoukou／hattatsu-shougai／tsushin-kyouiku／
 Search Console：sitemap.xml送信、公開記事のURL検査・インデックス登録リクエスト
 記事一覧（articles/index.html）の実装
 学び方診断（diagnosis.html）の実装
-上記2ページ完成後、footerのリンク復帰（復帰手順は 03_制作ガイドライン.md
-  footer運用ルールを参照）
+footer復帰ルール（v1.0で確立、ここで明文化）：articles/index.html単体の完成
+  時点ではfooterのリンクは復帰させない。diagnosis.htmlが完成し、両方が揃った
+  タイミングで、全ページのfooterを一括で復帰させる（復帰手順は
+  03_制作ガイドライン.md footer運用ルールを参照）。
 ages/areasページの実装（横断タグとして。独立ハブにしないこと）
 E-E-A-T強化（出典表記・運営者情報・監修方針・更新履歴等）の各記事への追加
 Search Consoleのデータを見ながらのリライト・内部リンク改善
@@ -142,6 +149,15 @@ Version番号（v1.1、v1.2等）は、正式文書（01・02・03）のみに�
 10. 更新履歴（主要変更のみ）
 Versionを振るほどではない変更を、日付とともに残す運用ログ。GitHubのコミット
 履歴とは別に、人間が「いつ何が変わったか」を後から追うためのもの。
+
+2026-08-02
+articles/index.html（記事一覧）公開完了。カテゴリ別に19記事へのリンクを整理
+sitemap.xmlにarticles/index.htmlを追加（lastmod 2026-08-02、
+  changefreq weekly、priority 0.6）。全25URLに更新
+sitemap.xmlの冒頭コメントを実態（個別記事19本・articles/index.html公開済み、
+  diagnosis.htmlのみ未公開）に合わせて修正
+footer復帰ルールを明文化：articles/index.html単体では復帰させず、
+  diagnosis.html完成と同時に全ページ一括で復帰する
 
 2026-07-31
 worries残り2記事（benkyou-tsuiteikenai・koukou-juken）公開完了、
