@@ -28,7 +28,7 @@ institutions/（相談先・支援機関）、glossary/（教育の基礎知識�
 （glossary型／worries型／methods型／institutions型）の具体的な構成は
 03_制作ガイドライン.md（v1.2）を参照。
 
-3. 現在の公開済みページ一覧（2026年8月2日時点、計25ページ）
+3. 現在の公開済みページ一覧（2026年8月2日時点、計26ページ）
 トップ・ハブ（5）
 
 index.html
@@ -37,10 +37,13 @@ methods/index.html
 institutions/index.html
 glossary/index.html
 
-補助導線（1）
+補助導線（2）
 
 articles/index.html（記事一覧。カテゴリ別に19記事へのリンクを整理。
   記事本文の代替にはしない位置づけ／サイト設計書11節）
+diagnosis.html（学び方診断。Q1悩み→Q2学び方→Q3相談先の3問構成、
+  結果画面下にglossary5記事を常設。診断ではなく考えるヒントを示す位置づけ
+  ／サイト設計書10節）
 
 個別記事（19）
 
@@ -146,11 +149,37 @@ Version番号（v1.1、v1.2等）は、正式文書（01・02・03）のみに�
 本書（04）は運用メモのため、Version番号は付けず、内容を更新した際は
 冒頭の「作成・更新」の日付のみを最新の更新日に書き換える。
 
+9.5. 第2フェーズ改善候補（メモ）
+第1フェーズでは実装を見送り、Search Consoleなどの利用状況を見ながら
+第2フェーズで検討する項目。
+
+改善候補：診断結果と連動したglossary記事の提示
+現在はdiagnosis.htmlの結果画面下にglossary5記事を常設表示している。
+将来的には診断結果（特にQ1の回答）に応じて関連するglossary記事を1件
+優先表示し、常設一覧との併用方法（重複表示・表示順・UI）を再設計する。
+
 10. 更新履歴（主要変更のみ）
 Versionを振るほどではない変更を、日付とともに残す運用ログ。GitHubのコミット
 履歴とは別に、人間が「いつ何が変わったか」を後から追うためのもの。
 
 2026-08-02
+design-system.cssの記述漏れを発見・対処法を記録：`.about__list`内の`<a>`に
+  色指定がなく、related-link-box等の「次に読みたい記事」リンクがグレーの
+  地の文と同化して見える不具合。サイト全体（公開済み全記事）に影響。
+  design-system.cssへ`.about__list a`・`.about__text a`にブランドブルー
+  （--color-blue-deep）を指定するルールを追加することで、個別HTMLを
+  変更せず一括解決できることを確認・提案
+diagnosis.html（学び方診断）公開完了。第一フェーズの全ページ（26ページ）が
+  出揃い、footer復帰ルールに基づき全ページのfooterを一括復帰
+diagnosis.htmlはQ1（悩み・worries、6択）→Q2（学び方・methods、5択）→
+  Q3（相談先・institutions、6択）の3問構成。結果画面下にglossary5記事を
+  常設リンクとして掲載し、公開済み19記事のほぼ全てに直接導線を確保
+Q1・Q3の「困りごと／相談先が特にない」選択肢がどちらもmethods/index.htmlを
+  指すケースで結果が重複表示される不具合を修正（href基準の重複除去ロジックを
+  追加）
+sitemap.xmlにdiagnosis.htmlを追加し、コメントを「全ページ公開済み」の状態に
+  更新。全26URL
+第2フェーズ改善候補（診断結果連動glossary表示）を9.5節に記録
 articles/index.html（記事一覧）公開完了。カテゴリ別に19記事へのリンクを整理
 sitemap.xmlにarticles/index.htmlを追加（lastmod 2026-08-02、
   changefreq weekly、priority 0.6）。全25URLに更新
