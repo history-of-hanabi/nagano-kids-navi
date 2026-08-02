@@ -485,6 +485,21 @@ img { max-width: 100%; display: block; }
   color: var(--color-text-sub);
   margin: 0 0 10px;
 }
+/* about__list・about__text内のリンク（related-link-box、point-card等の
+   記事内リンクリストで使用）はブランドブルーで表示し、クリック可能と
+   分かるようにする。2026-08-02追加（design-system.css記述漏れの修正） */
+.about__list a,
+.about__text a {
+  color: var(--color-blue-deep);
+  font-weight: 700;
+}
+
+.about__list a:hover,
+.about__list a:active,
+.about__text a:hover,
+.about__text a:active {
+  color: var(--color-blue);
+}
 
 /* ---------- フッター ---------- */
 .site-footer {
