@@ -3,12 +3,10 @@
   長野市キッズナビ sitemap.xml
 
   役割：現時点で実際に公開している（404にならない）ページのみを対象とする。
-  現状（2026-08-02時点）：個別記事19本・articles/index.htmlは公開済み。
-        diagnosis.htmlのみ未公開のため、ここには含めない。
-  将来：diagnosis.htmlが公開され次第、<url>ブロックを追加する。
-        404.htmlはnoindexのため、意図的にここへは含めない。
-  更新：ページを新規公開するたびに、このファイルへ<url>を追加する運用とする。
-        lastmodは実際に更新した日付に手動で書き換える。
+  現状（2026-08-02時点）：トップ・4ハブ・個別記事19本・articles/index.html・
+        diagnosis.htmlすべて公開済み。第一フェーズの全ページがsitemapに掲載済み。
+  更新：ページを新規公開・大幅更新するたびに、このファイルへ<url>を追加・更新する
+        運用とする。lastmodは実際に更新した日付に手動で書き換える。
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
@@ -184,6 +182,13 @@
     <loc>https://nagano-kids-navi.github.io/nagano-kids-navi/articles/index.html</loc>
     <lastmod>2026-08-02</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://nagano-kids-navi.github.io/nagano-kids-navi/diagnosis.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
