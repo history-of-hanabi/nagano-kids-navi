@@ -162,6 +162,17 @@ Version番号（v1.1、v1.2等）は、正式文書（01・02・03）のみに�
 Versionを振るほどではない変更を、日付とともに残す運用ログ。GitHubのコミット
 履歴とは別に、人間が「いつ何が変わったか」を後から追うためのもの。
 
+2026-08-02（追記2）
+運営者確認により、index.html（トップページ）のfooterがまだ復帰されていない
+  ことが判明。articles/index.html・diagnosis.htmlへのリンクを追加する
+  置換スニペットを提供済み（ルート階層のため../プレフィックスなし）。
+  4ハブindex.html・既存記事13本を含む残り17ページも同様に未反映の可能性が
+  高く、要確認
+design-system.cssの`.tag-link`（トップページ「よくあるお悩みから探す」の
+  タグボタン）について、文字色が`--color-text`（黒系）のままクリック可能と
+  分かりにくいとの指摘を受け、`color: var(--color-blue-deep)`への変更案を
+  提供。枠線・背景によるボタン型デザインは維持したまま文字色のみ変更
+
 2026-08-02
 design-system.cssの記述漏れを発見・対処法を記録：`.about__list`内の`<a>`に
   色指定がなく、related-link-box等の「次に読みたい記事」リンクがグレーの
@@ -169,7 +180,7 @@ design-system.cssの記述漏れを発見・対処法を記録：`.about__list`�
   design-system.cssへ`.about__list a`・`.about__text a`にブランドブルー
   （--color-blue-deep）を指定するルールを追加することで、個別HTMLを
   変更せず一括解決できることを確認・提案
-diagnosis.html（学び方診断）公開完了。第一フェーズの全ページ（26ページ）が
+diagnosis.html（学び方診断）公開完了。第一フェーズの全ページ（25ページ）が
   出揃い、footer復帰ルールに基づき全ページのfooterを一括復帰
 diagnosis.htmlはQ1（悩み・worries、6択）→Q2（学び方・methods、5択）→
   Q3（相談先・institutions、6択）の3問構成。結果画面下にglossary5記事を
