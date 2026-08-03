@@ -34,7 +34,7 @@
       "name": "不登校と欠席は何が違いますか？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "欠席は学校を休んだ日全般を指す言葉です。不登校は、その中でも心理面や生活環境などの背景により年間30日以上休んでいる状態を指し、病気や経済的な理由による欠席は含まれません。"
+        "text": "欠席は学校を休んだ日全般を指す言葉です。不登校は、その中でも心理的・情緒的・身体的・社会的な要因により年間30日以上休んでいる状態を指し、病気や経済的な理由による欠席は含まれません。"
       }
     },
     {
@@ -269,23 +269,19 @@
   <!--
     次に読む記事
     役割：MASTER MAPの「次に読む記事」ブロック。related-link-box（grey）を用いる。
-    理由：worries/futoukou.html・institutions/kyouiku-shien-center.html・
-          methods/gakkou.htmlはいずれも未公開のため、各ハブページに既存の
-          アンカーID（worries/index.html#futoukou 等）へリンクする。これらは
-          パンくず・アンカー移行ルールと同じ考え方で、個別記事が公開され次第、
-          リンク先をそのまま futoukou.html 等のファイルに差し替えるだけでよい設計。
-          内部リンク数はMASTER MAPの上限（4）以内（現時点では実在する導線が
-          3件のみのため3件を設置し、個別記事公開後に追加する）。
-    将来：worries/futoukou.html等が公開され次第、hrefをアンカー付きハブページ
-          （worries/index.html#futoukou）から個別記事（futoukou.html）へ更新する。
+    理由：worries/futoukou.html・methods/gakkou.html・
+          institutions/kyouiku-shien-center.htmlはいずれも公開済みのため、
+          各記事へ直接リンクする（2026-08-02更新：公開前はハブページの
+          アンカーへの暫定リンクだったが、個別記事公開に伴い更新）。
+          内部リンク数はMASTER MAPの上限（4）以内。
   -->
   <section class="ia-group">
     <div class="related-link-box">
       <span class="card-label">次に読みたい記事</span>
       <ul class="about__list">
-        <li><a href="../worries/index.html#futoukou">お悩み別ガイド：不登校について考える</a></li>
-        <li><a href="../methods/index.html#gakkou">学び方ガイド：学校での学び</a></li>
-        <li><a href="../institutions/index.html#kyouiku-shien-center">相談先・支援機関：教育支援センター</a></li>
+        <li><a href="../worries/futoukou.html">お悩み別ガイド：不登校</a></li>
+        <li><a href="../methods/gakkou.html">学び方ガイド：学校での学び</a></li>
+        <li><a href="../institutions/kyouiku-shien-center.html">相談先・支援機関：教育支援センター</a></li>
       </ul>
     </div>
   </section>
@@ -293,12 +289,12 @@
   <!--
     CTA（記事末のみ・1個ルール）
     役割：MASTER MAPのCTAルールに沿い、記事全体で唯一のCTAボタンをここに設置する。
-    理由：diagnosis.htmlは未公開のため、現時点で実在するworries/index.htmlの
-          不登校アンカーへ誘導する。個別記事公開後は、状況に応じてCTA遷移先の
-          見直しを検討する。
+    理由：worries/futoukou.htmlが公開済みのため、個別記事へ直接誘導する
+          （2026-08-02更新：公開前はworries/index.htmlのアンカーへの
+          暫定リンクだった）。
   -->
   <section class="ia-group">
-    <a class="cta-button" href="../worries/index.html#futoukou">今のお困りごとから考えてみる</a>
+    <a class="cta-button" href="../worries/futoukou.html">今のお困りごとから考えてみる</a>
   </section>
 
 </main>
@@ -306,6 +302,8 @@
 <footer class="site-footer">
   <div class="site-footer__inner">
     <ul class="site-footer__links">
+      <li><a href="../articles/index.html">記事一覧</a></li>
+      <li><a href="../diagnosis.html">学び方診断</a></li>
       <li><a href="https://forms.gle/xiMYtrGEonq9ynnt8">掲載をご希望の教育機関様はこちら</a></li>
     </ul>
     <p class="site-footer__copy">&copy; 長野市キッズナビ</p>
