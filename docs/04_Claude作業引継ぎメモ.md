@@ -162,6 +162,38 @@ Version番号（v1.1、v1.2等）は、正式文書（01・02・03）のみに�
 Versionを振るほどではない変更を、日付とともに残す運用ログ。GitHubのコミット
 履歴とは別に、人間が「いつ何が変わったか」を後から追うためのもの。
 
+2026-08-02（追記5）
+運営者からアップロードされた既存17ページ（4ハブindex＋個別記事13本）すべての
+  footer復帰作業が完了。今回の作業の中で、footer以外にも以下の問題を発見・修正：
+  - 暫定リンクの残存：glossary/futoukou.html・worries/futoukou.html・
+    worries/hattatsu-gray.html・methods/gakkou.htmlで、個別記事公開前に設置した
+    ハブページアンカー（例：worries/index.html#futoukou）が、対象記事の公開後も
+    更新されずに残っていた。すべて個別記事への直接リンクに更新
+  - FAQ本文とJSON-LDの不一致：glossary/futoukou.html（1問目）・
+    glossary/kyouiku-shien-center.html（6問目）・worries/hattatsu-gray.html
+    （6問目）・worries/katei-gakushu.html（4問目、「きょうだい」/「兄弟姉妹」の
+    表記ゆれ）で発見。いずれも運営者確認のうえ、本文側の表現にJSON-LDを統一
+  - 禁止語彙の残存：methods/gakkou.html FAQ5問目に「選ぶ」が残存。
+    「限定する」に修正（運営者提案）
+  - これにより第一フェーズの全26ページ（トップ・4ハブindex・個別記事19本・
+    articles/index.html・diagnosis.html）が、footer・内部リンク・FAQ整合性の
+    すべてにおいて公開基準を満たした状態になった
+
+2026-08-02（追記4）
+運営者からのアップロードを受け、既存記事のfooter復帰作業を開始（17ページ中、
+  順次対応）。あわせて以下の問題を発見・修正：
+  - glossary/futoukou.html：「次に読みたい記事」・CTAが、個別記事公開前の
+    暫定リンク（worries/index.html#futoukou 等のハブページアンカー）の
+    ままだった。worries/futoukou.html・methods/gakkou.html・
+    institutions/kyouiku-shien-center.htmlへの直接リンクに更新
+  - glossary/futoukou.html：FAQ 1問目でJSON-LDと本文（faq__a）の文言が
+    不一致だった（「心理面や生活環境などの背景により」と
+    「心理的・情緒的・身体的・社会的な要因により」）。運営者確認のうえ、
+    本文側の表現にJSON-LDを統一
+  - 同様の「公開前の暫定リンクが残っていないか」「FAQ本文とJSON-LDの
+    完全一致」は、他の既存記事（2026-07-23公開分）でも同時期に作られた
+    ものであるため、footer復帰作業とあわせて全ページ確認する方針とする
+
 2026-08-02（追記3）
 運営者確認により、index.htmlの「条件から探す」セクションから
   ages/index.html・areas/index.htmlへのリンクが404（GitHub Pages標準の
