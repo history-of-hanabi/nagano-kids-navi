@@ -4,7 +4,7 @@
 
   役割：現時点で実際に公開している（404にならない）ページのみを対象とする。
   現状（2026-08-02時点）：トップ・4ハブ・個別記事19本・articles/index.html・
-        diagnosis.htmlすべて公開済み。第一フェーズの全ページがsitemapに掲載済み。
+        diagnosis.html・privacy.html・about.htmlすべて公開済み。計28ページ。
   更新：ページを新規公開・大幅更新するたびに、このファイルへ<url>を追加・更新する
         運用とする。lastmodは実際に更新した日付に手動で書き換える。
 -->
@@ -190,6 +190,20 @@
     <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://nagano-kids-navi.github.io/nagano-kids-navi/privacy.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://nagano-kids-navi.github.io/nagano-kids-navi/about.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
 
 </urlset>
