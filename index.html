@@ -91,21 +91,18 @@
     </nav>
   </section>
 
-  <!-- グループ4: 学び方を絞り込むための補助的な切り口（学年・地域） -->
+  <!-- グループ4: 学び方を絞り込むための補助的な切り口（学年）
+       地域(areas)は地域紐づけ記事が増えるまで見送り、カードを非表示にしている。
+       areasページ実装時にnav-cardを復帰させ、category-grid--singleを外す。
+       （2026-08-02、運営者判断） -->
   <section class="ia-group">
     <h2 class="ia-group__heading">条件から探す</h2>
-    <nav class="category-grid" aria-label="条件から探す">
+    <nav class="category-grid category-grid--single" aria-label="条件から探す">
 
       <article class="nav-card nav-card--blue">
         <div class="nav-card__icon" aria-hidden="true">📋</div>
         <h3 class="nav-card__title"><a class="nav-card__link" href="ages/index.html">学年・年齢</a></h3>
         <p class="nav-card__desc">小学生・中学生など、お子さまの学年に合わせた情報が見つかります。</p>
-      </article>
-
-      <article class="nav-card nav-card--green">
-        <div class="nav-card__icon" aria-hidden="true">📄</div>
-        <h3 class="nav-card__title"><a class="nav-card__link" href="areas/index.html">地域</a></h3>
-        <p class="nav-card__desc">長野市内のエリアに根ざした教育情報を紹介しています。</p>
       </article>
 
     </nav>
