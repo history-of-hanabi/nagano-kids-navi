@@ -162,6 +162,15 @@ Version番号（v1.1、v1.2等）は、正式文書（01・02・03）のみに�
 Versionを振るほどではない変更を、日付とともに残す運用ログ。GitHubのコミット
 履歴とは別に、人間が「いつ何が変わったか」を後から追うためのもの。
 
+2026-08-02（追記15）
+運営者判断により、5ページ（index.html・worries/index.html・
+  methods/index.html・institutions/index.html・glossary/index.html）から
+  「現在、（テーマ別／用語別の）記事を順次公開中です。一部のページは近日
+  公開予定です。」という告知バー（info-box site-notice）をコメントごと削除。
+  4ハブすべて（worries5／methods4／institutions5／glossary5）が完成して
+  いるため、元のHTMLコメントに記載されていた「将来：全テーマ記事が揃い
+  次第、このブロックごと削除する」という設計意図どおりの対応
+
 2026-08-02（追記14）
 運営者判断により、index.htmlの「条件から探す」セクションから地域(areas)の
   nav-cardを削除。学年・年齢(ages)カードのみとなったため
