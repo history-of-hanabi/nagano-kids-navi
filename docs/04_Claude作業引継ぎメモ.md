@@ -162,6 +162,16 @@ Version番号（v1.1、v1.2等）は、正式文書（01・02・03）のみに�
 Versionを振るほどではない変更を、日付とともに残す運用ログ。GitHubのコミット
 履歴とは別に、人間が「いつ何が変わったか」を後から追うためのもの。
 
+2026-08-02（追記16）
+glossary/hattatsu-shougai.htmlを3点修正：
+  - 告知バー（他4ページと同様、全用語記事完成に伴い削除）
+  - 比較表「個性・特性」セルがスマホ表示で改行し、行の高さが崩れる問題を
+    発見。該当セルにwhite-space: nowrapをインラインで指定し解消（同様の
+    「・」を含む短い用語が他記事の比較表にもある場合、同じ崩れが起きうる
+    ため、今後同種の指摘があれば同じ対処を行う）
+  - FAQ「きょうだい」表記を「兄弟姉妹」に統一（worries/hattatsu-gray.html・
+    worries/katei-gakushu.htmlと同じ表記ルールに合わせた）
+
 2026-08-02（追記15）
 運営者判断により、5ページ（index.html・worries/index.html・
   methods/index.html・institutions/index.html・glossary/index.html）から
