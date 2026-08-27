@@ -4,8 +4,9 @@
 
   役割：現時点で実際に公開している（404にならない）ページのみを対象とする。
   現状（2026-08-02時点）：トップ・4ハブ・個別記事19本・articles/index.html・
-        diagnosis.html・privacy.html・about.html・ages/index.htmlすべて
-        公開済み。計29ページ。
+        diagnosis.html・privacy.html・about.html・ages/index.html・
+        column/index.html・column/shiteikou-henkou.htmlすべて公開済み。
+        計31ページ。
   更新：ページを新規公開・大幅更新するたびに、このファイルへ<url>を追加・更新する
         運用とする。lastmodは実際に更新した日付に手動で書き換える。
 -->
@@ -209,6 +210,20 @@
 
   <url>
     <loc>https://nagano-kids-navi.github.io/nagano-kids-navi/ages/index.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://nagano-kids-navi.github.io/nagano-kids-navi/column/index.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://nagano-kids-navi.github.io/nagano-kids-navi/column/shiteikou-henkou.html</loc>
     <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
