@@ -120,16 +120,23 @@
   </section>
 
   <!-- グループ6: 主要4カテゴリとは別系統の「体験談・コラム」導線。
-       related-link-box（補助的な位置づけ）を用い、nav-card（主要カテゴリ）
-       とは視覚的に区別する。2026-08-02新設。 -->
+       2026-08-02新設時はrelated-link-box（補助的な位置づけ）を用いていたが、
+       他カードとの見た目の不統一が気になるという指摘を受け、nav-card構造に
+       変更（同日改訂）。情報設計上は主要4カテゴリと別系統のまま維持しつつ、
+       デザインシステム（カードの余白・枠・タイトル・説明文の構造）は
+       他カテゴリと共通化する。色分けは廃止方針（本ファイル冒頭コメント
+       参照）のため、nav-card--orangeは意味を持たせず記述している。 -->
   <section class="ia-group">
     <h2 class="ia-group__heading">実際の体験から考える</h2>
-    <div class="related-link-box">
-      <span class="card-label">体験談・コラム</span>
-      <ul class="about__list">
-        <li><a href="column/index.html">体験談・コラムを見る</a></li>
-      </ul>
-    </div>
+    <nav class="category-grid category-grid--single" aria-label="実際の体験から考える">
+
+      <article class="nav-card nav-card--orange">
+        <div class="nav-card__icon" aria-hidden="true">談</div>
+        <h3 class="nav-card__title"><a class="nav-card__link" href="column/index.html">体験談・コラム</a></h3>
+        <p class="nav-card__desc">実際の家庭での経験をもとに、子どもの学びや教育について考えるヒントを紹介しています。</p>
+      </article>
+
+    </nav>
   </section>
 
   <!--
